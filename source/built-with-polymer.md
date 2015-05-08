@@ -1,6 +1,6 @@
 # Built with Polymer
 
-Fireball uses [Polymer](polymer-project.org) to build the whole editor front end. This doc is for crediting Polymer for it's the only UI solution that suits a complex game editor toolset. Also we'd like to introduce our thoughts on how to utilize Polymer so developer with a similar need can use these informations.
+Fireball uses [Polymer](polymer-project.org) to build the whole editor front end. This doc is for crediting Polymer as the perfect UI system solution for building a complex game editor toolset. Also we'd like to share our thoughts on how to utilize Polymer for developers with a similar need.
 
 ## Why Polymer
 
