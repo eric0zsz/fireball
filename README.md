@@ -1,4 +1,4 @@
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fireball-x/fireball?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+<img src="https://fireball-slack.herokuapp.com/badge.svg">
 
 Fireball is a hackable game editor for creating mobile and HTML5 games, built with extremely extendable structure.
 
@@ -31,6 +31,8 @@ Visit http://docs.fireball-x.com to learn how to use Fireball Game Engine.
 
 ## Feedback & Contribution
 
+- Join our [community on slack](https://fireball-slack.herokuapp.com)
 - If you have questions about a specific page of documentation, use the disqus sidebar on the left of [Fireball Documentation Site](http://docs.fireball-x.com).
 - If you have any suggestion/feedback/problem, feel free to [submit an issue](https://github.com/fireball-x/fireball/issues).
 - If you want to contribute to this project, please read [Contributing Guidelines](https://github.com/fireball-x/fireball/blob/master/CONTRIBUTING.md).
+
