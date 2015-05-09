@@ -46,7 +46,6 @@ Repos start with "\*" is currently private. After Fireball beta release, we will
 
 ```plain
 Fireball
-  |--main (The main program and static resources)
   |--engine-framework (an Entity-Component interface for connecting Fireball Editor and other game engines)
   |--editor-framework (The backbone of Fireball editor, a framework for easy dockable editor making)
   |--asset-database (Assets and data management system, integrated with VCS and custom data interpreter)
