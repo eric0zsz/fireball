@@ -6,7 +6,7 @@ Fireball is a hackable game editor for creating mobile and HTML5 games, built wi
 
 The core of Fireball is an editor UI engine and an asset engine with tree view, scene view and property inspector. Beyond that are all plugins. We designed Fireball to be deeply customizable. Developers can create their own editor and plugins very easily. The editor features are deeply inspired by [Unity](http://unity3d.com/) which we believe has the most advanced game developing editor at the moment.
 
-Fireball is a cross-platform software powered by [Electron](https://github.com/fireball-x/electron) and [Polymer](http://www.polymer-project.org/). Currently we test our distribution on Mac and Windows 7/8.1. Issues on other platform are welcome!
+Fireball is a cross-platform software powered by [Electron](https://github.com/fireball-x/electron) and [Polymer](http://www.polymer-project.org/). Currently we test our distribution on Mac and Windows 7/8.1. Issues on other platform are welcome! Check out Fireball at [MadeWithPolymer](https://madewithpolymer.com/fireball/), there are many more cool projects.
 
 Visit [Fireball-x.com](http://www.fireball-x.com/en) to learn more or visit the Fireball forum.
 
