@@ -26,7 +26,7 @@ After beta, we will refactor these two repos and make them into one, called engi
 Fireball
   |--*main (The main program and static resources)
   |--core (The basic classes used in fireball engine and editors)
-  |--engine (Fireball game engine based on Pixi.js)
+  |--engine (Fireball game engine based on html5)
   |--*editor (Fireball editor, built with Polymer and Electron)
   |--*builtin (Fireball builtin plugins)
   |     |--scene view
