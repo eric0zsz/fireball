@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,10 +20,10 @@ The audio clip is an audio source data.
 
 ##### Properties
 
-  - `channels`
-  - `frequency`
-  - `length`
-  - `samples`
+  - [`channels`](#property-channels)
+  - [`frequency`](#property-frequency)
+  - [`length`](#property-length)
+  - [`samples`](#property-samples)
 
 
 
@@ -34,29 +34,29 @@ The audio clip is an audio source data.
 
 ##### Properties
 
-- `_uuid`
-- `dirty`
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_uuid`](#property-_uuid)
+- [`dirty`](#property-dirty)
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `_setRawExtname
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [`_setRawExtname(extname)`](#method-_setrawextname)
+- [``](#method-destroy)
+- [``](#method-_destruct)
+- [``](#method-_onpredestroy)
+- [``](#method-_serialize)
+- [``](#method-_deserialize)
+- [``](#method-isvalid)
 
 ##### Events
 
@@ -76,8 +76,8 @@ Channels in audio clip (Read Only).
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/audio-clip.js:53` |
+| Type | number |
+| Defined | [utils/api/core/audio-clip.js:53](../files/utils_api_core_audio-clip.js.md#l53) |
 
 
 
@@ -88,8 +88,8 @@ Sample frequency (Read Only).
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/audio-clip.js:64` |
+| Type | number |
+| Defined | [utils/api/core/audio-clip.js:64](../files/utils_api_core_audio-clip.js.md#l64) |
 
 
 
@@ -100,8 +100,8 @@ The length of the audio clip in seconds (Read Only).
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/audio-clip.js:31` |
+| Type | number |
+| Defined | [utils/api/core/audio-clip.js:31](../files/utils_api_core_audio-clip.js.md#l31) |
 
 
 
@@ -112,8 +112,8 @@ The length of the audio clip in samples (Read Only).
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/audio-clip.js:42` |
+| Type | number |
+| Defined | [utils/api/core/audio-clip.js:42](../files/utils_api_core_audio-clip.js.md#l42) |
 
 
 

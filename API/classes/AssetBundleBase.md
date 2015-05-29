@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -21,11 +21,11 @@ AssetBundleBase 为 Resources 提供了上层接口，用于加载资源包里�
 
 ##### Methods
 
-  - `AssetBundleBase` **constructor**
-  - `_add`
-  - `contains`
-  - `getAllPaths`
-  - `load`
+  - [`AssetBundleBase()` **constructor**](#method-assetbundlebase)
+  - [`_add(path, uuid)`](#method-_addpath-uuid)
+  - [`contains(path)`](#method-containspath)
+  - [`getAllPaths()`](#method-getallpaths)
+  - [`load(path, [callback], [quiet=false])`](#method-loadpath-callback-quietfalse)
 
 
 
@@ -47,24 +47,24 @@ AssetBundleBase 为 Resources 提供了上层接口，用于加载资源包里�
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:14` |
+| Defined | [utils/api/engine/resources.js:14](../files/utils_api_engine_resources.js.md#l14) |
 
 
 
-##### method: `_add()`
+##### method: `_add(path, uuid)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:146` |
+| Defined | [utils/api/engine/resources.js:146](../files/utils_api_engine_resources.js.md#l146) |
 
 ###### Parameters
 - path <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> the path to load, should NOT include filename extensions.
 - uuid <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
 
 
-##### method: `contains()`
+##### method: `contains(path)`
 
 Check if the bundle contains a specific object.
 
@@ -73,7 +73,7 @@ All asset paths in Fireball use forward slashes, paths using backslashes will no
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:33` |
+| Defined | [utils/api/engine/resources.js:33](../files/utils_api_engine_resources.js.md#l33) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -86,12 +86,12 @@ Return all asset paths in the bundle.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:47` |
+| Defined | [utils/api/engine/resources.js:47](../files/utils_api_engine_resources.js.md#l47) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String[]</a> 
 
 
 
-##### method: `load()`
+##### method: `load(path, [callback], [quiet=false])`
 
 Loads asset with path from the bundle asynchronously.
 
@@ -104,7 +104,7 @@ All asset paths in Fireball use forward slashes, paths using backslashes will no
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:89` |
+| Defined | [utils/api/engine/resources.js:89](../files/utils_api_engine_resources.js.md#l89) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -112,7 +112,7 @@ All asset paths in Fireball use forward slashes, paths using backslashes will no
 - callback <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
 	- param <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> error - null or the error info
 	- param <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> data - the loaded object or null
-- silence <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> If true, the callback will not invoked even if asset is not found.
+- quiet <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> If true, the callback will not invoked even if asset is not found.
 
 
 

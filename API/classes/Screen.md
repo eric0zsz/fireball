@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,11 +19,11 @@ Screen class can be used to access display information.
 
 ##### Properties
 
-  - `_frameSize`
-  - `devicePixelRatio`
-  - `height`
-  - `size`
-  - `width`
+  - [`_frameSize`](#property-_framesize)
+  - [`devicePixelRatio`](#property-devicepixelratio)
+  - [`height`](#property-height)
+  - [`size`](#property-size)
+  - [`width`](#property-width)
 
 
 
@@ -45,7 +45,7 @@ Size of parent node that contains container and _canvas
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/screen.js:74` |
+| Defined | [utils/api/engine/screen.js:74](../files/utils_api_engine_screen.js.md#l74) |
 
 
 
@@ -56,8 +56,8 @@ The current device's pixel ratio (for retina displays)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/screen.js:10` |
+| Type | number |
+| Defined | [utils/api/engine/screen.js:10](../files/utils_api_engine_screen.js.md#l10) |
 | Default    | 1 |
 
 
@@ -69,8 +69,8 @@ The current height of the screen window in pixels
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/screen.js:60` |
+| Type | number |
+| Defined | [utils/api/engine/screen.js:60](../files/utils_api_engine_screen.js.md#l60) |
 
 
 
@@ -82,7 +82,7 @@ The current size of the screen window in pixels
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/screen.js:20` |
+| Defined | [utils/api/engine/screen.js:20](../files/utils_api_engine_screen.js.md#l20) |
 
 
 
@@ -93,8 +93,8 @@ The current width of the screen window in pixels
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/screen.js:46` |
+| Type | number |
+| Defined | [utils/api/engine/screen.js:46](../files/utils_api_engine_screen.js.md#l46) |
 
 
 

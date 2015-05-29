@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -36,20 +36,22 @@ Event targets can implement the following methods:
 
 ##### Properties
 
-  - `_bubblingListeners`
-  - `_capturingListeners`
+  - [`_bubblingListeners`](#property-_bubblinglisteners)
+  - [`_capturingListeners`](#property-_capturinglisteners)
 
 
 
 ##### Methods
 
-  - `EventTarget` **constructor**
-  - `_doSendEvent`
-  - `dispatchEvent`
-  - `emit`
-  - `off`
-  - `on`
-  - `once`
+  - [`EventTarget()` **constructor**](#method-eventtarget)
+  - [`_doSendEvent(event)`](#method-_dosendeventevent)
+  - [`_getBubblingTargets(type, array)`](#method-_getbubblingtargetstype-array)
+  - [`_getCapturingTargets(type, array)`](#method-_getcapturingtargetstype-array)
+  - [`dispatchEvent(event)`](#method-dispatcheventevent)
+  - [`emit(message, [detail])`](#method-emitmessage-detail)
+  - [`off(type, callback, [useCapture=false])`](#method-offtype-callback-usecapturefalse)
+  - [`on(type, callback, [useCapture=false])`](#method-ontype-callback-usecapturefalse)
+  - [`once(type, callback, [useCapture=false])`](#method-oncetype-callback-usecapturefalse)
 
 
 
@@ -58,26 +60,26 @@ Event targets can implement the following methods:
 
 ##### Properties
 
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [`destroy()`](#method-destroy)
+- [`_destruct()`](#method-_destruct)
+- [`_onPreDestroy()`](#method-_onpredestroy)
+- [`_serialize(exporting)`](#method-_serialize)
+- [`_deserialize(data, ctx, target)`](#method-_deserialize)
+- [`isValid(value)`](#method-isvalid)
 
 ##### Events
 
@@ -98,7 +100,7 @@ Event targets can implement the following methods:
 | meta | description |
 |------|-------------|
 | Type | EventListeners |
-| Defined | `utils/api/engine/event-target.js:40` |
+| Defined | [utils/api/engine/event-target.js:40](../files/utils_api_engine_event-target.js.md#l40) |
 | Default    | null |
 
 
@@ -111,7 +113,7 @@ Event targets can implement the following methods:
 | meta | description |
 |------|-------------|
 | Type | EventListeners |
-| Defined | `utils/api/engine/event-target.js:32` |
+| Defined | [utils/api/engine/event-target.js:32](../files/utils_api_engine_event-target.js.md#l32) |
 | Default    | null |
 
 
@@ -130,57 +132,101 @@ Event targets can implement the following methods:
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:6` |
+| Defined | [utils/api/engine/event-target.js:6](../files/utils_api_engine_event-target.js.md#l6) |
 
 
 
-##### method: `_doSendEvent()`
+##### method: `_doSendEvent(event)`
 
 Send an event to this object directly, this method will not propagate the event to any other objects.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:205` |
+| Defined | [utils/api/engine/event-target.js:205](../files/utils_api_engine_event-target.js.md#l205) |
 
 ###### Parameters
 - event <a href="../classes/Event.html" class="crosslink">Event</a> The Event object that is sent to this event target.
 
 
-##### method: `dispatchEvent()`
+##### method: `_getBubblingTargets(type, array)`
+
+Get all the targets listening to the supplied type of event in the target's bubbling phase.
+The bubbling phase comprises any SUBSEQUENT nodes encountered on the return trip to the root of the tree.
+The result should save in the array parameter, and MUST SORT from child nodes to parent nodes.
+
+Subclasses can override this method to make event propagable.
+
+| meta | description |
+|------|-------------|
+| Defined | [utils/api/engine/event-target.js:284](../files/utils_api_engine_event-target.js.md#l284) |
+
+###### Parameters
+- type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> the event type
+- array <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a> the array to receive targets
+
+
+##### method: `_getCapturingTargets(type, array)`
+
+Get all the targets listening to the supplied type of event in the target's capturing phase.
+The capturing phase comprises the journey from the root to the last node BEFORE the event target's node.
+The result should save in the array parameter, and MUST SORT from child nodes to parent nodes.
+
+Subclasses can override this method to make event propagable.
+
+| meta | description |
+|------|-------------|
+| Defined | [utils/api/engine/event-target.js:261](../files/utils_api_engine_event-target.js.md#l261) |
+
+###### Parameters
+- type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> the event type
+- array <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a> the array to receive targets
+
+**Examples**
+
+Subclasses can override this method to make event propagable
+```js
+for (var target = this._parent; target; target = target._parent) {
+    if (target._capturingListeners && target._capturingListeners.has(type)) {
+        array.push(target);
+    }
+}
+```
+
+##### method: `dispatchEvent(event)`
 
 Dispatches an event into the event flow. The event target is the EventTarget object upon which the dispatchEvent() method is called.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:189` |
+| Defined | [utils/api/engine/event-target.js:189](../files/utils_api_engine_event-target.js.md#l189) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
 - event <a href="../classes/Event.html" class="crosslink">Event</a> The Event object that is dispatched into the event flow
 
 
-##### method: `emit()`
+##### method: `emit(message, [detail])`
 
 Send an event to this object directly, this method will not propagate the event to any other objects.
 The event will be created from the supplied message, you can get the "detail" argument from event.detail.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:227` |
+| Defined | [utils/api/engine/event-target.js:227](../files/utils_api_engine_event-target.js.md#l227) |
 
 ###### Parameters
 - message <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> the message to send
 - detail Any whatever argument the message needs
 
 
-##### method: `off()`
+##### method: `off(type, callback, [useCapture=false])`
 
 Removes the callback previously registered with the same type, callback, and capture.
 This method is merely an alias to removeEventListener.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:82` |
+| Defined | [utils/api/engine/event-target.js:82](../files/utils_api_engine_event-target.js.md#l82) |
 
 ###### Parameters
 - type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> A string representing the event type being removed.
@@ -191,14 +237,14 @@ This method is merely an alias to removeEventListener.
                              does not affect a non-capturing version of the same listener, and vice versa.
 
 
-##### method: `on()`
+##### method: `on(type, callback, [useCapture=false])`
 
 Register an callback of a specific event type on the EventTarget.
 This method is merely an alias to addEventListener.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:50` |
+| Defined | [utils/api/engine/event-target.js:50](../files/utils_api_engine_event-target.js.md#l50) |
 
 ###### Parameters
 - type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> A string representing the event type to listen for.
@@ -211,13 +257,13 @@ This method is merely an alias to addEventListener.
                              Either way, callback will be invoked when event's eventPhase attribute value is AT_TARGET.
 
 
-##### method: `once()`
+##### method: `once(type, callback, [useCapture=false])`
 
 Register an callback of a specific event type on the EventTarget, the callback will remove itself after the first time it is triggered.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event-target.js:105` |
+| Defined | [utils/api/engine/event-target.js:105](../files/utils_api_engine_event-target.js.md#l105) |
 
 ###### Parameters
 - type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> A string representing the event type to listen for.

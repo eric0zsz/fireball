@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -7,34 +7,38 @@ Fireball is the game engine for the future.
 
 Extends `Renderer`
 
-Defined in: [utils/api/engine/skeleton-renderer.js:11](../files/utils/api/engine/skeleton-renderer.js.js)
+Defined in: [utils/api/engine/skeleton-renderer.js:13](../files/utils/api/engine/skeleton-renderer.js.js)
 
 Module: [Fire.Spine](../modules/Fire.Spine.md)
 
 
 
 
- 
+The base class of Skeleton.
 
 ### Index
 
 ##### Properties
 
-  - `skeletonData`
-  - `timeScale`
+  - [`debugBones`](#property-debugbones)
+  - [`debugSlots`](#property-debugslots)
+  - [`initialSkinIndex`](#property-initialskinindex)
+  - [`initialSkinName`](#property-initialskinname)
+  - [`skeletonData`](#property-skeletondata)
 
 
 
 ##### Methods
 
-  - `SkeletonRenderer` **constructor**
-  - `findBone`
-  - `findSlot`
-  - `getAttachment`
-  - `setAttachment`
-  - `setBonesToSetupPose`
-  - `setSkin`
-  - `setSlotsToSetupPose`
+  - [`SkeletonRenderer()` **constructor**](#method-skeletonrenderer)
+  - [`findBone(boneName)`](#method-findbonebonename)
+  - [`findSlot(slotName)`](#method-findslotslotname)
+  - [`getAttachment(slotName, attachmentName)`](#method-getattachmentslotname-attachmentname)
+  - [`setAttachment(slotName, attachmentName)`](#method-setattachmentslotname-attachmentname)
+  - [`setBonesToSetupPose()`](#method-setbonestosetuppose)
+  - [`setSkin(skinName)`](#method-setskinskinname)
+  - [`setSlotsToSetupPose()`](#method-setslotstosetuppose)
+  - [`setToSetupPose()`](#method-settosetuppose)
 
 
 
@@ -43,31 +47,31 @@ Module: [Fire.Spine](../modules/Fire.Spine.md)
 
 ##### Properties
 
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `getWorldBounds
-- `getWorldOrientedBounds
-- `getSelfMatrix
-- `getWorldSize
-- `onPreRender
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [`getWorldBounds([out])`](#method-getworldbounds)
+- [`getWorldOrientedBounds([out_bl], [out_tl], [out_tr], [out_br])`](#method-getworldorientedbounds)
+- [`getSelfMatrix(out)`](#method-getselfmatrix)
+- [`getWorldSize()`](#method-getworldsize)
+- [`onPreRender()`](#method-onprerender)
+- [`destroy()`](#method-destroy)
+- [`_destruct()`](#method-_destruct)
+- [`_onPreDestroy()`](#method-_onpredestroy)
+- [`_serialize(exporting)`](#method-_serialize)
+- [`_deserialize(data, ctx, target)`](#method-_deserialize)
+- [`isValid(value)`](#method-isvalid)
 
 ##### Events
 
@@ -84,6 +88,56 @@ Module: [Fire.Spine](../modules/Fire.Spine.md)
 
 
 
+##### property: `debugBones`
+
+Indicates whether open debug bones.
+
+| meta | description |
+|------|-------------|
+| Type | boolean |
+| Defined | [utils/api/engine/skeleton-renderer.js:135](../files/utils_api_engine_skeleton-renderer.js.md#l135) |
+| Default    | false |
+
+
+
+
+##### property: `debugSlots`
+
+Indicates whether open debug slots.
+
+| meta | description |
+|------|-------------|
+| Type | boolean |
+| Defined | [utils/api/engine/skeleton-renderer.js:114](../files/utils_api_engine_skeleton-renderer.js.md#l114) |
+| Default    | false |
+
+
+
+
+##### property: `initialSkinIndex`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/engine/skeleton-renderer.js:62](../files/utils_api_engine_skeleton-renderer.js.md#l62) |
+
+
+
+
+##### property: `initialSkinName`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | string |
+| Defined | [utils/api/engine/skeleton-renderer.js:48](../files/utils_api_engine_skeleton-renderer.js.md#l48) |
+
+
+
+
 ##### property: `skeletonData`
 
 
@@ -91,20 +145,7 @@ Module: [Fire.Spine](../modules/Fire.Spine.md)
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/SkeletonDataAsset.html" class="crosslink">SkeletonDataAsset</a> |
-| Defined | `utils/api/engine/skeleton-renderer.js:27` |
-
-
-
-
-##### property: `timeScale`
-
-The time scale of this skeleton.
-
-| meta | description |
-|------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/skeleton-renderer.js:86` |
-| Default    | 1 |
+| Defined | [utils/api/engine/skeleton-renderer.js:26](../files/utils_api_engine_skeleton-renderer.js.md#l26) |
 
 
 
@@ -122,44 +163,44 @@ The time scale of this skeleton.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:11` |
+| Defined | [utils/api/engine/skeleton-renderer.js:13](../files/utils_api_engine_skeleton-renderer.js.md#l13) |
 
 
 
-##### method: `findBone()`
+##### method: `findBone(boneName)`
 
 Finds a bone by name. This does a string comparison for every bone.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:147` |
+| Defined | [utils/api/engine/skeleton-renderer.js:204](../files/utils_api_engine_skeleton-renderer.js.md#l204) |
 | Return 		 | spine.Bone 
 
 ###### Parameters
 - boneName <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
 
 
-##### method: `findSlot()`
+##### method: `findSlot(slotName)`
 
 Finds a slot by name. This does a string comparison for every slot.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:158` |
+| Defined | [utils/api/engine/skeleton-renderer.js:215](../files/utils_api_engine_skeleton-renderer.js.md#l215) |
 | Return 		 | spine.Slot 
 
 ###### Parameters
 - slotName <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
 
 
-##### method: `getAttachment()`
+##### method: `getAttachment(slotName, attachmentName)`
 
 Returns the attachment for the slot and attachment name. The skeleton looks first in its skin, then in the
 skeleton data’s default skin.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:181` |
+| Defined | [utils/api/engine/skeleton-renderer.js:238](../files/utils_api_engine_skeleton-renderer.js.md#l238) |
 | Return 		 | spine.RegionAttachment | spine.BoundingBoxAttachment 
 
 ###### Parameters
@@ -167,14 +208,14 @@ skeleton data’s default skin.
 - attachmentName <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
 
 
-##### method: `setAttachment()`
+##### method: `setAttachment(slotName, attachmentName)`
 
 Sets the attachment for the slot and attachment name. The skeleton looks first in its skin, then in the
 skeleton data’s default skin.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:194` |
+| Defined | [utils/api/engine/skeleton-renderer.js:251](../files/utils_api_engine_skeleton-renderer.js.md#l251) |
 
 ###### Parameters
 - slotName <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
@@ -187,18 +228,18 @@ Sets the bones to the setup pose, using the values from the `BoneData` list in t
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:129` |
+| Defined | [utils/api/engine/skeleton-renderer.js:186](../files/utils_api_engine_skeleton-renderer.js.md#l186) |
 
 
 
-##### method: `setSkin()`
+##### method: `setSkin(skinName)`
 
 Finds a skin by name and makes it the active skin. This does a string comparison for every skin. Note that
 setting the skin does not change which attachments are visible.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:169` |
+| Defined | [utils/api/engine/skeleton-renderer.js:226](../files/utils_api_engine_skeleton-renderer.js.md#l226) |
 | Return 		 | spine.Skin 
 
 ###### Parameters
@@ -211,7 +252,17 @@ Sets the slots to the setup pose, using the values from the `SlotData` list in t
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-renderer.js:138` |
+| Defined | [utils/api/engine/skeleton-renderer.js:195](../files/utils_api_engine_skeleton-renderer.js.md#l195) |
+
+
+
+##### method: `setToSetupPose()`
+
+Sets the bones and slots to the setup pose.
+
+| meta | description |
+|------|-------------|
+| Defined | [utils/api/engine/skeleton-renderer.js:177](../files/utils_api_engine_skeleton-renderer.js.md#l177) |
 
 
 

@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -13,27 +13,25 @@ Module: [Fire](../modules/Fire.md)
 
 
 
-
- The interface to get time information from Fireball.
+The interface to get time information from Fireball.
 
 See [Time](/en/scripting/time/)
-
 
 ### Index
 
 ##### Properties
 
-  - `deltaTime`
-  - `frameCount`
-  - `maxDeltaTime`
-  - `realTime`
-  - `time`
+  - [`deltaTime`](#property-deltatime)
+  - [`frameCount`](#property-framecount)
+  - [`maxDeltaTime`](#property-maxdeltatime)
+  - [`realTime`](#property-realtime)
+  - [`time`](#property-time)
 
 
 
 ##### Methods
 
-  - `Fire.Time._update`
+  - [`Fire.Time._update(timestamp, [paused=false], [maxDeltaTime=Time.maxDeltaTime])`](#method-fire.time._updatetimestamp-pausedfalse-maxdeltatimetime.maxdeltatime)
 
 
 
@@ -52,8 +50,8 @@ The time in seconds it took to complete the last frame. Use this property to mak
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/time.js:36` |
+| Type | number |
+| Defined | [utils/api/engine/time.js:36](../files/utils_api_engine_time.js.md#l36) |
 
 
 
@@ -64,8 +62,8 @@ The total number of frames that have passed.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/time.js:44` |
+| Type | number |
+| Defined | [utils/api/engine/time.js:44](../files/utils_api_engine_time.js.md#l44) |
 
 
 
@@ -76,8 +74,8 @@ The maximum time a frame can take.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/time.js:52` |
+| Type | number |
+| Defined | [utils/api/engine/time.js:52](../files/utils_api_engine_time.js.md#l52) |
 
 
 
@@ -90,8 +88,8 @@ The time at the beginning of this frame. This is the real time in seconds since 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/time.js:26` |
+| Type | number |
+| Defined | [utils/api/engine/time.js:26](../files/utils_api_engine_time.js.md#l26) |
 
 
 
@@ -102,8 +100,8 @@ The time at the beginning of this frame. This is the time in seconds since the s
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/time.js:18` |
+| Type | number |
+| Defined | [utils/api/engine/time.js:18](../files/utils_api_engine_time.js.md#l18) |
 
 
 
@@ -114,13 +112,13 @@ The time at the beginning of this frame. This is the time in seconds since the s
 #### Methods
 
 
-##### method: `Fire.Time._update()`
+##### method: `Fire.Time._update(timestamp, [paused=false], [maxDeltaTime=Time.maxDeltaTime])`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/time.js:63` |
+| Defined | [utils/api/engine/time.js:63](../files/utils_api_engine_time.js.md#l63) |
 
 ###### Parameters
 - timestamp <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>  

@@ -1,12 +1,12 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
 ### `Texture.WrapMode` Class
 
 
-Defined in: [utils/api/core/texture.js:24](../files/utils/api/core/texture.js.js)
+Defined in: [utils/api/core/texture.js:6](../files/utils/api/core/texture.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
@@ -19,8 +19,8 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `Clamp`
-  - `Repeat`
+  - [`Clamp`](#property-clamp)
+  - [`Repeat`](#property-repeat)
 
 
 
@@ -41,8 +41,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/texture.js:35` |
+| Type | number |
+| Defined | [utils/api/core/texture.js:17](../files/utils_api_core_texture.js.md#l17) |
 
 
 
@@ -53,8 +53,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/texture.js:30` |
+| Type | number |
+| Defined | [utils/api/core/texture.js:12](../files/utils_api_core_texture.js.md#l12) |
 
 
 

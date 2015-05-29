@@ -1,19 +1,29 @@
-# Fireball API 0.3.0
 
-The API documents are generated with [firedoc](https://github.com/fireball-x/firedoc) and is under construction.
+# Fireball API 0.4.0
+
+Fireball is the game engine for the future.
+
 
 ### Enums
+- [`Fire.KeyCode`](enums/Fire.KeyCode.md) from [Fire](modules/Fire.md)
 - [`FontType`](enums/FontType.md) from [Fire](modules/Fire.md)
+- [`ImageType`](enums/ImageType.md) from [Fire](modules/Fire.md)
+- [`SpriteAnimationClip.StopAction`](enums/SpriteAnimationClip.StopAction.md) from [Fire](modules/Fire.md)
+- [`SpriteAnimationClip.WrapMode`](enums/SpriteAnimationClip.WrapMode.md) from [Fire](modules/Fire.md)
 - [`TextAlign`](enums/TextAlign.md) from [Fire](modules/Fire.md)
 - [`TextAnchor`](enums/TextAnchor.md) from [Fire](modules/Fire.md)
+- [`WrapMode`](enums/WrapMode.md) from [Fire](modules/Fire.md)
 
 ### Classes
 - [`_CallbacksHandler`](classes/_CallbacksHandler.md) from [Fire](modules/Fire.md)
 - [`_DeserializeInfo`](classes/_DeserializeInfo.md) from [Fire](modules/Fire.md)
 - [`_ObjectFlags`](classes/_ObjectFlags.md) from [Fire](modules/Fire.md)
 - [`_Runtime.RenderContext`](classes/_Runtime.RenderContext.md) from [Fire](modules/Fire.md)
+- [`Animation`](classes/Animation.md) from [Fire](modules/Fire.md)
 - [`AnimationNode`](classes/AnimationNode.md) from [Fire](modules/Fire.md)
-- [`AnimCurve`](classes/AnimCurve.md) from [Fire](modules/Fire.md)
+- [`AnimationNodeBase`](classes/AnimationNodeBase.md) from [Fire](modules/Fire.md)
+- [`AnimationState`](classes/AnimationState.md) from [Fire](modules/Fire.md)
+- [`Array`](classes/Array.md) from [Fire](modules/Fire.md)
 - [`Asset`](classes/Asset.md) from [Fire](modules/Fire.md)
 - [`AssetBundleBase`](classes/AssetBundleBase.md) from [Fire](modules/Fire.md)
 - [`AssetLibrary`](classes/AssetLibrary.md) from [Fire](modules/Fire.md)
@@ -27,7 +37,7 @@ The API documents are generated with [firedoc](https://github.com/fireball-x/fir
 - [`Color`](classes/Color.md) from [Fire](modules/Fire.md)
 - [`Component`](classes/Component.md) from [Fire](modules/Fire.md)
 - [`ContentStrategyType`](classes/ContentStrategyType.md) from [Fire](modules/Fire.md)
-- [`DynamicAnimCurve`](classes/DynamicAnimCurve.md) from [Fire](modules/Fire.md)
+- [`EmitterMode`](classes/EmitterMode.md) from [Fire](modules/Fire.md)
 - [`Engine`](classes/Engine.md) from [Fire](modules/Fire.md)
 - [`Entity`](classes/Entity.md) from [Fire](modules/Fire.md)
 - [`EqualToFrame`](classes/EqualToFrame.md) from [Fire](modules/Fire.md)
@@ -46,9 +56,10 @@ The API documents are generated with [firedoc](https://github.com/fireball-x/fir
 - [`ModifierKeyStates`](classes/ModifierKeyStates.md) from [Fire](modules/Fire.md)
 - [`MouseEvent`](classes/MouseEvent.md) from [Fire](modules/Fire.md)
 - [`NoScale`](classes/NoScale.md) from [Fire](modules/Fire.md)
+- [`ParticleSystem`](classes/ParticleSystem.md) from [Fire](modules/Fire.md)
 - [`Path`](classes/Path.md) from [Fire](modules/Fire.md)
 - [`Playable`](classes/Playable.md) from [Fire](modules/Fire.md)
-- [`PlaybackDirection`](classes/PlaybackDirection.md) from [Fire](modules/Fire.md)
+- [`PositionType`](classes/PositionType.md) from [Fire](modules/Fire.md)
 - [`Rect`](classes/Rect.md) from [Fire](modules/Fire.md)
 - [`Renderer`](classes/Renderer.md) from [Fire](modules/Fire.md)
 - [`Resources`](classes/Resources.md) from [Fire](modules/Fire.md)
@@ -62,15 +73,15 @@ The API documents are generated with [firedoc](https://github.com/fireball-x/fir
 - [`Sprite`](classes/Sprite.md) from [Fire](modules/Fire.md)
 - [`SpriteAnimation`](classes/SpriteAnimation.md) from [Fire](modules/Fire.md)
 - [`SpriteAnimationClip`](classes/SpriteAnimationClip.md) from [Fire](modules/Fire.md)
-- [`SpriteAnimationClip.StopAction`](classes/SpriteAnimationClip.StopAction.md) from [Fire](modules/Fire.md)
-- [`SpriteAnimationClip.WrapMode`](classes/SpriteAnimationClip.WrapMode.md) from [Fire](modules/Fire.md)
 - [`SpriteAnimationState`](classes/SpriteAnimationState.md) from [Fire](modules/Fire.md)
 - [`SpriteRenderer`](classes/SpriteRenderer.md) from [Fire](modules/Fire.md)
-- [`Texture`](classes/Texture.md) from [Fire](modules/Fire.md)
+- [`Text`](classes/Text.md) from [Fire](modules/Fire.md)
 - [`Texture.FilterMode`](classes/Texture.FilterMode.md) from [Fire](modules/Fire.md)
+- [`Texture.Texture`](classes/Texture.Texture.md) from [Fire](modules/Fire.md)
 - [`Texture.WrapMode`](classes/Texture.WrapMode.md) from [Fire](modules/Fire.md)
 - [`Time`](classes/Time.md) from [Fire](modules/Fire.md)
 - [`Transform`](classes/Transform.md) from [Fire](modules/Fire.md)
+- [`ValueType`](classes/ValueType.md) from [Fire](modules/Fire.md)
 - [`Vec2`](classes/Vec2.md) from [Fire](modules/Fire.md)
 
 ### Module

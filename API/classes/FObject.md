@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,22 +19,22 @@ The base class of most of all the objects in Fireball.
 
 ##### Properties
 
-  - `_name`
-  - `_objFlags`
-  - `isValid`
-  - `name`
+  - [`_name`](#property-_name)
+  - [`_objFlags`](#property-_objflags)
+  - [`isValid`](#property-isvalid)
+  - [`name`](#property-name)
 
 
 
 ##### Methods
 
-  - `FObject` **constructor**
-  - `_deserialize`
-  - `_destruct`
-  - `_onPreDestroy`
-  - `_serialize`
-  - `destroy`
-  - `isValid`
+  - [`FObject()` **constructor**](#method-fobject)
+  - [`_deserialize(data, ctx, target)`](#method-_deserializedata-ctx-target)
+  - [`_destruct()`](#method-_destruct)
+  - [`_onPreDestroy()`](#method-_onpredestroy)
+  - [`_serialize(exporting)`](#method-_serializeexporting)
+  - [`destroy()`](#method-destroy)
+  - [`isValid(value)`](#method-isvalidvalue)
 
 
 
@@ -53,8 +53,8 @@ The base class of most of all the objects in Fireball.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/core/object.js:15` |
+| Type | string |
+| Defined | [utils/api/core/object.js:15](../files/utils_api_core_object.js.md#l15) |
 | Default    | &quot;&quot; |
 
 
@@ -66,8 +66,8 @@ The base class of most of all the objects in Fireball.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/object.js:23` |
+| Type | number |
+| Defined | [utils/api/core/object.js:23](../files/utils_api_core_object.js.md#l23) |
 | Default    | 0 |
 
 
@@ -79,8 +79,8 @@ Indicates whether the object is not yet destroyed
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/core/object.js:94` |
+| Type | boolean |
+| Defined | [utils/api/core/object.js:94](../files/utils_api_core_object.js.md#l94) |
 | Default    | true |
 
 
@@ -92,8 +92,8 @@ The name of the object.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/core/object.js:79` |
+| Type | string |
+| Defined | [utils/api/core/object.js:79](../files/utils_api_core_object.js.md#l79) |
 | Default    | &quot;&quot; |
 
 
@@ -112,17 +112,17 @@ The name of the object.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:4` |
+| Defined | [utils/api/core/object.js:4](../files/utils_api_core_object.js.md#l4) |
 
 
 
-##### method: `_deserialize()`
+##### method: `_deserialize(data, ctx, target)`
 
 Init this object from the custom serialized data.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:203` |
+| Defined | [utils/api/core/object.js:203](../files/utils_api_core_object.js.md#l203) |
 
 ###### Parameters
 - data <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> the serialized json data
@@ -139,7 +139,7 @@ NOTE: this method will not clear the getter or setter functions which defined in
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:139` |
+| Defined | [utils/api/core/object.js:139](../files/utils_api_core_object.js.md#l139) |
 
 
 
@@ -149,17 +149,17 @@ Called before the object being destroyed.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:170` |
+| Defined | [utils/api/core/object.js:170](../files/utils_api_core_object.js.md#l170) |
 
 
 
-##### method: `_serialize()`
+##### method: `_serialize(exporting)`
 
 The customized serialization for this object. (Editor Only)
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:193` |
+| Defined | [utils/api/core/object.js:193](../files/utils_api_core_object.js.md#l193) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> 
 
 ###### Parameters
@@ -176,22 +176,22 @@ accessing it.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:109` |
+| Defined | [utils/api/core/object.js:109](../files/utils_api_core_object.js.md#l109) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 
 
-##### method: `isValid()`
+##### method: `isValid(value)`
 
 Checks whether the object is non-nil and not yet destroyed
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/object.js:219` |
+| Defined | [utils/api/core/object.js:219](../files/utils_api_core_object.js.md#l219) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
-- object <a href="../classes/FObject.html" class="crosslink">FObject</a>  
+- value <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | any  
 
 
 

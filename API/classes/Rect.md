@@ -1,10 +1,11 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
 ### `Rect` Class
 
+Extends `ValueType`
 
 Defined in: [utils/api/core/rect.js:5](../files/utils/api/core/rect.js.js)
 
@@ -21,30 +22,45 @@ see {% crosslink Fire.rect Fire.rect %}
 
 ##### Properties
 
-  - `center`
-  - `size`
-  - `xMax`
-  - `xMin`
-  - `yMax`
-  - `yMin`
+  - [`center`](#property-center)
+  - [`size`](#property-size)
+  - [`xMax`](#property-xmax)
+  - [`xMin`](#property-xmin)
+  - [`yMax`](#property-ymax)
+  - [`yMin`](#property-ymin)
 
 
 
 ##### Methods
 
-  - `Rect` **constructor**
-  - `clone`
-  - `contain`
-  - `contains`
-  - `containsRect`
-  - `equals`
-  - `fromMinMax`
-  - `fromVec2`
-  - `intersects`
-  - `lerp`
-  - `rect`
-  - `toString`
+  - [`Rect([x=0], [y=0], [w=0], [h=0])` **constructor**](#method-rectx0-y0-w0-h0)
+  - [`clone()`](#method-clone)
+  - [`contain(a, b)`](#method-containa-b)
+  - [`contains(point)`](#method-containspoint)
+  - [`containsRect(rect)`](#method-containsrectrect)
+  - [`equals(other)`](#method-equalsother)
+  - [`fromMinMax(v1, v2)`](#method-fromminmaxv1-v2)
+  - [`fromVec2(leftTop, size)`](#method-fromvec2lefttop-size)
+  - [`intersects(rect)`](#method-intersectsrect)
+  - [`lerp(to, ratio, [out])`](#method-lerpto-ratio-out)
+  - [`rect([x=0], [y=0], [w=0], [h=0])`](#method-rectx0-y0-w0-h0)
+  - [`toString()`](#method-tostring)
 
+
+
+
+### Inherited members
+
+##### Properties
+
+
+##### Attributes
+
+
+##### Methods
+
+
+##### Events
 
 
 
@@ -62,8 +78,8 @@ see {% crosslink Fire.rect Fire.rect %}
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/rect.js:174` |
+| Type | number |
+| Defined | [utils/api/core/rect.js:176](../files/utils_api_core_rect.js.md#l176) |
 
 
 
@@ -75,7 +91,7 @@ see {% crosslink Fire.rect Fire.rect %}
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/core/rect.js:189` |
+| Defined | [utils/api/core/rect.js:191](../files/utils_api_core_rect.js.md#l191) |
 
 
 
@@ -86,8 +102,8 @@ see {% crosslink Fire.rect Fire.rect %}
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/rect.js:156` |
+| Type | number |
+| Defined | [utils/api/core/rect.js:158](../files/utils_api_core_rect.js.md#l158) |
 
 
 
@@ -98,8 +114,8 @@ see {% crosslink Fire.rect Fire.rect %}
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/rect.js:132` |
+| Type | number |
+| Defined | [utils/api/core/rect.js:134](../files/utils_api_core_rect.js.md#l134) |
 
 
 
@@ -110,8 +126,8 @@ see {% crosslink Fire.rect Fire.rect %}
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/rect.js:165` |
+| Type | number |
+| Defined | [utils/api/core/rect.js:167](../files/utils_api_core_rect.js.md#l167) |
 
 
 
@@ -122,8 +138,8 @@ see {% crosslink Fire.rect Fire.rect %}
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/rect.js:144` |
+| Type | number |
+| Defined | [utils/api/core/rect.js:146](../files/utils_api_core_rect.js.md#l146) |
 
 
 
@@ -135,13 +151,13 @@ see {% crosslink Fire.rect Fire.rect %}
 
 ##### Constructor
 
-##### method: `Rect()`
+##### method: `Rect([x=0], [y=0], [w=0], [h=0])`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:5` |
+| Defined | [utils/api/core/rect.js:5](../files/utils_api_core_rect.js.md#l5) |
 
 ###### Parameters
 - x <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>  
@@ -156,18 +172,19 @@ see {% crosslink Fire.rect Fire.rect %}
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:82` |
+| Overwritten | inherited from ValueType but overwritten in `utils/api/core/rect.js:84` |
+| Defined | [utils/api/core/rect.js:84](../files/utils_api_core_rect.js.md#l84) |
 | Return 		 | <a href="../classes/Rect.html" class="crosslink">Rect</a> 
 
 
 
-##### method: `contain()`
+##### method: `contain(a, b)`
 
 Checks if rect contains
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:54` |
+| Defined | [utils/api/core/rect.js:56](../files/utils_api_core_rect.js.md#l56) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> 
 
 ###### Parameters
@@ -175,50 +192,51 @@ Checks if rect contains
 - b <a href="../classes/Rect.html" class="crosslink">Rect</a> Rect b
 
 
-##### method: `contains()`
+##### method: `contains(point)`
 
 Returns true if the point inside this rectangle.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:212` |
+| Defined | [utils/api/core/rect.js:214](../files/utils_api_core_rect.js.md#l214) |
 
 ###### Parameters
 - point <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
-##### method: `containsRect()`
+##### method: `containsRect(rect)`
 
 Returns true if the other rect totally inside this rectangle.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:229` |
+| Defined | [utils/api/core/rect.js:231](../files/utils_api_core_rect.js.md#l231) |
 
 ###### Parameters
 - rect <a href="../classes/Rect.html" class="crosslink">Rect</a>  
 
 
-##### method: `equals()`
+##### method: `equals(other)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:90` |
+| Overwritten | inherited from ValueType but overwritten in `utils/api/core/rect.js:92` |
+| Defined | [utils/api/core/rect.js:92](../files/utils_api_core_rect.js.md#l92) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
 - other <a href="../classes/Rect.html" class="crosslink">Rect</a>  
 
 
-##### method: `fromMinMax()`
+##### method: `fromMinMax(v1, v2)`
 
 Creates a rectangle from two coordinate values.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:25` |
+| Defined | [utils/api/core/rect.js:27](../files/utils_api_core_rect.js.md#l27) |
 | Return 		 | <a href="../classes/Rect.html" class="crosslink">Rect</a> 
 
 ###### Parameters
@@ -226,13 +244,13 @@ Creates a rectangle from two coordinate values.
 - v2 <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
-##### method: `fromVec2()`
+##### method: `fromVec2(leftTop, size)`
 
 Creates a rectangle from left-top coordinate value and size.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:42` |
+| Defined | [utils/api/core/rect.js:44](../files/utils_api_core_rect.js.md#l44) |
 | Return 		 | <a href="../classes/Rect.html" class="crosslink">Rect</a> 
 
 ###### Parameters
@@ -240,25 +258,26 @@ Creates a rectangle from left-top coordinate value and size.
 - size <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
-##### method: `intersects()`
+##### method: `intersects(rect)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:203` |
+| Defined | [utils/api/core/rect.js:205](../files/utils_api_core_rect.js.md#l205) |
 
 ###### Parameters
 - rect <a href="../classes/Rect.html" class="crosslink">Rect</a>  
 
 
-##### method: `lerp()`
+##### method: `lerp(to, ratio, [out])`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:103` |
+| Overwritten | inherited from ValueType but overwritten in `utils/api/core/rect.js:105` |
+| Defined | [utils/api/core/rect.js:105](../files/utils_api_core_rect.js.md#l105) |
 | Return 		 | <a href="../classes/Rect.html" class="crosslink">Rect</a> 
 
 ###### Parameters
@@ -267,13 +286,13 @@ Creates a rectangle from left-top coordinate value and size.
 - out <a href="../classes/Rect.html" class="crosslink">Rect</a> optional, the receiving vector
 
 
-##### method: `rect()`
+##### method: `rect([x=0], [y=0], [w=0], [h=0])`
 
 The convenience method to create a new Rect
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:254` |
+| Defined | [utils/api/core/rect.js:256](../files/utils_api_core_rect.js.md#l256) |
 | Return 		 | <a href="../classes/Rect.html" class="crosslink">Rect</a> 
 
 ###### Parameters
@@ -289,7 +308,8 @@ The convenience method to create a new Rect
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/rect.js:123` |
+| Overwritten | inherited from ValueType but overwritten in `utils/api/core/rect.js:125` |
+| Defined | [utils/api/core/rect.js:125](../files/utils_api_core_rect.js.md#l125) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> 
 
 

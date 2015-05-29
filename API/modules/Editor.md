@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -8,11 +8,11 @@ Fireball is the game engine for the future.
 
 
 
-Defined in [utils/api/editor/ipc-init.js:1](../files/utils_api_editor_ipc-init.js.html#l1)
+Defined in [utils/api/editor/editor-init.js:12](../files/utils_api_editor_editor-init.js.md#l12)
 
 
 
- 
+Global object with classes, properties and methods you can access from anywhere.
 
 
 
@@ -25,15 +25,16 @@ Defined in [utils/api/editor/ipc-init.js:1](../files/utils_api_editor_ipc-init.j
 
 ##### Methods
 
-  - `serialize`
-  - `serialize.asAsset`
-  - `serialize.setName`
-  - `sendToCore`
-  - `sendToWindows`
-  - `sendToMainWindow`
-  - `sentToAll`
-  - `sendToPanel`
-  - `sendRequestToCore`
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
+  - [``](#)
 
 
 

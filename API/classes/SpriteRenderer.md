@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,13 +20,14 @@ Renders a sprite in the scene.
 
 ##### Properties
 
-  - `color`
-  - `customWidth`
-  - `height`
-  - `height`
-  - `renderWidth`
-  - `sprite`
-  - `useCustomSize`
+  - [`color`](#property-color)
+  - [`customWidth`](#property-customwidth)
+  - [`height`](#property-height)
+  - [`height`](#property-height)
+  - [`renderHeight`](#property-renderheight)
+  - [`renderWidth`](#property-renderwidth)
+  - [`sprite`](#property-sprite)
+  - [`useCustomSize`](#property-usecustomsize)
 
 
 
@@ -37,31 +38,31 @@ Renders a sprite in the scene.
 
 ##### Properties
 
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `getWorldBounds
-- `getWorldOrientedBounds
-- `getSelfMatrix
-- `getWorldSize
-- `onPreRender
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [`getWorldBounds([out])`](#method-getworldbounds)
+- [`getWorldOrientedBounds([out_bl], [out_tl], [out_tr], [out_br])`](#method-getworldorientedbounds)
+- [`getSelfMatrix(out)`](#method-getselfmatrix)
+- [`getWorldSize()`](#method-getworldsize)
+- [`onPreRender()`](#method-onprerender)
+- [`destroy()`](#method-destroy)
+- [`_destruct()`](#method-_destruct)
+- [`_onPreDestroy()`](#method-_onpredestroy)
+- [`_serialize(exporting)`](#method-_serialize)
+- [`_deserialize(data, ctx, target)`](#method-_deserialize)
+- [`isValid(value)`](#method-isvalid)
 
 ##### Events
 
@@ -77,14 +78,12 @@ Renders a sprite in the scene.
 
 ##### property: `color`
 
-
- The rendering color.
-
+The rendering color.
 
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Color.html" class="crosslink">Color</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:43` |
+| Defined | [utils/api/engine/sprite-renderer.js:40](../files/utils_api_engine_sprite-renderer.js.md#l40) |
 | Default    | Fire.Color.white |
 
 
@@ -96,8 +95,8 @@ The custom width of this renderer.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:88` |
+| Type | number |
+| Defined | [utils/api/engine/sprite-renderer.js:86](../files/utils_api_engine_sprite-renderer.js.md#l86) |
 
 
 
@@ -108,36 +107,44 @@ The custom height of this renderer.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:133` |
+| Type | number |
+| Defined | [utils/api/engine/sprite-renderer.js:134](../files/utils_api_engine_sprite-renderer.js.md#l134) |
 
 
 
 
 ##### property: `height`
 
-
- Get the render height of this renderer.
-
+The image type of this renderer .
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:153` |
+| Type | number |
+| Defined | [utils/api/engine/sprite-renderer.js:178](../files/utils_api_engine_sprite-renderer.js.md#l178) |
+
+
+
+
+##### property: `renderHeight`
+
+Get the render height of this renderer.
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/engine/sprite-renderer.js:157](../files/utils_api_engine_sprite-renderer.js.md#l157) |
 
 
 
 
 ##### property: `renderWidth`
 
-
- Get the render width of this renderer.
-
+Get the render width of this renderer.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:108` |
+| Type | number |
+| Defined | [utils/api/engine/sprite-renderer.js:109](../files/utils_api_engine_sprite-renderer.js.md#l109) |
 
 
 
@@ -149,7 +156,7 @@ The sprite to render.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Sprite.html" class="crosslink">Sprite</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:22` |
+| Defined | [utils/api/engine/sprite-renderer.js:19](../files/utils_api_engine_sprite-renderer.js.md#l19) |
 | Default    | null |
 
 
@@ -157,14 +164,12 @@ The sprite to render.
 
 ##### property: `useCustomSize`
 
-
- Indicates that this renderer uses custom width and height to render the sprite.
-
+Indicates that this renderer uses custom width and height to render the sprite.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/sprite-renderer.js:64` |
+| Type | boolean |
+| Defined | [utils/api/engine/sprite-renderer.js:61](../files/utils_api_engine_sprite-renderer.js.md#l61) |
 | Default    | false |
 
 

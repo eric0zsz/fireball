@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -33,7 +33,7 @@ Strategy that makes the container's size equals to the frame's size
 
 ##### Methods
 
-- `setupContainer
+- [`setupContainer(size)`](#method-setupcontainer)
 
 ##### Events
 

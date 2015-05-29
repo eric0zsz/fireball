@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -8,7 +8,7 @@ Fireball is the game engine for the future.
 
 
 
-Defined in [utils/api/engine/atlas-asset.js:8](../files/utils_api_engine_atlas-asset.js.html#l8)
+Defined in [utils/api/engine/atlas-asset.js:8](../files/utils_api_engine_atlas-asset.js.md#l8)
 
 
 

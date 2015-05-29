@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,16 +20,16 @@ Module: [Fire.Spine](../modules/Fire.Spine.md)
 
 ##### Properties
 
-  - `atlasAsset`
-  - `scale`
-  - `skeletonJson`
+  - [`atlasAsset`](#property-atlasasset)
+  - [`scale`](#property-scale)
+  - [`skeletonJson`](#property-skeletonjson)
 
 
 
 ##### Methods
 
-  - `SkeletonDataAsset` **constructor**
-  - `getSkeletonData`
+  - [`SkeletonDataAsset()` **constructor**](#method-skeletondataasset)
+  - [`getSkeletonData([quiet=false])`](#method-getskeletondataquietfalse)
 
 
 
@@ -64,7 +64,7 @@ Module: [Fire.Spine](../modules/Fire.Spine.md)
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/AtlasAsset.html" class="crosslink">AtlasAsset</a> |
-| Defined | `utils/api/engine/skeleton-data-asset.js:20` |
+| Defined | [utils/api/engine/skeleton-data-asset.js:30](../files/utils_api_engine_skeleton-data-asset.js.md#l30) |
 
 
 
@@ -76,8 +76,8 @@ animation translations.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/skeleton-data-asset.js:38` |
+| Type | number |
+| Defined | [utils/api/engine/skeleton-data-asset.js:62](../files/utils_api_engine_skeleton-data-asset.js.md#l62) |
 
 
 
@@ -89,7 +89,7 @@ animation translations.
 | meta | description |
 |------|-------------|
 | Type | JsonAsset |
-| Defined | `utils/api/engine/skeleton-data-asset.js:29` |
+| Defined | [utils/api/engine/skeleton-data-asset.js:47](../files/utils_api_engine_skeleton-data-asset.js.md#l47) |
 
 
 
@@ -107,17 +107,17 @@ animation translations.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-data-asset.js:7` |
+| Defined | [utils/api/engine/skeleton-data-asset.js:7](../files/utils_api_engine_skeleton-data-asset.js.md#l7) |
 
 
 
-##### method: `getSkeletonData()`
+##### method: `getSkeletonData([quiet=false])`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/skeleton-data-asset.js:47` |
+| Defined | [utils/api/engine/skeleton-data-asset.js:71](../files/utils_api_engine_skeleton-data-asset.js.md#l71) |
 | Return 		 | spine.SkeletonData 
 
 ###### Parameters

@@ -1,12 +1,12 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
 ### `TextAnchor` Enum
 
 
-Defined in: [utils/api/core/types.js:28](../files/utils/api/core/types.js.js)
+Defined in: [utils/api/core/types.js:59](../files/utils/api/core/types.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
@@ -18,15 +18,15 @@ Module: [Fire](../modules/Fire.md)
 ### Index
 
 ##### Properties
-  - `botCenter`
-  - `botLeft`
-  - `botRight`
-  - `midCenter`
-  - `midLeft`
-  - `midRight`
-  - `topCenter`
-  - `topLeft`
-  - `topRight`
+  - `BottomCenter`
+  - `BottomLeft`
+  - `BottomRight`
+  - `MiddleCenter`
+  - `MiddleLeft`
+  - `MiddleRight`
+  - `TopCenter`
+  - `TopLeft`
+  - `TopRight`
 
 
 ### Details
@@ -34,110 +34,110 @@ Module: [Fire](../modules/Fire.md)
 #### Properties
 
 
-##### property: `botCenter`
+##### property: `BottomCenter`
 
 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:67` |
+| Type | number |
+| Defined | [utils/api/core/types.js:98](../files/utils_api_core_types.js.md#l98) |
 
 
 
 
-##### property: `botLeft`
-
-
-
-| meta | description |
-|------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:62` |
-
-
-
-
-##### property: `botRight`
+##### property: `BottomLeft`
 
 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:72` |
+| Type | number |
+| Defined | [utils/api/core/types.js:93](../files/utils_api_core_types.js.md#l93) |
 
 
 
 
-##### property: `midCenter`
-
-
-
-| meta | description |
-|------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:52` |
-
-
-
-
-##### property: `midLeft`
+##### property: `BottomRight`
 
 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:47` |
+| Type | number |
+| Defined | [utils/api/core/types.js:103](../files/utils_api_core_types.js.md#l103) |
 
 
 
 
-##### property: `midRight`
-
-
-
-| meta | description |
-|------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:57` |
-
-
-
-
-##### property: `topCenter`
+##### property: `MiddleCenter`
 
 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:37` |
+| Type | number |
+| Defined | [utils/api/core/types.js:83](../files/utils_api_core_types.js.md#l83) |
 
 
 
 
-##### property: `topLeft`
-
-
-
-| meta | description |
-|------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:32` |
-
-
-
-
-##### property: `topRight`
+##### property: `MiddleLeft`
 
 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:42` |
+| Type | number |
+| Defined | [utils/api/core/types.js:78](../files/utils_api_core_types.js.md#l78) |
+
+
+
+
+##### property: `MiddleRight`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/core/types.js:88](../files/utils_api_core_types.js.md#l88) |
+
+
+
+
+##### property: `TopCenter`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/core/types.js:68](../files/utils_api_core_types.js.md#l68) |
+
+
+
+
+##### property: `TopLeft`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/core/types.js:63](../files/utils_api_core_types.js.md#l63) |
+
+
+
+
+##### property: `TopRight`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/core/types.js:73](../files/utils_api_core_types.js.md#l73) |
 
 
 

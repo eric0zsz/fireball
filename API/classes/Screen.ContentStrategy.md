@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -22,10 +22,11 @@ it controls the behavior of how to scale the scene and setup the viewport for th
 
 ##### Methods
 
-  - `Screen.ContentStrategy` **constructor**
-  - `apply`
-  - `buildResult`
-  - `getContainerSize`
+  - [`Screen.ContentStrategy()` **constructor**](#method-screen.contentstrategy)
+  - [`apply(designedResolution)`](#method-applydesignedresolution)
+  - [`buildResult(container, content, scale)`](#method-buildresultcontainer-content-scale)
+  - [`fromType(type)`](#method-fromtypetype)
+  - [`getContainerSize()`](#method-getcontainersize)
 
 
 
@@ -47,30 +48,30 @@ it controls the behavior of how to scale the scene and setup the viewport for th
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/screen–agnostic.js:237` |
+| Defined | [utils/api/engine/screen–agnostic.js:237](../files/utils_api_engine_screen–agnostic.js.md#l237) |
 
 
 
-##### method: `apply()`
+##### method: `apply(designedResolution)`
 
 Function to apply this strategy
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/screen–agnostic.js:111` |
+| Defined | [utils/api/engine/screen–agnostic.js:111](../files/utils_api_engine_screen–agnostic.js.md#l111) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> 
 
 ###### Parameters
 - designedResolution <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
-##### method: `buildResult()`
+##### method: `buildResult(container, content, scale)`
 
 Helper function for apply.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/screen–agnostic.js:120` |
+| Defined | [utils/api/engine/screen–agnostic.js:120](../files/utils_api_engine_screen–agnostic.js.md#l120) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> 
 
 ###### Parameters
@@ -79,13 +80,26 @@ Helper function for apply.
 - scale <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
+##### method: `fromType(type)`
+
+Get the content strategy instance by type
+
+| meta | description |
+|------|-------------|
+| Defined | [utils/api/engine/screen–agnostic.js:240](../files/utils_api_engine_screen–agnostic.js.md#l240) |
+| Return 		 | <a href="../classes/Screen.ContentStrategy.html" class="crosslink">Screen.ContentStrategy</a> 
+
+###### Parameters
+- type <a href="../classes/ContentStrategyType.html" class="crosslink">ContentStrategyType</a>  
+
+
 ##### method: `getContainerSize()`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/screen–agnostic.js:155` |
+| Defined | [utils/api/engine/screen–agnostic.js:155](../files/utils_api_engine_screen–agnostic.js.md#l155) |
 | Return 		 | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> 
 
 

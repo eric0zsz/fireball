@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,27 +19,27 @@ An event allows for signaling that something has occurred. E.g. that an asset ha
 
 ##### Properties
 
-  - `_defaultPrevented`
-  - `_propagationImmediateStopped`
-  - `_propagationStopped`
-  - `AT_TARGET`
-  - `bubbles`
-  - `BUBBLING_PHASE`
-  - `CAPTURING_PHASE`
-  - `currentTarget;`
-  - `eventPhase`
-  - `NONE`
-  - `target`
-  - `type`
+  - [`_defaultPrevented`](#property-_defaultprevented)
+  - [`_propagationImmediateStopped`](#property-_propagationimmediatestopped)
+  - [`_propagationStopped`](#property-_propagationstopped)
+  - [`AT_TARGET`](#property-at_target)
+  - [`bubbles`](#property-bubbles)
+  - [`BUBBLING_PHASE`](#property-bubbling_phase)
+  - [`CAPTURING_PHASE`](#property-capturing_phase)
+  - [`currentTarget;`](#property-currenttarget;)
+  - [`eventPhase`](#property-eventphase)
+  - [`NONE`](#property-none)
+  - [`target`](#property-target)
+  - [`type`](#property-type)
 
 
 
 ##### Methods
 
-  - `Event` **constructor**
-  - `_reset`
-  - `preventDefault`
-  - `stop`
+  - [`Event(type, [bubbles=false])` **constructor**](#method-eventtype-bubblesfalse)
+  - [`_reset()`](#method-_reset)
+  - [`preventDefault()`](#method-preventdefault)
+  - [`stop([immediate=false])`](#method-stopimmediatefalse)
 
 
 
@@ -58,8 +58,8 @@ Indicates whether or not event.preventDefault() has been called on the event
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/event.js:60` |
+| Type | boolean |
+| Defined | [utils/api/engine/event.js:60](../files/utils_api_engine_event.js.md#l60) |
 
 
 
@@ -70,8 +70,8 @@ Indicates whether or not event.stop(true) has been called on the event
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/event.js:76` |
+| Type | boolean |
+| Defined | [utils/api/engine/event.js:76](../files/utils_api_engine_event.js.md#l76) |
 
 
 
@@ -82,8 +82,8 @@ Indicates whether or not event.stop() has been called on the event
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/event.js:68` |
+| Type | boolean |
+| Defined | [utils/api/engine/event.js:68](../files/utils_api_engine_event.js.md#l68) |
 
 
 
@@ -95,8 +95,8 @@ see http://www.w3.org/TR/DOM-Level-3-Events/#event-flow
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/event.js:109` |
+| Type | number |
+| Defined | [utils/api/engine/event.js:109](../files/utils_api_engine_event.js.md#l109) |
 
 
 
@@ -107,8 +107,8 @@ A boolean indicating whether the event bubbles up through the hierarchy or not
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/event.js:53` |
+| Type | boolean |
+| Defined | [utils/api/engine/event.js:53](../files/utils_api_engine_event.js.md#l53) |
 
 
 
@@ -120,8 +120,8 @@ see http://www.w3.org/TR/DOM-Level-3-Events/#event-flow
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/event.js:118` |
+| Type | number |
+| Defined | [utils/api/engine/event.js:118](../files/utils_api_engine_event.js.md#l118) |
 
 
 
@@ -133,8 +133,8 @@ see http://www.w3.org/TR/DOM-Level-3-Events/#event-flow
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/event.js:100` |
+| Type | number |
+| Defined | [utils/api/engine/event.js:100](../files/utils_api_engine_event.js.md#l100) |
 
 
 
@@ -145,8 +145,8 @@ A reference to the currently registered target for the event
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> |
-| Defined | `utils/api/engine/event.js:31` |
+| Type | object |
+| Defined | [utils/api/engine/event.js:31](../files/utils_api_engine_event.js.md#l31) |
 
 
 
@@ -164,8 +164,8 @@ The phases are explained in the [section 3.1, Event dispatch and DOM event flow]
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/event.js:38` |
+| Type | number |
+| Defined | [utils/api/engine/event.js:38](../files/utils_api_engine_event.js.md#l38) |
 
 
 
@@ -176,8 +176,8 @@ Events not currently dispatched are in this phase
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/event.js:92` |
+| Type | number |
+| Defined | [utils/api/engine/event.js:92](../files/utils_api_engine_event.js.md#l92) |
 
 
 
@@ -188,8 +188,8 @@ A reference to the target to which the event was originally dispatched
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> |
-| Defined | `utils/api/engine/event.js:24` |
+| Type | object |
+| Defined | [utils/api/engine/event.js:24](../files/utils_api_engine_event.js.md#l24) |
 
 
 
@@ -200,8 +200,8 @@ The name of the event (case-sensitive), e.g. "click", "fire", or "submit"
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/engine/event.js:17` |
+| Type | string |
+| Defined | [utils/api/engine/event.js:17](../files/utils_api_engine_event.js.md#l17) |
 
 
 
@@ -213,13 +213,13 @@ The name of the event (case-sensitive), e.g. "click", "fire", or "submit"
 
 ##### Constructor
 
-##### method: `Event()`
+##### method: `Event(type, [bubbles=false])`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event.js:6` |
+| Defined | [utils/api/engine/event.js:6](../files/utils_api_engine_event.js.md#l6) |
 
 ###### Parameters
 - type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> The name of the event (case-sensitive), e.g. "click", "fire", or "submit"
@@ -232,7 +232,7 @@ The name of the event (case-sensitive), e.g. "click", "fire", or "submit"
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event.js:152` |
+| Defined | [utils/api/engine/event.js:152](../files/utils_api_engine_event.js.md#l152) |
 
 
 
@@ -242,17 +242,17 @@ If invoked when the cancelable attribute value is true, signals to the operation
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event.js:144` |
+| Defined | [utils/api/engine/event.js:144](../files/utils_api_engine_event.js.md#l144) |
 
 
 
-##### method: `stop()`
+##### method: `stop([immediate=false])`
 
 Stop propagation. When dispatched in a tree, invoking this method prevents event from reaching any other objects than the current.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/event.js:128` |
+| Defined | [utils/api/engine/event.js:128](../files/utils_api_engine_event.js.md#l128) |
 
 ###### Parameters
 - immediate <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> Indicates whether or not to immediate stop the propagation, default is false.

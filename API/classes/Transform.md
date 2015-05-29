@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -7,7 +7,7 @@ Fireball is the game engine for the future.
 
 Extends `Component`
 
-Defined in: [utils/api/engine/transform.js:6](../files/utils/api/engine/transform.js.js)
+Defined in: [utils/api/engine/transform.js:8](../files/utils/api/engine/transform.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
@@ -20,34 +20,34 @@ Defines position, rotation and scale of an entity.
 
 ##### Properties
 
-  - `_parent`
-  - `_position;`
-  - `_scale;`
-  - `position`
-  - `right`
-  - `rotation`
-  - `scale`
-  - `scaleX`
-  - `scaleY`
-  - `up`
-  - `worldPosition`
-  - `worldRotation`
-  - `worldScale`
-  - `worldX`
-  - `worldY`
-  - `x`
-  - `y`
+  - [`_parent`](#property-_parent)
+  - [`_position;`](#property-_position;)
+  - [`_scale;`](#property-_scale;)
+  - [`position`](#property-position)
+  - [`right`](#property-right)
+  - [`rotation`](#property-rotation)
+  - [`scale`](#property-scale)
+  - [`scaleX`](#property-scalex)
+  - [`scaleY`](#property-scaley)
+  - [`up`](#property-up)
+  - [`worldPosition`](#property-worldposition)
+  - [`worldRotation`](#property-worldrotation)
+  - [`worldScale`](#property-worldscale)
+  - [`worldX`](#property-worldx)
+  - [`worldY`](#property-worldy)
+  - [`x`](#property-x)
+  - [`y`](#property-y)
 
 
 
 ##### Methods
 
-  - `Transform` **constructor**
-  - `getLocalMatrix`
-  - `getLocalToWorldMatrix`
-  - `getWorldToLocalMatrix`
-  - `rotateAround`
-  - `translate`
+  - [`Transform()` **constructor**](#method-transform)
+  - [`getLocalMatrix([out])`](#method-getlocalmatrixout)
+  - [`getLocalToWorldMatrix([out])`](#method-getlocaltoworldmatrixout)
+  - [`getWorldToLocalMatrix([out])`](#method-getworldtolocalmatrixout)
+  - [`rotateAround(point, angle)`](#method-rotatearoundpoint-angle)
+  - [`translate(translation)`](#method-translatetranslation)
 
 
 
@@ -56,47 +56,53 @@ Defines position, rotation and scale of an entity.
 
 ##### Properties
 
-- `entity`
-- `_enabled`
-- `enabled`
-- `enabledInHierarchy`
-- `transform`
-- `isOnLoadCalled`
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`entity`](#property-entity)
+- [`_enabled`](#property-_enabled)
+- [`enabled`](#property-enabled)
+- [`enabledInHierarchy`](#property-enabledinhierarchy)
+- [`transform`](#property-transform)
+- [`isOnLoadCalled`](#property-isonloadcalled)
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `addComponent
-- `getComponent
-- `addComponentMenu
-- `executeInEditMode
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [`update()`](#method-update)
+- [`lateUpdate()`](#method-lateupdate)
+- [`onLoad()`](#method-onload)
+- [`start()`](#method-start)
+- [`onEnable()`](#method-onenable)
+- [`onDisable()`](#method-ondisable)
+- [`onDestroy()`](#method-ondestroy)
+- [`onPreRender()`](#method-onprerender)
+- [`onFocusInEditMode()`](#method-onfocusineditmode)
+- [`onLostFocusInEditMode()`](#method-onlostfocusineditmode)
+- [`addComponent(typeOrName)`](#method-addcomponent)
+- [`getComponent(typeOrName)`](#method-getcomponent)
+- [`invoke(functionOrMethodName, [delay=0])`](#method-invoke)
+- [`repeat(functionOrMethodName, [delay=0])`](#method-repeat)
+- [`cancelInvoke(methodNameOrInvokeId)`](#method-cancelinvoke)
+- [`cancelRepeat(methodNameOrRepeatId)`](#method-cancelrepeat)
+- [`addComponentMenu(constructor, menuPath, [priority])`](#method-addcomponentmenu)
+- [`executeInEditMode(constructor, [live=false])`](#method-executeineditmode)
+- [`destroy()`](#method-destroy)
+- [`_destruct()`](#method-_destruct)
+- [`_onPreDestroy()`](#method-_onpredestroy)
+- [`_serialize(exporting)`](#method-_serialize)
+- [`_deserialize(data, ctx, target)`](#method-_deserialize)
+- [`isValid(value)`](#method-isvalid)
 
 ##### Events
 
-- `update
-- `lateUpdate
-- `onLoad
-- `start
-- `onEnable
-- `onDisable
-- `onDestroy
-- `onPreRender
 
 
 
@@ -114,7 +120,7 @@ the cached reference to parent transform
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Transform.html" class="crosslink">Transform</a> |
-| Defined | `utils/api/engine/transform.js:31` |
+| Defined | [utils/api/engine/transform.js:36](../files/utils_api_engine_transform.js.md#l36) |
 | Default    | null |
 
 
@@ -127,7 +133,7 @@ the cached reference to parent transform
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:14` |
+| Defined | [utils/api/engine/transform.js:19](../files/utils_api_engine_transform.js.md#l19) |
 | Default    | new Vec2(0, 0) |
 
 
@@ -140,7 +146,7 @@ the cached reference to parent transform
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:21` |
+| Defined | [utils/api/engine/transform.js:26](../files/utils_api_engine_transform.js.md#l26) |
 | Default    | new Vec2(1, 1) |
 
 
@@ -153,7 +159,7 @@ The local position in its parent's coordinate system
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:53` |
+| Defined | [utils/api/engine/transform.js:52](../files/utils_api_engine_transform.js.md#l52) |
 | Default    | new Vec2(0, 0) |
 
 
@@ -166,7 +172,7 @@ right direction in world space, point to the x(red) axis
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:555` |
+| Defined | [utils/api/engine/transform.js:593](../files/utils_api_engine_transform.js.md#l593) |
 
 
 
@@ -177,8 +183,8 @@ The counterclockwise degrees of rotation relative to the parent
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:230` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:75](../files/utils_api_engine_transform.js.md#l75) |
 | Default    | 0 |
 
 
@@ -191,7 +197,7 @@ The local scale factor relative to the parent
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:281` |
+| Defined | [utils/api/engine/transform.js:95](../files/utils_api_engine_transform.js.md#l95) |
 | Default    | new Vec2(1, 1) |
 
 
@@ -203,8 +209,8 @@ The local x scale factor relative to the parent
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:305` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:516](../files/utils_api_engine_transform.js.md#l516) |
 | Default    | 1 |
 
 
@@ -216,8 +222,8 @@ The local y scale factor relative to the parent
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:329` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:539](../files/utils_api_engine_transform.js.md#l539) |
 | Default    | 1 |
 
 
@@ -230,7 +236,7 @@ up direction in world space, point to the y(green) axis
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:536` |
+| Defined | [utils/api/engine/transform.js:575](../files/utils_api_engine_transform.js.md#l575) |
 
 
 
@@ -242,7 +248,7 @@ The position of the transform in world space
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:125` |
+| Defined | [utils/api/engine/transform.js:385](../files/utils_api_engine_transform.js.md#l385) |
 | Default    | new Vec2(0, 0) |
 
 
@@ -254,8 +260,8 @@ The counterclockwise degrees of rotation in world space
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:251` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:487](../files/utils_api_engine_transform.js.md#l487) |
 | Default    | 0 |
 
 
@@ -268,7 +274,7 @@ The lossy scale of the transform in world space (Read Only)
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Vec2.html" class="crosslink">Vec2</a> |
-| Defined | `utils/api/engine/transform.js:353` |
+| Defined | [utils/api/engine/transform.js:562](../files/utils_api_engine_transform.js.md#l562) |
 | Default    | new Vec2(1, 1) |
 
 
@@ -280,8 +286,8 @@ The x position of the transform in world space
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:154` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:413](../files/utils_api_engine_transform.js.md#l413) |
 | Default    | 0 |
 
 
@@ -293,8 +299,8 @@ The y position of the transform in world space
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:195` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:453](../files/utils_api_engine_transform.js.md#l453) |
 | Default    | 0 |
 
 
@@ -306,8 +312,8 @@ The local x position in its parent's coordinate system
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:77` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:339](../files/utils_api_engine_transform.js.md#l339) |
 | Default    | 0 |
 
 
@@ -319,8 +325,8 @@ The local y position in its parent's coordinate system
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/transform.js:101` |
+| Type | number |
+| Defined | [utils/api/engine/transform.js:362](../files/utils_api_engine_transform.js.md#l362) |
 | Default    | 0 |
 
 
@@ -339,70 +345,70 @@ The local y position in its parent's coordinate system
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/transform.js:6` |
+| Defined | [utils/api/engine/transform.js:8](../files/utils_api_engine_transform.js.md#l8) |
 
 
 
-##### method: `getLocalMatrix()`
+##### method: `getLocalMatrix([out])`
 
 Get the local matrix that transforms a point from local space into parents space.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/transform.js:445` |
+| Defined | [utils/api/engine/transform.js:192](../files/utils_api_engine_transform.js.md#l192) |
 | Return 		 | <a href="../classes/Matrix23.html" class="crosslink">Matrix23</a> 
 
 ###### Parameters
 - out <a href="../classes/Matrix23.html" class="crosslink">Matrix23</a> optional, the receiving vector
 
 
-##### method: `getLocalToWorldMatrix()`
+##### method: `getLocalToWorldMatrix([out])`
 
 Get the world transform matrix that transforms a point from local space into world space.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/transform.js:485` |
+| Defined | [utils/api/engine/transform.js:231](../files/utils_api_engine_transform.js.md#l231) |
 | Return 		 | <a href="../classes/Matrix23.html" class="crosslink">Matrix23</a> 
 
 ###### Parameters
 - out <a href="../classes/Matrix23.html" class="crosslink">Matrix23</a> optional, the receiving vector
 
 
-##### method: `getWorldToLocalMatrix()`
+##### method: `getWorldToLocalMatrix([out])`
 
 Get the inverse world transform matrix that transforms a point from world space into local space.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/transform.js:502` |
+| Defined | [utils/api/engine/transform.js:247](../files/utils_api_engine_transform.js.md#l247) |
 | Return 		 | <a href="../classes/Matrix23.html" class="crosslink">Matrix23</a> 
 
 ###### Parameters
 - out <a href="../classes/Matrix23.html" class="crosslink">Matrix23</a> optional, the receiving vector
 
 
-##### method: `rotateAround()`
+##### method: `rotateAround(point, angle)`
 
 Rotates this transform through point in world space by angle degrees.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/transform.js:512` |
+| Defined | [utils/api/engine/transform.js:256](../files/utils_api_engine_transform.js.md#l256) |
 
 ###### Parameters
 - point <a href="../classes/Vec2.html" class="crosslink">Vec2</a> the world point rotates through
 - angle <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> degrees
 
 
-##### method: `translate()`
+##### method: `translate(translation)`
 
 Moves the transform in the direction and distance of translation. The movement is applied relative to the
 transform's local space.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/transform.js:525` |
+| Defined | [utils/api/engine/transform.js:268](../files/utils_api_engine_transform.js.md#l268) |
 
 ###### Parameters
 - translation <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  

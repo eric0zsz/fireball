@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,8 +19,8 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `Password`
-  - `Text`
+  - [`Password`](#property-password)
+  - [`Text`](#property-text)
 
 
 
@@ -41,8 +41,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-field.js:11` |
+| Type | number |
+| Defined | [utils/api/engine/input-field.js:11](../files/utils_api_engine_input-field.js.md#l11) |
 
 
 
@@ -53,8 +53,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-field.js:16` |
+| Type | number |
+| Defined | [utils/api/engine/input-field.js:16](../files/utils_api_engine_input-field.js.md#l16) |
 
 
 

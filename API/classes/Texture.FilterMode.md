@@ -1,12 +1,12 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
 ### `Texture.FilterMode` Class
 
 
-Defined in: [utils/api/core/texture.js:42](../files/utils/api/core/texture.js.js)
+Defined in: [utils/api/core/texture.js:24](../files/utils/api/core/texture.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
@@ -19,9 +19,9 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `Bilinear`
-  - `Point`
-  - `Trilinear`
+  - [`Bilinear`](#property-bilinear)
+  - [`Point`](#property-point)
+  - [`Trilinear`](#property-trilinear)
 
 
 
@@ -42,8 +42,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/texture.js:53` |
+| Type | number |
+| Defined | [utils/api/core/texture.js:35](../files/utils_api_core_texture.js.md#l35) |
 
 
 
@@ -54,8 +54,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/texture.js:48` |
+| Type | number |
+| Defined | [utils/api/core/texture.js:30](../files/utils_api_core_texture.js.md#l30) |
 
 
 
@@ -66,8 +66,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/texture.js:58` |
+| Type | number |
+| Defined | [utils/api/core/texture.js:40](../files/utils_api_core_texture.js.md#l40) |
 
 
 

@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,8 +19,8 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `FixedHeight`
-  - `NoScale`
+  - [`FixedHeight`](#property-fixedheight)
+  - [`NoScale`](#property-noscale)
 
 
 
@@ -37,17 +37,14 @@ Module: [Fire](../modules/Fire.md)
 
 ##### property: `FixedHeight`
 
-
- The application takes the height of the design resolution size and modifies the width of the internal canvas,
+The application takes the height of the design resolution size and modifies the width of the internal canvas,
 so that it fits the aspect ratio of the device and no distortion will occur,
 however you must make sure your application works on different aspect ratios
 
-
-
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/definition.js:36` |
+| Type | number |
+| Defined | [utils/api/engine/definition.js:36](../files/utils_api_engine_definition.js.md#l36) |
 
 
 
@@ -58,8 +55,8 @@ however you must make sure your application works on different aspect ratios
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/definition.js:18` |
+| Type | number |
+| Defined | [utils/api/engine/definition.js:18](../files/utils_api_engine_definition.js.md#l18) |
 
 
 

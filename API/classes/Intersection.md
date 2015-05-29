@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -21,12 +21,12 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Methods
 
-  - `lineLine`
-  - `linePolygon`
-  - `lineRect`
-  - `polygonPolygon`
-  - `rectPolygon`
-  - `rectRect`
+  - [`lineLine(a1, a2, b1, b2)`](#method-linelinea1-a2-b1-b2)
+  - [`linePolygon(a1, a2, b)`](#method-linepolygona1-a2-b)
+  - [`lineRect(a1, a2, b)`](#method-linerecta1-a2-b)
+  - [`polygonPolygon(a, b)`](#method-polygonpolygona-b)
+  - [`rectPolygon(a, b)`](#method-rectpolygona-b)
+  - [`rectRect(a, b)`](#method-rectrecta-b)
 
 
 
@@ -41,13 +41,13 @@ Module: [Fire](../modules/Fire.md)
 #### Methods
 
 
-##### method: `lineLine()`
+##### method: `lineLine(a1, a2, b1, b2)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/intersection.js:11` |
+| Defined | [utils/api/core/intersection.js:11](../files/utils_api_core_intersection.js.md#l11) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -57,13 +57,13 @@ Module: [Fire](../modules/Fire.md)
 - b2 <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
-##### method: `linePolygon()`
+##### method: `linePolygon(a1, a2, b)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/intersection.js:70` |
+| Defined | [utils/api/core/intersection.js:70](../files/utils_api_core_intersection.js.md#l70) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -72,13 +72,13 @@ Module: [Fire](../modules/Fire.md)
 - b Polygon  
 
 
-##### method: `lineRect()`
+##### method: `lineRect(a1, a2, b)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/intersection.js:40` |
+| Defined | [utils/api/core/intersection.js:40](../files/utils_api_core_intersection.js.md#l40) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -87,13 +87,13 @@ Module: [Fire](../modules/Fire.md)
 - b <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  
 
 
-##### method: `polygonPolygon()`
+##### method: `polygonPolygon(a, b)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/intersection.js:166` |
+| Defined | [utils/api/core/intersection.js:166](../files/utils_api_core_intersection.js.md#l166) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -101,13 +101,13 @@ Module: [Fire](../modules/Fire.md)
 - b Polygon  
 
 
-##### method: `rectPolygon()`
+##### method: `rectPolygon(a, b)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/intersection.js:117` |
+| Defined | [utils/api/core/intersection.js:117](../files/utils_api_core_intersection.js.md#l117) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -115,13 +115,13 @@ Module: [Fire](../modules/Fire.md)
 - b Polygon  
 
 
-##### method: `rectRect()`
+##### method: `rectRect(a, b)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/intersection.js:92` |
+| Defined | [utils/api/core/intersection.js:92](../files/utils_api_core_intersection.js.md#l92) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters

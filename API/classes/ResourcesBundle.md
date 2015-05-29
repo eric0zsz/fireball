@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -33,10 +33,10 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Methods
 
-- `contains
-- `getAllPaths
-- `load
-- `_add
+- [`contains(path)`](#method-contains)
+- [`getAllPaths()`](#method-getallpaths)
+- [`load(path, [callback], [quiet=false])`](#method-load)
+- [`_add(path, uuid)`](#method-_add)
 
 ##### Events
 

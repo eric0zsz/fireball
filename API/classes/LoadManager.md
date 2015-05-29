@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -26,16 +26,16 @@ The manager scheduling resources loading
 
 ##### Properties
 
-  - `_curConcurrent`
-  - `maxConcurrent`
+  - [`_curConcurrent`](#property-_curconcurrent)
+  - [`maxConcurrent`](#property-maxconcurrent)
 
 
 
 ##### Methods
 
-  - `load`
-  - `loadByLoader`
-  - `registerRawTypes`
+  - [`load(url, rawType, [rawExtname], callback)`](#method-loadurl-rawtype-rawextname-callback)
+  - [`loadByLoader(loader, url, callback)`](#method-loadbyloaderloader-url-callback)
+  - [`registerRawTypes(rawType, loader, defaultExtname)`](#method-registerrawtypesrawtype-loader-defaultextname)
 
 
 
@@ -54,8 +54,8 @@ Current concurrent request count
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/load-manager.js:77` |
+| Type | number |
+| Defined | [utils/api/engine/load-manager.js:76](../files/utils_api_engine_load-manager.js.md#l76) |
 
 
 
@@ -66,8 +66,8 @@ Max allowed concurrent request count
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/load-manager.js:69` |
+| Type | number |
+| Defined | [utils/api/engine/load-manager.js:68](../files/utils_api_engine_load-manager.js.md#l68) |
 | Default    | 2 |
 
 
@@ -79,13 +79,13 @@ Max allowed concurrent request count
 #### Methods
 
 
-##### method: `load()`
+##### method: `load(url, rawType, [rawExtname], callback)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/load-manager.js:111` |
+| Defined | [utils/api/engine/load-manager.js:110](../files/utils_api_engine_load-manager.js.md#l110) |
 
 ###### Parameters
 - url <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
@@ -96,13 +96,13 @@ Max allowed concurrent request count
 	- param Any data - the loaded data
 
 
-##### method: `loadByLoader()`
+##### method: `loadByLoader(loader, url, callback)`
 
 NOTE: Request the same url with different loader is disallowed
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/load-manager.js:85` |
+| Defined | [utils/api/engine/load-manager.js:84](../files/utils_api_engine_load-manager.js.md#l84) |
 
 ###### Parameters
 - loader <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
@@ -112,13 +112,13 @@ NOTE: Request the same url with different loader is disallowed
 	- param Any data - the loaded data
 
 
-##### method: `registerRawTypes()`
+##### method: `registerRawTypes(rawType, loader, defaultExtname)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/load-manager.js:143` |
+| Defined | [utils/api/engine/load-manager.js:142](../files/utils_api_engine_load-manager.js.md#l142) |
 
 ###### Parameters
 - rawType <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  

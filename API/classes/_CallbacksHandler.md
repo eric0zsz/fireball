@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -22,11 +22,11 @@ Subclasses should implement their own methods about how to invoke the callbacks.
 
 ##### Methods
 
-  - `_CallbacksHandler` **constructor**
-  - `add`
-  - `has`
-  - `remove`
-  - `removeAll`
+  - [`_CallbacksHandler()` **constructor**](#method-_callbackshandler)
+  - [`add(key, callback)`](#method-addkey-callback)
+  - [`has(key, [callback])`](#method-haskey-callback)
+  - [`remove(key, callback)`](#method-removekey-callback)
+  - [`removeAll(key)`](#method-removeallkey)
 
 
 
@@ -48,17 +48,17 @@ Subclasses should implement their own methods about how to invoke the callbacks.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/callbacks-invoker.js:6` |
+| Defined | [utils/api/core/callbacks-invoker.js:6](../files/utils_api_core_callbacks-invoker.js.md#l6) |
 
 
 
-##### method: `add()`
+##### method: `add(key, callback)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/callbacks-invoker.js:19` |
+| Defined | [utils/api/core/callbacks-invoker.js:19](../files/utils_api_core_callbacks-invoker.js.md#l19) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -66,14 +66,14 @@ Subclasses should implement their own methods about how to invoke the callbacks.
 - callback <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a> can be null
 
 
-##### method: `has()`
+##### method: `has(key, [callback])`
 
 Check if the specified key has any registered callback. If a callback is also specified,
 it will only return true if the callback is registered.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/callbacks-invoker.js:47` |
+| Defined | [utils/api/core/callbacks-invoker.js:47](../files/utils_api_core_callbacks-invoker.js.md#l47) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -81,13 +81,13 @@ it will only return true if the callback is registered.
 - callback <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
 
 
-##### method: `remove()`
+##### method: `remove(key, callback)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/callbacks-invoker.js:74` |
+| Defined | [utils/api/core/callbacks-invoker.js:74](../files/utils_api_core_callbacks-invoker.js.md#l74) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -95,13 +95,13 @@ it will only return true if the callback is registered.
 - callback <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
 
 
-##### method: `removeAll()`
+##### method: `removeAll(key)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/callbacks-invoker.js:66` |
+| Defined | [utils/api/core/callbacks-invoker.js:66](../files/utils_api_core_callbacks-invoker.js.md#l66) |
 
 ###### Parameters
 - key <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  

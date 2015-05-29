@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,20 +19,21 @@ The sprite animation state.
 
 ##### Properties
 
-  - `clip`
-  - `length`
-  - `name`
-  - `speed`
-  - `stopAction`
-  - `totalFrames`
-  - `wrapMode`
+  - [`clip`](#property-clip)
+  - [`length`](#property-length)
+  - [`name`](#property-name)
+  - [`speed`](#property-speed)
+  - [`stopAction`](#property-stopaction)
+  - [`totalFrames`](#property-totalframes)
+  - [`wrapMode`](#property-wrapmode)
 
 
 
 ##### Methods
 
-  - `SpriteAnimationState` **constructor**
-  - `getCurrentIndex`
+  - [`SpriteAnimationState(animClip)` **constructor**](#method-spriteanimationstateanimclip)
+  - [`getCurrentIndex()`](#method-getcurrentindex)
+  - [`setDuration(duration)`](#method-setdurationduration)
 
 
 
@@ -52,7 +53,7 @@ The referenced sprite animation clip
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/SpriteAnimationClip.html" class="crosslink">SpriteAnimationClip</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:25` |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:25](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l25) |
 
 
 
@@ -63,8 +64,8 @@ The length of the sprite animation in seconds with speed = 1.0f
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:57` |
+| Type | number |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:57](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l57) |
 
 
 
@@ -75,8 +76,8 @@ The name of the sprite animation state.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:19` |
+| Type | string |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:19](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l19) |
 
 
 
@@ -87,8 +88,8 @@ The speed to play the sprite animation clip
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:43` |
+| Type | number |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:43](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l43) |
 
 
 
@@ -100,7 +101,7 @@ The stop action
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/SpriteAnimationClip.StopAction.html" class="crosslink">SpriteAnimationClip.StopAction</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:37` |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:37](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l37) |
 
 
 
@@ -111,8 +112,8 @@ The total frame count of the sprite animation clip
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:51` |
+| Type | number |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:51](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l51) |
 
 
 
@@ -124,7 +125,7 @@ The wrap mode
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/SpriteAnimationClip.WrapMode.html" class="crosslink">SpriteAnimationClip.WrapMode</a> |
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:31` |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:31](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l31) |
 
 
 
@@ -136,13 +137,13 @@ The wrap mode
 
 ##### Constructor
 
-##### method: `SpriteAnimationState()`
+##### method: `SpriteAnimationState(animClip)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:6` |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:6](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l6) |
 
 ###### Parameters
 - animClip <a href="../classes/SpriteAnimationClip.html" class="crosslink">SpriteAnimationClip</a>  
@@ -154,9 +155,21 @@ The current frame info index.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/builtin/sprite-animation/sprite-animation-state.js:72` |
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:81](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l81) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> 
 
+
+
+##### method: `setDuration(duration)`
+
+Recompute a new speed to make the duration of this animation equals to specified value.
+
+| meta | description |
+|------|-------------|
+| Defined | [utils/api/builtin/sprite-animation/sprite-animation-state.js:72](../files/utils_api_builtin_sprite-animation_sprite-animation-state.js.md#l72) |
+
+###### Parameters
+- duration <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> The expected duration.
 
 
 

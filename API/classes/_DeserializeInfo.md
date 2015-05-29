@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,19 +19,19 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `rawProp`
-  - `uuidList`
-  - `uuidObjList`
-  - `uuidPropList`
+  - [`rawProp`](#property-rawprop)
+  - [`uuidList`](#property-uuidlist)
+  - [`uuidObjList`](#property-uuidobjlist)
+  - [`uuidPropList`](#property-uuidproplist)
 
 
 
 ##### Methods
 
-  - `_DeserializeInfo` **constructor**
-  - `assignAssetsBy`
-  - `getUuidOf`
-  - `reset`
+  - [`_DeserializeInfo()` **constructor**](#method-_deserializeinfo)
+  - [`assignAssetsBy(getter)`](#method-assignassetsbygetter)
+  - [`getUuidOf(obj, propName)`](#method-getuuidofobj-propname)
+  - [`reset()`](#method-reset)
 
 
 
@@ -50,8 +50,8 @@ the corresponding field name which referenced to the raw object
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/core/deserialize.js:436` |
+| Type | string |
+| Defined | [utils/api/core/deserialize.js:436](../files/utils_api_core_deserialize.js.md#l436) |
 
 
 
@@ -62,8 +62,8 @@ list of the depends assets' uuid
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String[]</a> |
-| Defined | `utils/api/core/deserialize.js:414` |
+| Type | string |
+| Defined | [utils/api/core/deserialize.js:414](../files/utils_api_core_deserialize.js.md#l414) |
 
 
 
@@ -74,8 +74,8 @@ the obj list whose field needs to load asset by uuid
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object[]</a> |
-| Defined | `utils/api/core/deserialize.js:420` |
+| Type | object |
+| Defined | [utils/api/core/deserialize.js:420](../files/utils_api_core_deserialize.js.md#l420) |
 
 
 
@@ -86,8 +86,8 @@ the corresponding field name which referenced to the asset
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String[]</a> |
-| Defined | `utils/api/core/deserialize.js:426` |
+| Type | string |
+| Defined | [utils/api/core/deserialize.js:426](../files/utils_api_core_deserialize.js.md#l426) |
 
 
 
@@ -105,30 +105,30 @@ the corresponding field name which referenced to the asset
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/deserialize.js:402` |
+| Defined | [utils/api/core/deserialize.js:402](../files/utils_api_core_deserialize.js.md#l402) |
 
 
 
-##### method: `assignAssetsBy()`
+##### method: `assignAssetsBy(getter)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/deserialize.js:475` |
+| Defined | [utils/api/core/deserialize.js:475](../files/utils_api_core_deserialize.js.md#l475) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
 - getter <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
 
 
-##### method: `getUuidOf()`
+##### method: `getUuidOf(obj, propName)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/deserialize.js:460` |
+| Defined | [utils/api/core/deserialize.js:460](../files/utils_api_core_deserialize.js.md#l460) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> 
 
 ###### Parameters
@@ -142,7 +142,7 @@ the corresponding field name which referenced to the asset
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/deserialize.js:448` |
+| Defined | [utils/api/core/deserialize.js:448](../files/utils_api_core_deserialize.js.md#l448) |
 
 
 

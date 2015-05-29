@@ -1,12 +1,12 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
 ### `FontType` Enum
 
 
-Defined in: [utils/api/core/types.js:80](../files/utils/api/core/types.js.js)
+Defined in: [utils/api/core/types.js:110](../files/utils/api/core/types.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
@@ -33,8 +33,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:84` |
+| Type | number |
+| Defined | [utils/api/core/types.js:114](../files/utils_api_core_types.js.md#l114) |
 
 
 
@@ -45,8 +45,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:89` |
+| Type | number |
+| Defined | [utils/api/core/types.js:119](../files/utils_api_core_types.js.md#l119) |
 
 
 

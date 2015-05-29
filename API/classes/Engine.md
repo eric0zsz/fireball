@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -14,40 +14,39 @@ Module: [Fire](../modules/Fire.md)
 
 
 
-
- Access to engine runtime data.
+Access to engine runtime data.
 This class contains static methods for looking up information about and controlling the runtime data.
 
 ### Index
 
 ##### Properties
 
-  - `_animationManager`
-  - `_canModifyCurrentScene`
-  - `_curRenderContext`
-  - `_inputContext`
-  - `_interactionContext`
-  - `_renderContext`
-  - `_scene`
-  - `inited`
-  - `isLoadingScene`
-  - `isPaused`
-  - `isPlaying`
+  - [`_animationManager`](#property-_animationmanager)
+  - [`_canModifyCurrentScene`](#property-_canmodifycurrentscene)
+  - [`_curRenderContext`](#property-_currendercontext)
+  - [`_inputContext`](#property-_inputcontext)
+  - [`_interactionContext`](#property-_interactioncontext)
+  - [`_renderContext`](#property-_rendercontext)
+  - [`_scene`](#property-_scene)
+  - [`inited`](#property-inited)
+  - [`isLoadingScene`](#property-isloadingscene)
+  - [`isPaused`](#property-ispaused)
+  - [`isPlaying`](#property-isplaying)
 
 
 
 ##### Methods
 
-  - `_launchScene`
-  - `_loadSceneByUuid`
-  - `init`
-  - `loadScene`
-  - `pause`
-  - `play`
-  - `preloadScene`
-  - `step`
-  - `stop`
-  - `update`
+  - [`_launchScene(scene, [onBeforeLoadScene])`](#method-_launchscenescene-onbeforeloadscene)
+  - [`_loadSceneByUuid(uuid, [onLaunched], [onUnloaded])`](#method-_loadscenebyuuiduuid-onlaunched-onunloaded)
+  - [`init([width], [height], [canvas], [options])`](#method-initwidth-height-canvas-options)
+  - [`loadScene(sceneName, [onLaunched], [onUnloaded])`](#method-loadscenescenename-onlaunched-onunloaded)
+  - [`pause()`](#method-pause)
+  - [`play()`](#method-play)
+  - [`preloadScene(sceneName, [onLoaded])`](#method-preloadscenescenename-onloaded)
+  - [`step()`](#method-step)
+  - [`stop()`](#method-stop)
+  - [`update()`](#method-update)
 
 
 
@@ -56,18 +55,18 @@ This class contains static methods for looking up information about and controll
 
 ##### Properties
 
-- `isUpdating`
+- [`isUpdating`](#property-isupdating)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `onPlay
-- `onPause
-- `onResume
-- `onStop
-- `onError
+- [``](#method-onplay)
+- [``](#method-onpause)
+- [``](#method-onresume)
+- [``](#method-onstop)
+- [``](#method-onerror)
 
 ##### Events
 
@@ -88,22 +87,20 @@ The instance of global AnimationManager.
 | meta | description |
 |------|-------------|
 | Type | AnimationManager |
-| Defined | `utils/api/engine/engine.js:82` |
+| Defined | [utils/api/engine/engine.js:82](../files/utils_api_engine_engine.js.md#l82) |
 
 
 
 
 ##### property: `_canModifyCurrentScene`
 
-
- You should check whether you can modify the scene in constructors which may called by the engine while
+You should check whether you can modify the scene in constructors which may called by the engine while
 deserializing.
-
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/engine.js:102` |
+| Type | boolean |
+| Defined | [utils/api/engine/engine.js:102](../files/utils_api_engine_engine.js.md#l102) |
 
 
 
@@ -115,7 +112,7 @@ the render context currently rendering
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/_Runtime.RenderContext.html" class="crosslink">_Runtime.RenderContext</a> |
-| Defined | `utils/api/engine/engine.js:66` |
+| Defined | [utils/api/engine/engine.js:66](../files/utils_api_engine_engine.js.md#l66) |
 
 
 
@@ -127,7 +124,7 @@ The InputContext attached to game or game view.
 | meta | description |
 |------|-------------|
 | Type | InputContext |
-| Defined | `utils/api/engine/engine.js:74` |
+| Defined | [utils/api/engine/engine.js:74](../files/utils_api_engine_engine.js.md#l74) |
 
 
 
@@ -139,7 +136,7 @@ The InteractionContext attached to game or game view.
 | meta | description |
 |------|-------------|
 | Type | InteractionContext |
-| Defined | `utils/api/engine/engine.js:58` |
+| Defined | [utils/api/engine/engine.js:58](../files/utils_api_engine_engine.js.md#l58) |
 
 
 
@@ -151,21 +148,19 @@ The RenderContext attached to game or game view.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/_Runtime.RenderContext.html" class="crosslink">_Runtime.RenderContext</a> |
-| Defined | `utils/api/engine/engine.js:50` |
+| Defined | [utils/api/engine/engine.js:50](../files/utils_api_engine_engine.js.md#l50) |
 
 
 
 
 ##### property: `_scene`
 
-
- the active scene
-
+the active scene
 
 | meta | description |
 |------|-------------|
 | Type | Scene |
-| Defined | `utils/api/engine/engine.js:30` |
+| Defined | [utils/api/engine/engine.js:30](../files/utils_api_engine_engine.js.md#l30) |
 
 
 
@@ -176,8 +171,8 @@ The RenderContext attached to game or game view.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/engine.js:134` |
+| Type | boolean |
+| Defined | [utils/api/engine/engine.js:134](../files/utils_api_engine_engine.js.md#l134) |
 
 
 
@@ -188,8 +183,8 @@ is loading scene?
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/engine.js:90` |
+| Type | boolean |
+| Defined | [utils/api/engine/engine.js:90](../files/utils_api_engine_engine.js.md#l90) |
 
 
 
@@ -200,9 +195,9 @@ is editor currently paused?
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:441` |
-| Defined | `utils/api/engine/engine.js:441` |
+| Type | boolean |
+| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:448` |
+| Defined | [utils/api/engine/engine.js:448](../files/utils_api_engine_engine.js.md#l448) |
 
 
 
@@ -213,9 +208,9 @@ is in player or playing in editor?
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:435` |
-| Defined | `utils/api/engine/engine.js:435` |
+| Type | boolean |
+| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:442` |
+| Defined | [utils/api/engine/engine.js:442](../files/utils_api_engine_engine.js.md#l442) |
 
 
 
@@ -226,26 +221,26 @@ is in player or playing in editor?
 #### Methods
 
 
-##### method: `_launchScene()`
+##### method: `_launchScene(scene, [onBeforeLoadScene])`
 
 Launch loaded scene.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/engine.js:287` |
+| Defined | [utils/api/engine/engine.js:294](../files/utils_api_engine_engine.js.md#l294) |
 
 ###### Parameters
 - scene Scene  
 - onBeforeLoadScene <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
 
 
-##### method: `_loadSceneByUuid()`
+##### method: `_loadSceneByUuid(uuid, [onLaunched], [onUnloaded])`
 
 Loads the scene by its uuid.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/engine.js:371` |
+| Defined | [utils/api/engine/engine.js:378](../files/utils_api_engine_engine.js.md#l378) |
 
 ###### Parameters
 - uuid <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> the uuid of the scene asset to load
@@ -253,13 +248,13 @@ Loads the scene by its uuid.
 - onUnloaded <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a>  
 
 
-##### method: `init()`
+##### method: `init([width], [height], [canvas], [options])`
 
 Initialize the engine. This method will be called by boot.js or editor.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/engine.js:148` |
+| Defined | [utils/api/engine/engine.js:148](../files/utils_api_engine_engine.js.md#l148) |
 | Return 		 | <a href="../classes/_Runtime.RenderContext.html" class="crosslink">_Runtime.RenderContext</a> 
 
 ###### Parameters
@@ -269,13 +264,13 @@ Initialize the engine. This method will be called by boot.js or editor.
 - options <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a>  
 
 
-##### method: `loadScene()`
+##### method: `loadScene(sceneName, [onLaunched], [onUnloaded])`
 
 Loads the scene by its name.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/engine.js:346` |
+| Defined | [utils/api/engine/engine.js:353](../files/utils_api_engine_engine.js.md#l353) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -290,8 +285,8 @@ Pause the engine loop.
 
 | meta | description |
 |------|-------------|
-| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:455` |
-| Defined | `utils/api/engine/engine.js:455` |
+| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:462` |
+| Defined | [utils/api/engine/engine.js:462](../files/utils_api_engine_engine.js.md#l462) |
 
 
 
@@ -301,12 +296,12 @@ Start the engine loop. This method will be called by boot.js or editor.
 
 | meta | description |
 |------|-------------|
-| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:447` |
-| Defined | `utils/api/engine/engine.js:447` |
+| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:454` |
+| Defined | [utils/api/engine/engine.js:454](../files/utils_api_engine_engine.js.md#l454) |
 
 
 
-##### method: `preloadScene()`
+##### method: `preloadScene(sceneName, [onLoaded])`
 
 Preloads the scene to reduces loading time. You can call this method at any time you want.
 
@@ -316,7 +311,7 @@ yet finished, the scene will be launched after loaded automatically.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/engine.js:405` |
+| Defined | [utils/api/engine/engine.js:412](../files/utils_api_engine_engine.js.md#l412) |
 
 ###### Parameters
 - sceneName <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> the name of the scene to preload
@@ -331,8 +326,8 @@ Perform a single frame step.
 
 | meta | description |
 |------|-------------|
-| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:459` |
-| Defined | `utils/api/engine/engine.js:459` |
+| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:466` |
+| Defined | [utils/api/engine/engine.js:466](../files/utils_api_engine_engine.js.md#l466) |
 
 
 
@@ -342,8 +337,8 @@ Stop the engine loop.
 
 | meta | description |
 |------|-------------|
-| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:451` |
-| Defined | `utils/api/engine/engine.js:451` |
+| Overwritten | inherited from Playable but overwritten in `utils/api/engine/engine.js:458` |
+| Defined | [utils/api/engine/engine.js:458](../files/utils_api_engine_engine.js.md#l458) |
 
 
 
@@ -353,7 +348,7 @@ Stop the engine loop.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/engine.js:259` |
+| Defined | [utils/api/engine/engine.js:272](../files/utils_api_engine_engine.js.md#l272) |
 
 
 

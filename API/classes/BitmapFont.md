@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,10 +20,10 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `baseLine`
-  - `lineHeight`
-  - `size`
-  - `texture`
+  - [`baseLine`](#property-baseline)
+  - [`lineHeight`](#property-lineheight)
+  - [`size`](#property-size)
+  - [`texture`](#property-texture)
 
 
 
@@ -34,29 +34,29 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-- `_uuid`
-- `dirty`
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_uuid`](#property-_uuid)
+- [`dirty`](#property-dirty)
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `_setRawExtname
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [`_setRawExtname(extname)`](#method-_setrawextname)
+- [``](#method-destroy)
+- [``](#method-_destruct)
+- [``](#method-_onpredestroy)
+- [``](#method-_serialize)
+- [``](#method-_deserialize)
+- [``](#method-isvalid)
 
 ##### Events
 
@@ -76,8 +76,8 @@ The base-line of the text when draw
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/bitmap-font.js:25` |
+| Type | number |
+| Defined | [utils/api/core/bitmap-font.js:36](../files/utils_api_core_bitmap-font.js.md#l36) |
 | Default    | 0 |
 
 
@@ -89,8 +89,8 @@ The space of the line
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/bitmap-font.js:33` |
+| Type | number |
+| Defined | [utils/api/core/bitmap-font.js:47](../files/utils_api_core_bitmap-font.js.md#l47) |
 | Default    | 0 |
 
 
@@ -102,8 +102,8 @@ The size in pixel of the font
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/bitmap-font.js:41` |
+| Type | number |
+| Defined | [utils/api/core/bitmap-font.js:58](../files/utils_api_core_bitmap-font.js.md#l58) |
 | Default    | 0 |
 
 
@@ -115,8 +115,8 @@ The atlas  or raw texture
 
 | meta | description |
 |------|-------------|
-| Type | <a href="../classes/Texture.html" class="crosslink">Texture</a> |
-| Defined | `utils/api/core/bitmap-font.js:13` |
+| Type | Texture |
+| Defined | [utils/api/core/bitmap-font.js:17](../files/utils_api_core_bitmap-font.js.md#l17) |
 | Default    | null |
 
 

@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,14 +20,14 @@ it controls the behavior of how to scale the container and canvas.
 
 ##### Properties
 
-  - `EqualToFrame`
+  - [`EqualToFrame`](#property-equaltoframe)
 
 
 
 ##### Methods
 
-  - `Screen.ContainerStrategy` **constructor**
-  - `setupContainer`
+  - [`Screen.ContainerStrategy()` **constructor**](#method-screen.containerstrategy)
+  - [`setupContainer(size)`](#method-setupcontainersize)
 
 
 
@@ -47,7 +47,7 @@ Strategy that makes the container's size equals to the frame's size
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/EqualToFrame.html" class="crosslink">EqualToFrame</a> |
-| Defined | `utils/api/engine/screen–agnostic.js:191` |
+| Defined | [utils/api/engine/screen–agnostic.js:191](../files/utils_api_engine_screen–agnostic.js.md#l191) |
 
 
 
@@ -65,17 +65,17 @@ Strategy that makes the container's size equals to the frame's size
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/screen–agnostic.js:188` |
+| Defined | [utils/api/engine/screen–agnostic.js:188](../files/utils_api_engine_screen–agnostic.js.md#l188) |
 
 
 
-##### method: `setupContainer()`
+##### method: `setupContainer(size)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/screen–agnostic.js:67` |
+| Defined | [utils/api/engine/screen–agnostic.js:67](../files/utils_api_engine_screen–agnostic.js.md#l67) |
 
 ###### Parameters
 - size <a href="../classes/Vec2.html" class="crosslink">Vec2</a>  

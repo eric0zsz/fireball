@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,15 +20,15 @@ Base class for asset handling.
 
 ##### Properties
 
-  - `_uuid`
-  - `dirty`
+  - [`_uuid`](#property-_uuid)
+  - [`dirty`](#property-dirty)
 
 
 
 ##### Methods
 
-  - `Asset` **constructor**
-  - `_setRawExtname`
+  - [`Asset()` **constructor**](#method-asset)
+  - [`_setRawExtname(extname)`](#method-_setrawextnameextname)
 
 
 
@@ -37,26 +37,26 @@ Base class for asset handling.
 
 ##### Properties
 
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [``](#method-destroy)
+- [``](#method-_destruct)
+- [``](#method-_onpredestroy)
+- [``](#method-_serialize)
+- [``](#method-_deserialize)
+- [``](#method-isvalid)
 
 ##### Events
 
@@ -79,8 +79,8 @@ Base class for asset handling.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/core/asset.js:14` |
+| Type | string |
+| Defined | [utils/api/core/asset.js:14](../files/utils_api_core_asset.js.md#l14) |
 
 
 
@@ -91,8 +91,8 @@ Base class for asset handling.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/core/asset.js:27` |
+| Type | boolean |
+| Defined | [utils/api/core/asset.js:27](../files/utils_api_core_asset.js.md#l27) |
 
 
 
@@ -110,17 +110,17 @@ Base class for asset handling.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/asset.js:4` |
+| Defined | [utils/api/core/asset.js:4](../files/utils_api_core_asset.js.md#l4) |
 
 
 
-##### method: `_setRawExtname()`
+##### method: `_setRawExtname(extname)`
 
 Set raw extname for this asset, this method is used for plugin only.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/core/asset.js:35` |
+| Defined | [utils/api/core/asset.js:35](../files/utils_api_core_asset.js.md#l35) |
 
 ###### Parameters
 - extname <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  

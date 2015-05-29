@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,14 +20,14 @@ Resources 能够使用路径加载项目里所有 `Resources` 目录下的资源
 
 ##### Properties
 
-  - `_resBundle`
+  - [`_resBundle`](#property-_resbundle)
 
 
 
 ##### Methods
 
-  - `load`
-  - `mount`
+  - [`load(path, callback)`](#method-loadpath-callback)
+  - [`mount(baseDir, bundle)`](#method-mountbasedir-bundle)
 
 
 
@@ -47,7 +47,7 @@ Resources 能够使用路径加载项目里所有 `Resources` 目录下的资源
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/ResourcesBundle.html" class="crosslink">ResourcesBundle</a> |
-| Defined | `utils/api/engine/resources.js:226` |
+| Defined | [utils/api/engine/resources.js:226](../files/utils_api_engine_resources.js.md#l226) |
 
 
 
@@ -58,7 +58,7 @@ Resources 能够使用路径加载项目里所有 `Resources` 目录下的资源
 #### Methods
 
 
-##### method: `load()`
+##### method: `load(path, callback)`
 
 Loads asset with path from resources asynchronously.
 
@@ -67,7 +67,7 @@ All asset paths in Fireball use forward slashes, paths using backslashes will no
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:257` |
+| Defined | [utils/api/engine/resources.js:257](../files/utils_api_engine_resources.js.md#l257) |
 
 ###### Parameters
 - path <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  
@@ -76,14 +76,14 @@ All asset paths in Fireball use forward slashes, paths using backslashes will no
 	- param <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> data - the loaded object or null
 
 
-##### method: `mount()`
+##### method: `mount(baseDir, bundle)`
 
 Note:
 All asset paths in Fireball use forward slashes, paths using backslashes will not work.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/resources.js:232` |
+| Defined | [utils/api/engine/resources.js:232](../files/utils_api_engine_resources.js.md#l232) |
 
 ###### Parameters
 - baseDir <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a>  

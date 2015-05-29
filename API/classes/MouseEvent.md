@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -24,13 +24,13 @@ See
 
 ##### Properties
 
-  - `button`
-  - `buttonStates`
-  - `deltaX`
-  - `deltaY`
-  - `relatedTarget`
-  - `screenX`
-  - `screenY`
+  - [`button`](#property-button)
+  - [`buttonStates`](#property-buttonstates)
+  - [`deltaX`](#property-deltax)
+  - [`deltaY`](#property-deltay)
+  - [`relatedTarget`](#property-relatedtarget)
+  - [`screenX`](#property-screenx)
+  - [`screenY`](#property-screeny)
 
 
 
@@ -41,20 +41,20 @@ See
 
 ##### Properties
 
-- `nativeEvent`
-- `ctrlKey`
-- `shiftKey`
-- `altKey`
-- `metaKey`
+- [`nativeEvent`](#property-nativeevent)
+- [`ctrlKey`](#property-ctrlkey)
+- [`shiftKey`](#property-shiftkey)
+- [`altKey`](#property-altkey)
+- [`metaKey`](#property-metakey)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `getModifierState
-- `initFromNativeEvent
-- `_reset
+- [`getModifierState(keyArg)`](#method-getmodifierstate)
+- [`initFromNativeEvent(nativeEvent)`](#method-initfromnativeevent)
+- [`_reset()`](#method-_reset)
 
 ##### Events
 
@@ -76,8 +76,8 @@ Indicates which button was pressed on the mouse to trigger the event.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-events.js:125` |
+| Type | number |
+| Defined | [utils/api/engine/input-events.js:125](../files/utils_api_engine_input-events.js.md#l125) |
 | Default    | 0 |
 
 
@@ -91,8 +91,8 @@ See https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent.buttons
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-events.js:135` |
+| Type | number |
+| Defined | [utils/api/engine/input-events.js:135](../files/utils_api_engine_input-events.js.md#l135) |
 | Default    | 0 |
 
 
@@ -105,8 +105,8 @@ Not available for touch event.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-events.js:159` |
+| Type | number |
+| Defined | [utils/api/engine/input-events.js:159](../files/utils_api_engine_input-events.js.md#l159) |
 
 
 
@@ -118,8 +118,8 @@ Not available for touch event.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-events.js:167` |
+| Type | number |
+| Defined | [utils/api/engine/input-events.js:167](../files/utils_api_engine_input-events.js.md#l167) |
 
 
 
@@ -131,7 +131,7 @@ The secondary target for the event, if there is one.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/EventTarget.html" class="crosslink">EventTarget</a> |
-| Defined | `utils/api/engine/input-events.js:175` |
+| Defined | [utils/api/engine/input-events.js:175](../files/utils_api_engine_input-events.js.md#l175) |
 
 
 
@@ -142,8 +142,8 @@ The X coordinate of the mouse pointer in screen coordinates.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-events.js:145` |
+| Type | number |
+| Defined | [utils/api/engine/input-events.js:145](../files/utils_api_engine_input-events.js.md#l145) |
 
 
 
@@ -154,8 +154,8 @@ The Y coordinate of the mouse pointer in screen coordinates.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-events.js:152` |
+| Type | number |
+| Defined | [utils/api/engine/input-events.js:152](../files/utils_api_engine_input-events.js.md#l152) |
 
 
 

@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,12 +19,12 @@ Bit mask that controls object states.
 
 ##### Properties
 
-  - `DontDestroy`
-  - `DontSave`
-  - `EditorOnly`
-  - `Hide`
-  - `HideInEditor`
-  - `HideInGame`
+  - [`DontDestroy`](#property-dontdestroy)
+  - [`DontSave`](#property-dontsave)
+  - [`EditorOnly`](#property-editoronly)
+  - [`Hide`](#property-hide)
+  - [`HideInEditor`](#property-hideineditor)
+  - [`HideInGame`](#property-hideingame)
 
 
 
@@ -45,8 +45,8 @@ Dont destroy automatically when loading a new scene.
 
 | meta | description |
 |------|-------------|
-| Type | Unknown |
-| Defined | `utils/api/core/definition.js:152` |
+| Type | unknown |
+| Defined | [utils/api/core/definition.js:152](../files/utils_api_core_definition.js.md#l152) |
 
 
 
@@ -57,8 +57,8 @@ The object will not be saved.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/definition.js:136` |
+| Type | number |
+| Defined | [utils/api/core/definition.js:136](../files/utils_api_core_definition.js.md#l136) |
 
 
 
@@ -69,8 +69,8 @@ The object will not be saved when building a player.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/definition.js:143` |
+| Type | number |
+| Defined | [utils/api/core/definition.js:143](../files/utils_api_core_definition.js.md#l143) |
 
 
 
@@ -82,8 +82,8 @@ This flag is readonly, it can only be used as an argument of scene.addEntity() o
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/definition.js:188` |
+| Type | number |
+| Defined | [utils/api/core/definition.js:188](../files/utils_api_core_definition.js.md#l188) |
 
 
 
@@ -94,8 +94,8 @@ This flag is readonly, it can only be used as an argument of scene.addEntity() o
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/definition.js:173` |
+| Type | number |
+| Defined | [utils/api/core/definition.js:173](../files/utils_api_core_definition.js.md#l173) |
 
 
 
@@ -107,8 +107,8 @@ This flag is readonly, it can only be used as an argument of scene.addEntity() o
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/definition.js:163` |
+| Type | number |
+| Defined | [utils/api/core/definition.js:163](../files/utils_api_core_definition.js.md#l163) |
 
 
 

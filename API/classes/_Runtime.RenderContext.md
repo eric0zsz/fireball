@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,7 +20,7 @@ here just used as the mocker for unit tests.
 
 ##### Properties
 
-  - `_container`
+  - [`_container`](#property-_container)
 
 
 
@@ -42,7 +42,7 @@ The canvas's parent node in dom.
 | meta | description |
 |------|-------------|
 | Type | <a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a> |
-| Defined | `utils/api/engine/render-context.js:40` |
+| Defined | [utils/api/engine/render-context.js:40](../files/utils_api_engine_render-context.js.md#l40) |
 
 
 

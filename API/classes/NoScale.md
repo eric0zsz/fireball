@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -33,9 +33,9 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Methods
 
-- `apply
-- `buildResult
-- `getContainerSize
+- [`apply(designedResolution)`](#method-apply)
+- [`buildResult(container, content, scale)`](#method-buildresult)
+- [`getContainerSize()`](#method-getcontainersize)
 
 ##### Events
 

@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -14,18 +14,16 @@ Module: [Fire](../modules/Fire.md)
 
 
 
-
- Provides object id, this id is unique globally.
-
+Provides object id, this id is unique globally.
 
 ### Index
 
 ##### Properties
 
-  - `_hashCode`
-  - `_id`
-  - `hashCode`
-  - `id`
+  - [`_hashCode`](#property-_hashcode)
+  - [`_id`](#property-_id)
+  - [`hashCode`](#property-hashcode)
+  - [`id`](#property-id)
 
 
 
@@ -36,22 +34,22 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [``](#method-destroy)
+- [``](#method-_destruct)
+- [``](#method-_onpredestroy)
+- [``](#method-_serialize)
+- [``](#method-_deserialize)
+- [``](#method-isvalid)
 
 ##### Events
 
@@ -74,8 +72,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/hash-object.js:16` |
+| Type | number |
+| Defined | [utils/api/core/hash-object.js:22](../files/utils_api_core_hash-object.js.md#l22) |
 
 
 
@@ -86,8 +84,8 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/core/hash-object.js:26` |
+| Type | string |
+| Defined | [utils/api/core/hash-object.js:32](../files/utils_api_core_hash-object.js.md#l32) |
 
 
 
@@ -98,22 +96,20 @@ Module: [Fire](../modules/Fire.md)
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/hash-object.js:42` |
+| Type | number |
+| Defined | [utils/api/core/hash-object.js:52](../files/utils_api_core_hash-object.js.md#l52) |
 
 
 
 
 ##### property: `id`
 
-
- the universal unique id
-
+the universal unique id
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/core/hash-object.js:53` |
+| Type | string |
+| Defined | [utils/api/core/hash-object.js:61](../files/utils_api_core_hash-object.js.md#l61) |
 
 
 

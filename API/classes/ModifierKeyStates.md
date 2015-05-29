@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -19,20 +19,20 @@ Module: [Fire](../modules/Fire.md)
 
 ##### Properties
 
-  - `altKey`
-  - `ctrlKey`
-  - `metaKey`
-  - `nativeEvent`
-  - `shiftKey`
+  - [`altKey`](#property-altkey)
+  - [`ctrlKey`](#property-ctrlkey)
+  - [`metaKey`](#property-metakey)
+  - [`nativeEvent`](#property-nativeevent)
+  - [`shiftKey`](#property-shiftkey)
 
 
 
 ##### Methods
 
-  - `ModifierKeyStates` **constructor**
-  - `_reset`
-  - `getModifierState`
-  - `initFromNativeEvent`
+  - [`ModifierKeyStates(type, [nativeEvent=null])` **constructor**](#method-modifierkeystatestype-nativeeventnull)
+  - [`_reset()`](#method-_reset)
+  - [`getModifierState(keyArg)`](#method-getmodifierstatekeyarg)
+  - [`initFromNativeEvent(nativeEvent)`](#method-initfromnativeeventnativeevent)
 
 
 
@@ -51,8 +51,8 @@ Returns true if the `alt` key was down when the event was fired.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/input-events.js:36` |
+| Type | boolean |
+| Defined | [utils/api/engine/input-events.js:36](../files/utils_api_engine_input-events.js.md#l36) |
 
 
 
@@ -63,8 +63,8 @@ Returns true if the `ctrl` key was down when the event was fired.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/input-events.js:24` |
+| Type | boolean |
+| Defined | [utils/api/engine/input-events.js:24](../files/utils_api_engine_input-events.js.md#l24) |
 
 
 
@@ -75,8 +75,8 @@ Returns true if the `meta` key was down when the event was fired.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/input-events.js:42` |
+| Type | boolean |
+| Defined | [utils/api/engine/input-events.js:42](../files/utils_api_engine_input-events.js.md#l42) |
 
 
 
@@ -88,7 +88,7 @@ Returns true if the `meta` key was down when the event was fired.
 | meta | description |
 |------|-------------|
 | Type | UIEvent |
-| Defined | `utils/api/engine/input-events.js:17` |
+| Defined | [utils/api/engine/input-events.js:17](../files/utils_api_engine_input-events.js.md#l17) |
 
 
 
@@ -99,8 +99,8 @@ Returns true if the `shift` key was down when the event was fired.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> |
-| Defined | `utils/api/engine/input-events.js:30` |
+| Type | boolean |
+| Defined | [utils/api/engine/input-events.js:30](../files/utils_api_engine_input-events.js.md#l30) |
 
 
 
@@ -112,13 +112,13 @@ Returns true if the `shift` key was down when the event was fired.
 
 ##### Constructor
 
-##### method: `ModifierKeyStates()`
+##### method: `ModifierKeyStates(type, [nativeEvent=null])`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/input-events.js:7` |
+| Defined | [utils/api/engine/input-events.js:7](../files/utils_api_engine_input-events.js.md#l7) |
 
 ###### Parameters
 - type <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> The name of the event (case-sensitive), e.g. "click", "fire", or "submit".
@@ -131,11 +131,11 @@ Returns true if the `shift` key was down when the event was fired.
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/input-events.js:78` |
+| Defined | [utils/api/engine/input-events.js:78](../files/utils_api_engine_input-events.js.md#l78) |
 
 
 
-##### method: `getModifierState()`
+##### method: `getModifierState(keyArg)`
 
 Returns the current state of the specified modifier key. true if the modifier is active (i.e., the modifier key is pressed or locked). Otherwise, false.
 
@@ -143,7 +143,7 @@ See https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent.getModifierSt
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/input-events.js:51` |
+| Defined | [utils/api/engine/input-events.js:51](../files/utils_api_engine_input-events.js.md#l51) |
 | Return 		 | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a> 
 
 ###### Parameters
@@ -151,13 +151,13 @@ See https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent.getModifierSt
                          NOTE: If an application wishes to distinguish between right and left modifiers, this information could be deduced using keyboard events and Fire.KeyboardEvent.location.
 
 
-##### method: `initFromNativeEvent()`
+##### method: `initFromNativeEvent(nativeEvent)`
 
 
 
 | meta | description |
 |------|-------------|
-| Defined | `utils/api/engine/input-events.js:65` |
+| Defined | [utils/api/engine/input-events.js:65](../files/utils_api_engine_input-events.js.md#l65) |
 
 ###### Parameters
 - nativeEvent UIEvent The original DOM event

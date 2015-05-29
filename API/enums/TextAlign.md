@@ -1,28 +1,26 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
 ### `TextAlign` Enum
 
 
-Defined in: [utils/api/core/types.js:4](../files/utils/api/core/types.js.js)
+Defined in: [utils/api/core/types.js:35](../files/utils/api/core/types.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
 
 
 
-
- Text alignment
-
+Text alignment
 
 ### Index
 
 ##### Properties
-  - `center`
-  - `left`
-  - `right`
+  - `Center`
+  - `Left`
+  - `Right`
 
 
 ### Details
@@ -30,39 +28,38 @@ Module: [Fire](../modules/Fire.md)
 #### Properties
 
 
-##### property: `center`
+##### property: `Center`
 
 
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:16` |
+| Type | number |
+| Defined | [utils/api/core/types.js:47](../files/utils_api_core_types.js.md#l47) |
 
 
 
 
-##### property: `left`
+##### property: `Left`
 
-
- Align to the left 
-
-| meta | description |
-|------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:10` |
-
-
-
-
-##### property: `right`
-
-
+Align to the left
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/core/types.js:21` |
+| Type | number |
+| Defined | [utils/api/core/types.js:41](../files/utils_api_core_types.js.md#l41) |
+
+
+
+
+##### property: `Right`
+
+
+
+| meta | description |
+|------|-------------|
+| Type | number |
+| Defined | [utils/api/core/types.js:52](../files/utils_api_core_types.js.md#l52) |
 
 
 

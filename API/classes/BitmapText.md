@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -7,7 +7,7 @@ Fireball is the game engine for the future.
 
 Extends `Renderer`
 
-Defined in: [utils/api/engine/bitmap-text.js:7](../files/utils/api/engine/bitmap-text.js.js)
+Defined in: [utils/api/engine/bitmap-text.js:9](../files/utils/api/engine/bitmap-text.js.js)
 
 Module: [Fire](../modules/Fire.md)
 
@@ -20,11 +20,11 @@ The bitmap font renderer component.
 
 ##### Properties
 
-  - `align`
-  - `anchor`
-  - `bitmapFont`
-  - `color`
-  - `text`
+  - [`align`](#property-align)
+  - [`anchor`](#property-anchor)
+  - [`bitmapFont`](#property-bitmapfont)
+  - [`color`](#property-color)
+  - [`text`](#property-text)
 
 
 
@@ -35,31 +35,31 @@ The bitmap font renderer component.
 
 ##### Properties
 
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `getWorldBounds
-- `getWorldOrientedBounds
-- `getSelfMatrix
-- `getWorldSize
-- `onPreRender
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [``](#method-getworldbounds)
+- [``](#method-getworldorientedbounds)
+- [``](#method-getselfmatrix)
+- [``](#method-getworldsize)
+- [``](#method-onprerender)
+- [`destroy()`](#method-destroy)
+- [`_destruct()`](#method-_destruct)
+- [`_onPreDestroy()`](#method-_onpredestroy)
+- [`_serialize(exporting)`](#method-_serialize)
+- [`_deserialize(data, ctx, target)`](#method-_deserialize)
+- [`isValid(value)`](#method-isvalid)
 
 ##### Events
 
@@ -75,13 +75,13 @@ The bitmap font renderer component.
 
 ##### property: `align`
 
-How lines of text are aligned (left, right, center).
+How lines of text are aligned (Left, Right, Center).
 
 | meta | description |
 |------|-------------|
 | Type | Fire.TextAlign |
-| Defined | `utils/api/engine/bitmap-text.js:104` |
-| Default    | Fire.TextAlign.left |
+| Defined | [utils/api/engine/bitmap-text.js:106](../files/utils_api_engine_bitmap-text.js.md#l106) |
+| Default    | Fire.TextAlign.Left |
 
 
 
@@ -93,8 +93,8 @@ The anchor point of the text.
 | meta | description |
 |------|-------------|
 | Type | Fire.TextAnchor |
-| Defined | `utils/api/engine/bitmap-text.js:84` |
-| Default    | Fire.TextAnchor.midCenter |
+| Defined | [utils/api/engine/bitmap-text.js:86](../files/utils_api_engine_bitmap-text.js.md#l86) |
+| Default    | Fire.TextAnchor.MiddleCenter |
 
 
 
@@ -106,7 +106,7 @@ The font to render.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/BitmapFont.html" class="crosslink">BitmapFont</a> |
-| Defined | `utils/api/engine/bitmap-text.js:22` |
+| Defined | [utils/api/engine/bitmap-text.js:23](../files/utils_api_engine_bitmap-text.js.md#l23) |
 | Default    | null |
 
 
@@ -119,7 +119,7 @@ The color of the text.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Color.html" class="crosslink">Color</a> |
-| Defined | `utils/api/engine/bitmap-text.js:65` |
+| Defined | [utils/api/engine/bitmap-text.js:68](../files/utils_api_engine_bitmap-text.js.md#l68) |
 | Default    | Fire.Color.white |
 
 
@@ -131,8 +131,8 @@ The text to render.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/engine/bitmap-text.js:41` |
+| Type | string |
+| Defined | [utils/api/engine/bitmap-text.js:42](../files/utils_api_engine_bitmap-text.js.md#l42) |
 | Default    | &quot;&quot; |
 
 

@@ -1,5 +1,5 @@
 
-# fireball-build 0.3.0
+# fireball-build 0.4.0
 
 Fireball is the game engine for the future.
 
@@ -20,15 +20,15 @@ The Input Field renderer component.
 
 ##### Properties
 
-  - `anchor`
-  - `background`
-  - `color`
-  - `customFontType`
-  - `fontFlagType`
-  - `fontType`
-  - `maxLength`
-  - `size`
-  - `text`
+  - [`anchor`](#property-anchor)
+  - [`background`](#property-background)
+  - [`color`](#property-color)
+  - [`customFontType`](#property-customfonttype)
+  - [`fontFlagType`](#property-fontflagtype)
+  - [`fontType`](#property-fonttype)
+  - [`maxLength`](#property-maxlength)
+  - [`size`](#property-size)
+  - [`text`](#property-text)
 
 
 
@@ -39,31 +39,31 @@ The Input Field renderer component.
 
 ##### Properties
 
-- `_hashCode`
-- `_id`
-- `hashCode`
-- `id`
-- `_name`
-- `_objFlags`
-- `name`
-- `isValid`
+- [`_hashCode`](#property-_hashcode)
+- [`_id`](#property-_id)
+- [`hashCode`](#property-hashcode)
+- [`id`](#property-id)
+- [`_name`](#property-_name)
+- [`_objFlags`](#property-_objflags)
+- [`name`](#property-name)
+- [`isValid`](#property-isvalid)
 
 ##### Attributes
 
 
 ##### Methods
 
-- `getWorldBounds
-- `getWorldOrientedBounds
-- `getSelfMatrix
-- `getWorldSize
-- `onPreRender
-- `destroy
-- `_destruct
-- `_onPreDestroy
-- `_serialize
-- `_deserialize
-- `isValid
+- [``](#method-getworldbounds)
+- [``](#method-getworldorientedbounds)
+- [``](#method-getselfmatrix)
+- [``](#method-getworldsize)
+- [``](#method-onprerender)
+- [`destroy()`](#method-destroy)
+- [`_destruct()`](#method-_destruct)
+- [`_onPreDestroy()`](#method-_onpredestroy)
+- [`_serialize(exporting)`](#method-_serialize)
+- [`_deserialize(data, ctx, target)`](#method-_deserialize)
+- [`isValid(value)`](#method-isvalid)
 
 ##### Events
 
@@ -84,8 +84,8 @@ The anchor point of the input field.
 | meta | description |
 |------|-------------|
 | Type | Fire.TextAnchor |
-| Defined | `utils/api/engine/input-field.js:185` |
-| Default    | Fire.TextAnchor.midCenter |
+| Defined | [utils/api/engine/input-field.js:196](../files/utils_api_engine_input-field.js.md#l196) |
+| Default    | Fire.TextAnchor.MiddleCenter |
 
 
 
@@ -97,7 +97,7 @@ The background of the inputField.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/SpriteRenderer.html" class="crosslink">SpriteRenderer</a> |
-| Defined | `utils/api/engine/input-field.js:40` |
+| Defined | [utils/api/engine/input-field.js:40](../files/utils_api_engine_input-field.js.md#l40) |
 | Default    | null |
 
 
@@ -110,7 +110,7 @@ The color of input text.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/Color.html" class="crosslink">Color</a> |
-| Defined | `utils/api/engine/input-field.js:168` |
+| Defined | [utils/api/engine/input-field.js:179](../files/utils_api_engine_input-field.js.md#l179) |
 | Default    | Fire.Color.black |
 
 
@@ -122,8 +122,8 @@ The custom font type of the input text.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/engine/input-field.js:77` |
+| Type | string |
+| Defined | [utils/api/engine/input-field.js:77](../files/utils_api_engine_input-field.js.md#l77) |
 | Default    | &quot;Arial&quot; |
 
 
@@ -136,7 +136,7 @@ The font flag Type of the input text.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/FontFlagType.html" class="crosslink">FontFlagType</a> |
-| Defined | `utils/api/engine/input-field.js:101` |
+| Defined | [utils/api/engine/input-field.js:101](../files/utils_api_engine_input-field.js.md#l101) |
 | Default    | FontFlagType.Text |
 
 
@@ -149,7 +149,7 @@ The font type of the input text.
 | meta | description |
 |------|-------------|
 | Type | <a href="../classes/FontType.html" class="crosslink">FontType</a> |
-| Defined | `utils/api/engine/input-field.js:60` |
+| Defined | [utils/api/engine/input-field.js:60](../files/utils_api_engine_input-field.js.md#l60) |
 | Default    | FontType.Arial |
 
 
@@ -161,8 +161,8 @@ The maxLength of input text.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-field.js:152` |
+| Type | number |
+| Defined | [utils/api/engine/input-field.js:163](../files/utils_api_engine_input-field.js.md#l163) |
 | Default    | 10 |
 
 
@@ -174,8 +174,8 @@ The size of input text.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a> |
-| Defined | `utils/api/engine/input-field.js:136` |
+| Type | number |
+| Defined | [utils/api/engine/input-field.js:147](../files/utils_api_engine_input-field.js.md#l147) |
 | Default    | 20 |
 
 
@@ -187,8 +187,8 @@ The text of input field.
 
 | meta | description |
 |------|-------------|
-| Type | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> |
-| Defined | `utils/api/engine/input-field.js:118` |
+| Type | string |
+| Defined | [utils/api/engine/input-field.js:129](../files/utils_api_engine_input-field.js.md#l129) |
 | Default    | &quot;Enter text...&quot; |
 
 
