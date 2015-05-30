@@ -1,7 +1,8 @@
 
 # Fireball API 0.4.0
 
-Fireball is the game engine for the future.
+Fireball is a hackable game editor for creating mobile and HTML5 games, built with extremely extendable structure.
+You can also check out API documentation in [Fireball Learning Center](http://docs.fireball-x.com/api)
 
 
 ### Enums
