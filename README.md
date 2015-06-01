@@ -13,6 +13,6 @@ gulp update-electron
 # Install builtin packages
 sh utils/install-builtin.sh
 
-# run the demo app
-sh demo.sh
+# run it
+sh utils/fireball.sh
 ```
