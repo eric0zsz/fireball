@@ -30,26 +30,11 @@ xcuserdata/
 *.exvim
 .exvim.*/
 
+# webstorm
+.idea
+
 # project files
 node_modules/
 bower_components/
 ext/
-profile.json
-fire-shell/
-assets/
-library/
-local/
-settings/
-temp/
-
-# scripts
-*.bat
-*.sh
-!utils/**/*.sh
-!win-utils/**/*.bat
-
-# webstorm
-.idea
-
-# log files
-*.log
+bin/
