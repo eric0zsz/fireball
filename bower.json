@@ -1,0 +1,25 @@
+{
+  "name": "fireball",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "3rd",
+    "bower_components",
+    "ext",
+    "node_modules",
+    "test"
+  ],
+  "dependencies": {
+    "chai": "2.3.0",
+    "fontawesome": "4.3.0",
+    "mocha": "2.2.5",
+    "mousetrap": "ccampbell/mousetrap#1.5.2",
+    "numeral": "1.5.3",
+    "pace": "1.0.2",
+    "pixi": "3.0.6",
+    "polymer": "Polymer/polymer#^1.0.2",
+    "svg.js": "1.0.1",
+    "web-animations-js": "web-animations/web-animations-js#master"
+  },
+  "devDependencies": {}
+}
