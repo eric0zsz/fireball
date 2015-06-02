@@ -12,7 +12,7 @@ else {
 }
 
 var files;
-var indexFile = './test/index.json';
+var indexFile = './test/index.js';
 var singleTestFile = process.argv[2];
 
 // accept
