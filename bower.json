@@ -1,6 +1,5 @@
 {
   "name": "fireball",
-  "private": true,
   "ignore": [
     "**/.*",
     "3rd",

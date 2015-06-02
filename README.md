@@ -12,7 +12,12 @@ gulp update-electron
 
 # Install builtin packages
 sh utils/install-builtin.sh
+```
 
-# run it
-sh utils/fireball.sh
+## Run
+
+```bash
+sh utils/fireball.sh // Run fireball's dashboard
+sh utils/fireball.sh <project-path> // Open a project in Fireball Cavans Studio
+sh utils/package-studio.sh // Open Fireball Package Studio
 ```

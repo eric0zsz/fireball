@@ -15,14 +15,19 @@ global.__app = {
     },
 
     init: function ( options ) {
+        if ( Editor.devMode === 'packages' ) {
+            require('./package-studio/init');
+            return;
+        }
+
         if ( options.args.length > 0 ) {
             Editor.App.projectPath = options.args[0];
         }
         Editor.App.requireLogin = !Editor.isDev || options.requireLogin;
 
-        // if we have project path, go to the editor, otherwise go to the dashboard
+        // if we have project path, go to the studio, otherwise go to the dashboard
         if ( Editor.App.projectPath ) {
-            require('./editor/init');
+            require('./canvas-studio/init');
         }
         else {
             require('./dashboard/init');
