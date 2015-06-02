@@ -16,8 +16,15 @@ sh utils/install-builtin.sh
 
 ## Run
 
+Here are the ways to running fireball
+
 ```bash
-sh utils/fireball.sh # Run fireball's dashboard
-sh utils/fireball.sh "your/project/path" # Open a project in Fireball Cavans Studio
-sh utils/package-studio.sh # Open Fireball Package Studio
+# Run fireball's dashboard
+sh utils/fireball.sh
+
+# Open a project in Fireball Cavans Studio
+sh utils/fireball.sh "your/project/path"
+
+# Open Fireball Package Studio
+sh utils/package-studio.sh
 ```
