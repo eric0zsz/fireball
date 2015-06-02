@@ -49,8 +49,4 @@ Editor.JS.mixin(Editor.App, {
         // TODO
         // console.log('app unload');
     },
-
-    'app:test': function () {
-        console.log('hello dashboard');
-    },
 });
