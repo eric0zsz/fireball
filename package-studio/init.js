@@ -11,6 +11,9 @@ Editor.registerProfilePath( 'local', settingsPath );
 //
 Editor.registerDefaultLayout( Editor.url('app://package-studio/static/layout.json') );
 
+//
+Editor.registerPackagePath( Editor.url('editor-framework://demo/') );
+
 // mixin app
 Editor.JS.mixin(Editor.App, {
     run: function () {
