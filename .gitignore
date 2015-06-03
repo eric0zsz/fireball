@@ -33,6 +33,9 @@ xcuserdata/
 # webstorm
 .idea
 
+# npm files
+npm-debug.log
+
 # project files
 node_modules/
 bower_components/

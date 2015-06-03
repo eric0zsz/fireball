@@ -13,6 +13,10 @@ else {
 
 var files;
 var indexFile = './test/index.js';
+var testDirs = [
+    './test/',
+    './editor-framework/test/',
+];
 var singleTestFile = process.argv[2];
 
 // accept
@@ -20,18 +24,23 @@ if (singleTestFile) {
   singleTestFile = ('./test/' + process.argv[2] + '.js').replace('.js.js', '.js');
   SpawnSync(exePath, ['./', '--test', singleTestFile], {stdio: 'inherit'});
 }
-else if ( Fs.existsSync(indexFile) ) {
-    files = require(indexFile);
-    files.forEach(function ( file ) {
-        console.log( Chalk.magenta( 'Start test (' + file + ')') );
-        SpawnSync(exePath, ['./', '--test', file], {stdio: 'inherit'});
-    });
-}
 else {
-    Globby ( Path.join(path, '**/*.js'), function ( err, files ) {
-        files.forEach(function (file) {
-            console.log( Chalk.magenta( 'Start test (' + file + ')') );
-            SpawnSync(exePath, ['./', '--test', file], {stdio: 'inherit'});
-        });
+    testDirs.forEach( function ( path ) {
+        var indexFile = Path.join( path, 'index.js' );
+        if ( Fs.existsSync(indexFile) ) {
+            files = require('./' + indexFile);
+            files.forEach(function ( file ) {
+                console.log( Chalk.magenta( 'Start test (' + file + ')') );
+                SpawnSync(exePath, ['./', '--test', file], {stdio: 'inherit'});
+            });
+        }
+        else {
+            Globby ( Path.join(path, '**/*.js'), function ( err, files ) {
+                files.forEach(function (file) {
+                    console.log( Chalk.magenta( 'Start test (' + file + ')') );
+                    SpawnSync(exePath, ['./', '--test', file], {stdio: 'inherit'});
+                });
+            });
+        }
     });
 }
