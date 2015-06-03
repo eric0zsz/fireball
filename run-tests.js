@@ -21,8 +21,8 @@ var singleTestFile = process.argv[2];
 
 // accept
 if (singleTestFile) {
-  singleTestFile = ('./test/' + process.argv[2] + '.js').replace('.js.js', '.js');
-  SpawnSync(exePath, ['./', '--test', singleTestFile], {stdio: 'inherit'});
+    singleTestFile = ('./test/' + process.argv[2] + '.js').replace('.js.js', '.js');
+    SpawnSync(exePath, ['./', '--test', singleTestFile], {stdio: 'inherit'});
 }
 else {
     testDirs.forEach( function ( path ) {
