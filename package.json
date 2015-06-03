@@ -13,7 +13,8 @@
     "url": "https://github.com/fireball-x/fireball/issues"
   },
   "scripts": {
-    "test": "node run-tests.js"
+    "test": "node run-tests.js",
+    "init": "node utils/init.js"
   },
   "dependencies": {
     "async": "1.1.0",
@@ -42,11 +43,20 @@
     "gulp-changed": "1.2.1",
     "gulp-download-fire-shell": "0.1.3",
     "gulp-jshint": "1.10.0",
-    "gulp-shell": "0.2.11",
+    "gulp-shell": "0.4.1",
     "gulp-watch": "4.2.4",
-    "jshint-stylish": "2.0.0"
+    "jshint-stylish": "2.0.0",
+    "mkdirp": "0.5.1"
   },
-  "fire-shell-version": "0.24.0",
+  "builtins": [
+    "console",
+    "ipc-debugger",
+    "package-manager",
+    "tester",
+    "ui-kit",
+    "pixi-grid"
+  ],
+  "fire-shell-version": "0.26.1",
   "electron-version": "0.27.2",
   "main": "app.js"
 }
