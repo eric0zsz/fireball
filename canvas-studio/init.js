@@ -1,10 +1,15 @@
+var VERSION = '0.1.0';
+
+//
 Editor.log( 'Initializing engine-framework' );
 // TODO
 
 Editor.log( 'Initializing asset-db' );
 // TODO
 
-Editor.log( 'Initializing fireball' );
+Editor.log( 'Initializing Fireball Canvas Studio' );
+
+Editor.versions['canvas-studio'] = VERSION;
 // TODO
 
 // mixin app

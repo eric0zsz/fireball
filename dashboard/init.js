@@ -1,4 +1,9 @@
-Editor.log( 'Initializing dashboard' );
+var VERSION = '0.1.0';
+
+//
+Editor.log( 'Initializing Fireball Dashboard' );
+
+Editor.versions.dashboard = VERSION;
 // TODO
 
 // load ~/.fireball/fireball.json

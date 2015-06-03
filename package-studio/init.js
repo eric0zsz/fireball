@@ -1,5 +1,11 @@
+var VERSION = '0.1.0';
+
 var Fs = require('fire-fs');
 var Path = require('fire-path');
+
+Editor.log( 'Initializing Fireball Package Studio' );
+
+Editor.versions['package-studio'] = VERSION;
 
 // initialize ~/.fireball/package-studio/settings/
 var settingsPath = Path.join(Editor.appHome, 'package-studio', 'settings');
