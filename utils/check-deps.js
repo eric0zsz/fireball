@@ -39,15 +39,15 @@ function checkDeps(submodule, mainJson, depkey, filename) {
 					continue;
 				} else {
 					if (semver.valid(subDeps[prop])) {
-						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a version ' + chalkVersion(subDeps[prop]) + '. Main repo version ' + chalkVersion(mainDeps[prop]));
+						console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a version ' + chalkVersion(subDeps[prop]) + '. Main repo version ' + chalkVersion(mainDeps[prop]));
 					}	else if (subDeps[prop].split('/').length === 2) {
-						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a github url ' + chalkVersion(subDeps[prop]) + '.Main repo version ' + chalkVersion(mainDeps[prop]));
+						console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a github url ' + chalkVersion(subDeps[prop]) + '.Main repo version ' + chalkVersion(mainDeps[prop]));
 					} else {
-						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has an invalid version value ' + chalkVersion(subDeps[prop])); 
+						console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has an invalid version value ' + chalkVersion(subDeps[prop])); 
 					}
 				}
 			} else {
-				console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' is missing a fixed semver.');
+				console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' is missing a fixed semver.');
 			}
 		}
 	}
