@@ -37,7 +37,8 @@
     "lodash": "3.9.3",
     "mocha": "2.2.5",
     "semver": "4.3.6",
-    "winston": "1.0.0"
+    "winston": "1.0.0",
+    "font-manager": "fireball-x/font-manager#fire-0.3.0"
   },
   "devDependencies": {
     "gulp-changed": "1.2.1",
