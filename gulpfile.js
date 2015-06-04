@@ -14,13 +14,13 @@ require('./utils/download-shell');
 
 // public tasks
 
-gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'update-fire-shell'], 'npm', 'bower'));
+gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'update-electron'], 'npm', 'bower'));
 
-gulp.task('update', gulpSequence('pull-fireball', 'update-builtin', 'update-fire-shell'));
+gulp.task('update', gulpSequence('pull-fireball', 'update-builtin', 'update-electron'));
 
 gulp.task('update-deps', ['npm', 'bower']);
 
-gulp.task('run', ['run-fireshell']);
+gulp.task('run', ['run-electron']);
 
 gulp.task('package-studio', ['run-packagestudio']);
 
@@ -53,9 +53,9 @@ gulp.task('run-fireshell', function(cb) {
 gulp.task('run-packagestudio', function(cb) {
   var stream;
   if (process.platform === "win32") {
-      stream = shell(['call bin\\fire-shell\\fireball.exe %cd%\\. --debug=3030 --dev --dev-mode="packages" --show-devtools']);
+      stream = shell(['call bin\\electron\\electron.exe %cd%\\. --debug=3030 --dev --dev-mode="packages" --show-devtools']);
   } else {
-      stream = shell(['./bin/fire-shell/Fireball.app/Contents/MacOS/Fireball ./ --debug=3030 --dev --dev-mode="packages" --show-devtools "$@"']);
+      stream = shell(['./bin/electron/Electron.app/Contents/MacOS/Electron ./ --debug=3030 --dev --dev-mode="packages" --show-devtools "$@"']);
   }
   stream.write(process.stdout);
   stream.end();
