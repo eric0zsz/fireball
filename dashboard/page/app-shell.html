@@ -1,9 +1,21 @@
+<link rel="import" href="app-navbar.html">
+<link rel="import" href="app-sidebar.html">
+
 <dom-module id="app-shell" >
     <style>
+        :host {
+            @apply(--layout-fit);
+            @apply(--layout-vertical);
+
+            cursor: default;
+        }
     </style>
 
     <template>
-        Hello World
+        <app-navbar></app-navbar>
+        <div class="layout horizontal">
+            <app-sidebar></app-sidebar>
+        </div>
     </template>
 
     <script type="text/javascript" src="app-shell.js"></script>
