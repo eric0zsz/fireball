@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gulpSequence = require('gulp-sequence');
 var shell = require('gulp-shell');
 var Fs = require('fire-fs');
 var Path = require('path');
@@ -8,8 +9,12 @@ var git = require('./utils/git.js');
 var spawn = require('child_process').spawn;
 
 // require tasks
-require('./editor-framework/tasks/download-shell');
+require('./utils/download-shell');
 
+
+// public tasks
+
+gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'update-fire-shell'], 'npm', 'bower'));
 
 // run
 gulp.task('run-electron', function(cb) {
@@ -34,6 +39,38 @@ gulp.task('run-fireshell', function(cb) {
   stream.write(process.stdout);
   stream.end();
   stream.on('finish', cb);
+});
+
+gulp.task('init-submodules', function(cb) {
+  git.runGitCmdInPath(['submodule', 'update', '--init'], './', function() {
+    console.log('Git submodules inited!');
+    cb();
+  });
+});
+
+gulp.task('pull-fireball', function(cb) {
+  git.runGitCmdInPath(['pull', 'origin'], './', function() {
+    console.log('Fireball update complete!');
+    cb();
+  });
+});
+
+gulp.task('pull-submodules', function(cb) {
+  var modules = ['editor-framework', 'engine-framework', 'asset-db'];
+  var count = 0;
+  modules.map(function(module) {
+    if (Fs.existsSync(Path.join(module, '.git'))) {
+      count++;
+      git.runGitCmdInPath(['pull', 'origin', 'master'], module, function() {
+        if (--count <= 0) {
+          console.log('Git submodules pull complete!');
+          cb();
+        }
+      });
+    } else {
+      console.log(module + ' not initialized. Please run "gulp init-submodules" first!');
+    }
+  });
 });
 
 gulp.task('install-builtin', function(cb) {
@@ -102,3 +139,5 @@ gulp.task('npm', function(cb) {
   });
   child.on('exit', cb);
 });
+
+gulp.task('bower', shell.task(['bower install']));
