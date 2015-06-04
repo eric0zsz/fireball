@@ -14,7 +14,7 @@ require('./utils/download-shell');
 
 // public tasks
 
-gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'update-fire-shell', 'npm']));
+gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'update-fire-shell'], 'npm', 'bower'));
 
 // run
 gulp.task('run-electron', function(cb) {
@@ -139,3 +139,5 @@ gulp.task('npm', function(cb) {
   });
   child.on('exit', cb);
 });
+
+gulp.task('bower', shell.task(['bower install']));
