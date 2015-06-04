@@ -32,7 +32,7 @@ Editor.JS.mixin(Editor.App, {
         win.show();
 
         // page-level test case
-        win.load( 'app://canvas-studio/static/index.html' );
+        win.load( 'app://canvas-studio/index.html' );
 
         // open dev tools if needed
         if ( Editor.showDevtools ) {

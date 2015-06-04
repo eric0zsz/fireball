@@ -46,7 +46,7 @@ Editor.JS.mixin(Editor.App, {
         win.show();
 
         // page-level test case
-        win.load( 'app://dashboard/static/index.html' );
+        win.load( 'app://dashboard/index.html' );
 
         // open dev tools if needed
         if ( Editor.showDevtools ) {
