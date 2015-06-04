@@ -7,9 +7,33 @@
 
             border-right: 1px solid #555;
         }
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        ::content li {
+            padding: 15px;
+            border-t
+            font-weight: bold;
+            font-size: 15px;
+
+            color: #888;
+            background: #222;
+            cursor: pointer;
+        }
+
+        ::content li:hover {
+            color: #ccc;
+        }
     </style>
 
     <template>
+        <ul>
+            <content></content>
+        </ul>
     </template>
 
     <script type="text/javascript" src="app-sidebar.js"></script>

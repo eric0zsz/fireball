@@ -9,12 +9,22 @@
 
             cursor: default;
         }
+
+        #view {
+            @apply(--layout-flex);
+        }
     </style>
 
     <template>
         <app-navbar></app-navbar>
-        <div class="layout horizontal">
-            <app-sidebar></app-sidebar>
+        <div class="layout horizontal flex-1">
+            <app-sidebar>
+                <li>Recent Projects</li>
+                <li>New Project</li>
+                <li>Open Other ...</li>
+            </app-sidebar>
+            <div id="view">
+            </div>
         </div>
     </template>
 
