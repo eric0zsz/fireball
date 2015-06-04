@@ -27,39 +27,51 @@ gulp.task('package-studio', ['run-packagestudio']);
 
 // run
 gulp.task('run-electron', function(cb) {
-    var stream;
-    if (process.platform === "win32") {
-        stream = shell(['call bin\\electron\\electron.exe %cd%\\. --debug=3030 --dev --show-devtools']);
-    } else {
-        stream = shell(['./bin/electron/Electron.app/Contents/MacOS/Electron ./ --debug=3030 --dev --show-devtools "$@"']);
-    }
-    stream.write(process.stdout);
-    stream.end();
-    stream.on('finish', cb);
+  var cmdStr = '';
+  var optArr = [];
+  if (process.platform === "win32") {
+    cmdStr = 'call';
+    optArr = ['bin\\electron\\electron.exe', '%cd%\\.', '--debug=3030', '--dev', '--show-devtools'];
+  } else {
+    cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
+    optArr = ['./','--debug=3030','--dev','--show-devtools'];
+  }
+  var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
+  child.on('exit', function() {
+    cb();
+  });
 });
 
 gulp.task('run-fireshell', function(cb) {
-  var stream;
+  var cmdStr = '';
+  var optArr = [];
   if (process.platform === "win32") {
-      stream = shell(['call bin\\fire-shell\\fireball.exe %cd%\\. --debug=3030 --dev --show-devtools']);
+    cmdStr = 'call';
+    optArr = ['bin\\fire-shell\\fireball.exe', '%cd%\\.', '--debug=3030', '--dev', '--show-devtools'];
   } else {
-      stream = shell(['./bin/fire-shell/Fireball.app/Contents/MacOS/Fireball ./ --debug=3030 --dev --show-devtools "$@"']);
+    cmdStr = 'bin/fire-shell/Fireball.app/Contents/MacOS/Fireball';
+    optArr = ['./','--debug=3030','--dev','--show-devtools'];
   }
-  stream.write(process.stdout);
-  stream.end();
-  stream.on('finish', cb);
+  var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
+  child.on('exit', function() {
+    cb();
+  });
 });
 
 gulp.task('run-packagestudio', function(cb) {
-  var stream;
+  var cmdStr = '';
+  var optArr = [];
   if (process.platform === "win32") {
-      stream = shell(['call bin\\electron\\electron.exe %cd%\\. --debug=3030 --dev --dev-mode="packages" --show-devtools']);
+    cmdStr = 'call';
+    optArr = ['bin\\electron\\electron.exe', '%cd%\\.', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools'];
   } else {
-      stream = shell(['./bin/electron/Electron.app/Contents/MacOS/Electron ./ --debug=3030 --dev --dev-mode="packages" --show-devtools "$@"']);
+    cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
+    optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools'];
   }
-  stream.write(process.stdout);
-  stream.end();
-  stream.on('finish', cb);
+  var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
+  child.on('exit', function() {
+    cb();
+  });
 });
 
 gulp.task('init-submodules', function(cb) {
@@ -77,7 +89,7 @@ gulp.task('pull-fireball', function(cb) {
 });
 
 gulp.task('pull-submodules', function(cb) {
-  var modules = ['editor-framework', 'engine-framework', 'asset-db'];
+  var modules = pjson.submodules;
   var count = 0;
   modules.map(function(module) {
     if (Fs.existsSync(Path.join(module, '.git'))) {

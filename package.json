@@ -57,6 +57,11 @@
     "ui-kit",
     "pixi-grid"
   ],
+  "submodules": [
+    "editor-framework",
+    "engine-framework",
+    "asset-db"
+  ],
   "fire-shell-version": "0.26.1",
   "electron-version": "0.27.2",
   "main": "app.js"
