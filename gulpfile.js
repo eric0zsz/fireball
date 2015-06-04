@@ -30,8 +30,8 @@ gulp.task('run-electron', function(cb) {
   var cmdStr = '';
   var optArr = [];
   if (process.platform === "win32") {
-    cmdStr = 'call';
-    optArr = ['bin\\electron\\electron.exe', '%cd%\\.', '--debug=3030', '--dev', '--show-devtools'];
+    cmdStr = 'bin\\electron\\electron.exe';
+    optArr = ['.\\', '--debug=3030', '--dev', '--show-devtools'];
   } else {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
     optArr = ['./','--debug=3030','--dev','--show-devtools'];
@@ -46,8 +46,8 @@ gulp.task('run-fireshell', function(cb) {
   var cmdStr = '';
   var optArr = [];
   if (process.platform === "win32") {
-    cmdStr = 'call';
-    optArr = ['bin\\fire-shell\\fireball.exe', '%cd%\\.', '--debug=3030', '--dev', '--show-devtools'];
+    cmdStr = 'bin\\fire-shell\\fireball.exe';
+    optArr = ['.\\', '--debug=3030', '--dev', '--show-devtools'];
   } else {
     cmdStr = 'bin/fire-shell/Fireball.app/Contents/MacOS/Fireball';
     optArr = ['./','--debug=3030','--dev','--show-devtools'];
@@ -62,8 +62,8 @@ gulp.task('run-packagestudio', function(cb) {
   var cmdStr = '';
   var optArr = [];
   if (process.platform === "win32") {
-    cmdStr = 'call';
-    optArr = ['bin\\electron\\electron.exe', '%cd%\\.', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools'];
+    cmdStr = 'bin\\electron\\electron.exe';
+    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools'];
   } else {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
     optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools'];
