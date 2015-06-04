@@ -23,7 +23,12 @@ var singleTestFile = process.argv[2];
 
 // accept
 if (singleTestFile) {
-    singleTestFile = ('./test/' + process.argv[2] + '.js').replace('.js.js', '.js');
+    var splited = singleTestFile.split('/');
+    if (splited.length === 2) {
+      singleTestFile = ('./' + splited[0] + '/test/' + splited[1] + '.js').replace('.js.js', '.js');
+    } else {
+      singleTestFile = ('./test/' + process.argv[2] + '.js').replace('.js.js', '.js');
+    }
     SpawnSync(exePath, [cwd, '--test', singleTestFile], {stdio: 'inherit'});
 }
 else {
