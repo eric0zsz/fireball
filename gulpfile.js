@@ -174,3 +174,8 @@ gulp.task('npm', function(cb) {
 });
 
 gulp.task('bower', shell.task(['bower install']));
+
+gulp.task('check-deps', function(cb) {
+  var checkDeps = require('./utils/check-deps');
+  checkDeps.checkSubmoduleDeps(pjson.submodules);
+});
