@@ -1,10 +1,20 @@
 var VERSION = '0.1.0';
 
+var Path = require('fire-path');
+var Fs = require('fire-fs');
+
 //
 Editor.log( 'Initializing Fireball Dashboard' );
 
 Editor.versions.dashboard = VERSION;
 // TODO
+
+// initialize ~/.fireball/dashboard/
+var settingsPath = Path.join(Editor.appHome, 'dashboard');
+if ( !Fs.existsSync(settingsPath) ) {
+    Fs.makeTreeSync(settingsPath);
+}
+Editor.registerProfilePath( 'local', settingsPath );
 
 // load ~/.fireball/fireball.json
 Editor.loadProfile( 'fireball', 'global', {

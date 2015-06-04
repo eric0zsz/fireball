@@ -7,12 +7,12 @@ Editor.log( 'Initializing Fireball Package Studio' );
 
 Editor.versions['package-studio'] = VERSION;
 
-// initialize ~/.fireball/package-studio/settings/
-var settingsPath = Path.join(Editor.appHome, 'package-studio', 'settings');
-if ( !Fs.existsSync(settingsPath) ) {
-    Fs.makeTreeSync(settingsPath);
+// initialize ~/.fireball/package-studio/
+var localPath = Path.join(Editor.appHome, 'package-studio');
+if ( !Fs.existsSync(localPath) ) {
+    Fs.makeTreeSync(localPath);
 }
-Editor.registerProfilePath( 'local', settingsPath );
+Editor.registerProfilePath( 'local', localPath );
 
 //
 Editor.registerDefaultLayout( Editor.url('app://package-studio/static/layout.json') );

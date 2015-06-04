@@ -13,8 +13,8 @@
     "url": "https://github.com/fireball-x/fireball/issues"
   },
   "scripts": {
-    "test": "node run-tests.js",
-    "init": "node utils/init.js"
+    "test": "node ./utils/run-tests.js",
+    "init": "node ./utils/init.js"
   },
   "dependencies": {
     "async": "1.1.0",
