@@ -32,22 +32,22 @@ function checkDeps(submodule, mainJson, depkey, filename) {
 	var mainDeps = mainJson[depkey];
 	for (var prop in subDeps) {
 		if (!mainDeps.hasOwnProperty(prop)) {
-			console.log('New dependency ' + chalkProp(prop) + ' found in ' + chalkModule(submodule + '/' + filename) + ', please let @jwu add it to fireball/' + filename);
+			console.log('New ' + depkey + ' ' + chalkProp(prop) + ' found in ' + chalkModule(submodule + '/' + filename));
 		} else {
 			if (subDeps[prop]) {
 				if (subDeps[prop] === mainDeps[prop]) {
 					continue;
 				} else {
 					if (semver.valid(subDeps[prop])) {
-						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a version ' + chalkVersion(subDeps[prop]) + '. Which is different from main repo version ' + chalkVersion(mainDeps[prop]) + ', please let @jwu decide which version to use.');
+						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a version ' + chalkVersion(subDeps[prop]) + '. Main repo version ' + chalkVersion(mainDeps[prop]));
 					}	else if (subDeps[prop].split('/').length === 2) {
-						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a github url ' + chalkVersion(subDeps[prop]) + '. Which is different from main repo version ' + chalkVersion(mainDeps[prop]) + ', please let @jwu decide which url to use.');
+						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a github url ' + chalkVersion(subDeps[prop]) + '.Main repo version ' + chalkVersion(mainDeps[prop]));
 					} else {
-						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has an invalid version value ' + chalkVersion(subDeps[prop]) + '. The author should specify a valid and fixed semver or github url for that dependency.'); 
+						console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has an invalid version value ' + chalkVersion(subDeps[prop])); 
 					}
 				}
 			} else {
-				console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' is missing a fixed semver. The author should specify a valid and fixed semver for that dependency.');
+				console.log('Dependency ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' is missing a fixed semver.');
 			}
 		}
 	}
