@@ -1,5 +1,10 @@
+<link rel="import" href="app://bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="packages://ui-kit/widget/index.html">
+
 <link rel="import" href="app-navbar.html">
 <link rel="import" href="app-sidebar.html">
+<link rel="import" href="app-recent.html">
+<link rel="import" href="app-new.html">
 
 <dom-module id="app-shell" >
     <style>
@@ -12,18 +17,25 @@
 
         #view {
             @apply(--layout-flex);
+
+            position: relative;
         }
     </style>
 
     <template>
         <app-navbar></app-navbar>
         <div class="layout horizontal flex-1">
-            <app-sidebar>
-                <li>Recent Projects</li>
-                <li>New Project</li>
-                <li>Open Other ...</li>
+            <app-sidebar on-select="_onSelect">
+                <div>Recent Projects</div>
+                <div>New Project</div>
             </app-sidebar>
             <div id="view">
+                <div hidden$="[[!_recentProject(curIndex)]]">
+                    <app-recent></app-recent>
+                </div>
+                <div hidden$="[[!_newProject(curIndex)]]">
+                    <app-new></app-new>
+                </div>
             </div>
         </div>
     </template>

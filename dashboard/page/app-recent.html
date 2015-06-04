@@ -1,0 +1,82 @@
+<dom-module id="app-recent" >
+    <style>
+        :host {
+            @apply(--layout-fit);
+        }
+
+        [flex-1] {
+            @apply(--layout-flex);
+        }
+
+        .project {
+            @apply(--layout-vertical);
+            @apply(--layout-self-stretch);
+
+            position: relative;
+            padding: 10px;
+            margin-bottom: 5px;
+
+            background: #373737;
+            border: 1px solid #666;
+            border-width: 1px 0;
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .path {
+            font-size: 15px;
+            color: #777;
+        }
+
+        .logo {
+            width: 25px;
+            height: 25px;
+            margin-left: 15px;
+            margin-right: 5px;
+        }
+    </style>
+
+    <template>
+        <template is="dom-repeat" items="{{list}}">
+            <div class="project">
+                <div class="name">{{item.name}}</div>
+                <div class="layout horizontal center">
+                    <img class="logo" src$="{{_getRuntimeLogo(item.runtime)}}"></img>
+                    <div class="path">{{item.path}}</div>
+                    <span flex-1></span>
+                    <div class="btn-group">
+                        <editor-button>Close</editor-button>
+                        <editor-button>Open</editor-button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        var Url = require('fire-url');
+
+        Polymer({
+            is: 'app-recent',
+
+            ready: function () {
+                this.list = [
+                    { name: 'Hello World', path: '~/hello/world', runtime: 'cocos2d-js' },
+                    { name: 'Foo Bar', path: '~/foo/bar', runtime: 'pixi' },
+                ];
+            },
+
+            _getRuntimeLogo: function ( name ) {
+                var info = Dashboard.runtimeInfos[name];
+                if ( info ) {
+                    return Url.join('app://', info.path, 'res/logo.png');
+                }
+                return '';
+            },
+        });
+    </script>
+</dom-module>

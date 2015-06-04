@@ -1,0 +1,125 @@
+<dom-module id="app-new" >
+    <style>
+        :host {
+            @apply(--layout-fit);
+            @apply(--layout-vertical);
+
+            padding: 10px;
+        }
+
+        [row] {
+            @apply(--layout-horizontal);
+
+            margin-bottom: 10px;
+        }
+
+        [row][end] {
+            @apply(--layout-horizontal);
+            @apply(--layout-end-justified);
+        }
+
+        [flex-1] {
+            @apply(--layout-flex);
+        }
+
+        iron-selector {
+            @apply(--layout-horizontal);
+            @apply(--layout-wrap);
+        }
+
+        .runtime-list {
+            border: 1px solid black;
+        }
+
+        .runtime {
+            width: 180px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid #666;
+            box-sizing: border-box;
+
+            background: #444;
+            cursor: pointer;
+        }
+
+        .runtime:hover {
+            border: 1px solid #999;
+        }
+
+        .runtime.selected {
+            border: 1px solid #09f;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100px;
+        }
+
+        .name {
+            margin: 0px;
+            padding: 10px 16px 0;
+        }
+
+        .version {
+            margin: 0px;
+            padding: 10px 16px 0;
+
+            color: #888;
+        }
+    </style>
+
+    <template>
+        <div row>
+            <span style="width: 100px;">Name </span>
+            <input flex-1></input>
+        </div>
+        <div row>
+            <span style="width: 100px;">Path </span>
+            <input flex-1></input>
+        </div>
+        <div row end>
+            <editor-button>Create</editor-button>
+        </div>
+        <div class="runtime-list" flex-1>
+            <iron-selector
+                selected="0"
+                selected-class="selected"
+                on-selected-changed="_onSelectedChanged"
+            >
+                <template is="dom-repeat" items="{{infos}}">
+                    <div class="runtime">
+                        <img class="banner" src$="{{_getRuntimeBanner(item.name)}}"></img>
+                        <h2 class="name">{{item.name}}</h2>
+                        <h3 class="version">{{item.version}}</h3>
+                    </div>
+                </template>
+            </iron-selector>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'app-new',
+
+            ready: function () {
+                var infos = [];
+                for ( var p in Dashboard.runtimeInfos ) {
+                    infos.push( Dashboard.runtimeInfos[p] );
+                }
+                this.infos = infos;
+            },
+
+            _getRuntimeBanner: function ( name ) {
+                var info = Dashboard.runtimeInfos[name];
+                if ( info ) {
+                    return Url.join('app://', info.path, 'res/banner.png');
+                }
+                return '';
+            },
+
+            _onSelectedChanged: function ( event ) {
+                // TODO
+            },
+        });
+    </script>
+</dom-module>

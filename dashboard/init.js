@@ -7,7 +7,6 @@ var Fs = require('fire-fs');
 Editor.log( 'Initializing Fireball Dashboard' );
 
 Editor.versions.dashboard = VERSION;
-// TODO
 
 // initialize ~/.fireball/dashboard/
 var settingsPath = Path.join(Editor.appHome, 'dashboard');
@@ -23,6 +22,8 @@ Editor.loadProfile( 'fireball', 'global', {
     'remember-passwd': true,
     'login-type': 'account',
 });
+
+// TODO: load runtime infos here
 
 // mixin app
 Editor.JS.mixin(Editor.App, {
@@ -65,5 +66,21 @@ Editor.JS.mixin(Editor.App, {
     unload: function () {
         // TODO
         // console.log('app unload');
+    },
+
+    'app:get-runtime-infos': function ( event ) {
+        // TODO:
+        event.returnValue = {
+            'pixi': {
+                name: 'pixi',
+                version: '3.0.6',
+                path: 'runtime/runtime-pixi/',
+            },
+            'cocos2d-js': {
+                name: 'cocos2d-js',
+                version: '3.0.0',
+                path: 'runtime/runtime-cocos2d/',
+            },
+        };
     },
 });
