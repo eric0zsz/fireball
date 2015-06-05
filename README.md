@@ -29,6 +29,9 @@ git submodule update --init
 # Install builtin packages
 gulp install-builtin
 
+# Install runtime packages
+gulp install-runtime
+
 # Install fireshell(electron)
 gulp update-fire-shell
 

@@ -14,9 +14,9 @@ require('./utils/download-shell');
 
 // public tasks
 
-gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'update-electron'], 'npm', 'bower'));
+gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'install-runtime', 'update-electron'], 'npm', 'bower'));
 
-gulp.task('update', gulpSequence('pull-fireball', 'update-builtin', 'update-electron'));
+gulp.task('update', gulpSequence('pull-fireball', ['update-builtin', 'update-runtime', 'update-electron']));
 
 gulp.task('update-deps', ['npm', 'bower']);
 
@@ -63,10 +63,10 @@ gulp.task('run-packagestudio', function(cb) {
   var optArr = [];
   if (process.platform === "win32") {
     cmdStr = 'bin\\electron\\electron.exe';
-    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools'];
+    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools', '"$@"'];
   } else {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
-    optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools'];
+    optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools','"$@"'];
   }
   var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
   child.on('exit', function() {
@@ -154,6 +154,58 @@ gulp.task('update-builtin', function(cb) {
     });
   } else {
     console.warn('Builtin folder not initialized, please run "gulp install-builtin" first!');
+    cb();
+  }
+});
+
+gulp.task('install-runtime', function(cb) {
+  var count = 0;
+  if (Fs.isDirSync('runtime')) {
+    pjson.runtimes.map(function(runtimeName) {
+      if (!Fs.existsSync(Path.join('runtime', runtimeName, '.git'))) {
+        count++;
+        git.runGitCmdInPath(['clone', 'https://github.com/fireball-x/' + runtimeName], 'runtime', function() {
+          if (--count <= 0) {
+            console.log('Runtime engines installation complete!');
+            cb();
+          }
+        });
+      } else {
+        console.log(runtimeName + ' has already installed in runtime/' + runtimeName + ' folder!');
+      }
+    });
+  } else {
+    mkdirp('runtime');
+    pjson.runtimes.map(function(runtimeName) {
+      count++;
+      git.runGitCmdInPath(['clone', 'https://github.com/fireball-x/' + runtimeName], 'runtime', function() {
+        if (--count <= 0) {
+          console.log('Runtime engines installation complete!');
+          cb();
+        }
+      });
+    });
+  }
+});
+
+gulp.task('update-runtime', function(cb) {
+  var count = 0;
+  if (Fs.isDirSync('runtime')) {
+    pjson.runtimes.map(function(runtimeName) {
+      if (Fs.existsSync(Path.join('runtime', runtimeName, '.git'))) {
+        count++;
+        git.runGitCmdInPath(['pull', 'origin'], Path.join('runtime', runtimeName), function() {
+          if (--count <= 0) {
+            console.log('Runtime engines update complete!');
+            cb();
+          }
+        });
+      } else {
+        console.warn('Runtime engine ' + runtimeName + ' not initialized, please run "gulp install-runtime" first!');
+      }
+    });
+  } else {
+    console.warn('Runtime folder not initialized, please run "gulp install-runtime" first!');
     cb();
   }
 });

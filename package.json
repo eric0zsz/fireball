@@ -57,10 +57,18 @@
     "ui-kit",
     "pixi-grid"
   ],
+  "runtimes": [
+    "runtime-cocos2d-js",
+    "runtime-pixi"
+  ],
   "submodules": [
     "editor-framework",
     "engine-framework",
     "asset-db"
+  ],
+  "native-modules": [
+    "git-utils",
+    "chokidar"
   ],
   "fire-shell-version": "0.26.1",
   "electron-version": "0.27.2",
