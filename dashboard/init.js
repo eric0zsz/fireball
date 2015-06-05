@@ -78,8 +78,8 @@ Editor.JS.mixin(Editor.App, {
             },
             'cocos2d-js': {
                 name: 'cocos2d-js',
-                version: '3.0.0',
-                path: 'runtime/runtime-cocos2d/',
+                version: '3.6.1',
+                path: 'runtime/runtime-cocos2d-js/',
             },
         };
     },
