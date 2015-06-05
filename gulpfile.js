@@ -63,10 +63,10 @@ gulp.task('run-packagestudio', function(cb) {
   var optArr = [];
   if (process.platform === "win32") {
     cmdStr = 'bin\\electron\\electron.exe';
-    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools'];
+    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools', '"$@"'];
   } else {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
-    optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools'];
+    optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools','"$@"'];
   }
   var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
   child.on('exit', function() {
