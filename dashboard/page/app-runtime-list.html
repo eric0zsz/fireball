@@ -78,8 +78,9 @@
             <iron-selector id="selector"
                 selected="0"
                 selected-class="selected"
+                on-selected-changed="_onSelectedChanged"
             >
-                <template is="dom-repeat" id="list" items="{{infos}}">
+                <template id="list" is="dom-repeat" items="{{infos}}">
                     <div class="runtime">
                         <img class="banner" src$="{{_getRuntimeBanner(item.name)}}"></img>
                         <h2 class="name">{{item.name}}</h2>
@@ -88,6 +89,7 @@
                 </template>
             </iron-selector>
         </div>
+        <div row>{{description}}</div>
         <div row end>
             <editor-button on-click="_onNext">Next</editor-button>
         </div>
@@ -103,6 +105,13 @@
                     infos.push( Dashboard.runtimeInfos[p] );
                 }
                 this.infos = infos;
+
+                if ( this.infos.length > 0 )
+                    this.description = this.infos[0].description;
+            },
+
+            reset: function () {
+                this.$.selector.select(0);
             },
 
             _getRuntimeBanner: function ( name ) {
@@ -111,6 +120,14 @@
                     return Url.join('app://', info.path, 'res/banner.png');
                 }
                 return '';
+            },
+
+            _onSelectedChanged: function ( event ) {
+                var itemEL = Polymer.dom(this.$.selector).children[event.detail.value];
+                var model = this.$.list.modelForElement(itemEL);
+                if ( model ) {
+                    this.set('description', model.item.description);
+                }
             },
 
             _onNext: function ( event ) {

@@ -1,4 +1,5 @@
 <link rel="import" href="app://bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="app://bower_components/iron-input/iron-input.html">
 <link rel="import" href="packages://ui-kit/widget/index.html">
 
 <link rel="import" href="app-navbar.html">
@@ -34,11 +35,34 @@
                     <app-recent></app-recent>
                 </div>
                 <div hidden$="[[!_newProject(curIndex)]]">
-                    <app-new></app-new>
+                    <app-new id="appNew"></app-new>
                 </div>
             </div>
         </div>
     </template>
 
-    <script type="text/javascript" src="app-shell.js"></script>
+    <script type="text/javascript">
+        Polymer({
+            is: 'app-shell',
+
+            ready: function () {
+                this.curIndex = 0;
+            },
+
+            _onSelect: function ( event ) {
+                this.curIndex = event.detail.index;
+                if ( this.curIndex === 1 ) {
+                    this.$.appNew.reset();
+                }
+            },
+
+            _recentProject: function ( idx ) {
+                return idx === 0;
+            },
+
+            _newProject: function ( idx ) {
+                return idx === 1;
+            },
+        });
+    </script>
 </dom-module>

@@ -9,11 +9,12 @@
     </style>
 
     <template>
-        <app-runtime-list id="runtime-list"
+        <app-runtime-list id="runtimeList"
             hidden$="[[!_runtimeList(curIndex)]]"
         ></app-runtime-list>
-        <app-template-list id="template-list"
+        <app-template-list id="templateList"
             hidden$="[[!_templateList(curIndex)]]"
+            runtime-info="{{runtimeInfo}}"
         ></app-template-list>
     </template>
 
@@ -31,6 +32,13 @@
                 this.runtimeInfo = null;
             },
 
+            reset: function () {
+                this.curIndex = 0;
+                this.runtimeInfo = null;
+                this.$.runtimeList.reset();
+                this.$.templateList.reset();
+            },
+
             _onBack: function ( event ) {
                 this.curIndex = Math.max( this.curIndex - 1, 0 );
             },
@@ -38,7 +46,8 @@
             _onNext: function ( event ) {
                 switch ( this.curIndex ) {
                 case 0:
-                    this.runtimeInfo = event.detail.info;
+                    this.set('runtimeInfo', event.detail.info);
+                    this.$.templateList.focusInput();
                     break;
 
                 case 1:

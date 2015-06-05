@@ -72,15 +72,23 @@ Editor.JS.mixin(Editor.App, {
         // TODO:
         event.returnValue = {
             'pixi': {
+                path: 'runtime/runtime-pixi/',
                 name: 'pixi',
                 version: '3.0.6',
-                path: 'runtime/runtime-pixi/',
+                description: 'A pixi runtime',
             },
             'cocos2d-js': {
+                path: 'runtime/runtime-cocos2d-js/',
                 name: 'cocos2d-js',
                 version: '3.6.1',
-                path: 'runtime/runtime-cocos2d-js/',
+                description: 'A cocos2d-js runtime',
             },
+        };
+    },
+
+    'app:get-template-infos': function ( event ) {
+        // TODO
+        event.returnValue = {
         };
     },
 });

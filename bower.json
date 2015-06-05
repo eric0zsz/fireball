@@ -12,6 +12,7 @@
     "chai": "2.3.0",
     "fontawesome": "4.3.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout",
+    "iron-input": "PolymerElements/iron-input",
     "iron-selector": "PolymerElements/iron-selector",
     "mocha": "2.2.5",
     "mousetrap": "ccampbell/mousetrap#1.5.2",
