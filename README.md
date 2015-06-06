@@ -57,9 +57,24 @@ gulp package-studio
 You can run package studio with path parameter like this:
 
 ```bash
-# Open Fireball Package Studio
+# Barely Open Fireball Package Studio
+sh utils/package-studio.sh
+
+# Open Fireball Package Studio And Load All Packages Under demo/
 sh utils/package-studio.sh editor-framework/demo/
+
+# Open Fireball Package Studio And Load Single Package demo/grid/
+sh utils/package-studio.sh editor-framework/demo/grid/
 ```
+
+Package Studio will detect the path argument you sent to it, if there is a
+package.json under the path, it will treat your path as a single package, and load
+it after builtin package loaded.
+
+Otherwise, Package Studio will register your path as a package loading path through
+`Editor.registerPackagePath` function, and load any packages under it. This also trigger
+the watch for the path, so any packages you add to this path after Studio opened, will
+be loaded automatically.
 
 ## Update
 
