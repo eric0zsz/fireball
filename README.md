@@ -57,14 +57,14 @@ gulp package-studio
 You can run package studio with path parameter like this:
 
 ```bash
-# Barely Open Fireball Package Studio
-sh utils/package-studio.sh
+# Open Fireball Package Studio with default builtin packages
+gulp package-studio 
 
-# Open Fireball Package Studio And Load All Packages Under demo/
-sh utils/package-studio.sh editor-framework/demo/
+# Open Fireball Package Studio with all packages in editor-framework/demo loaded
+gulp package-studio --path editor-framework/demo
 
-# Open Fireball Package Studio And Load Single Package demo/grid/
-sh utils/package-studio.sh editor-framework/demo/grid/
+# Open Fireball Package Studio with a single package editor-framework/demo/grid loaded
+gulp package-studio --path editor-framework/demo/grid
 ```
 
 Package Studio will detect the path argument you sent to it, if there is a

@@ -59,37 +59,28 @@ gulp.task('run-fireshell', function(cb) {
 });
 
 gulp.task('run-packagestudio', function(cb) {
+  var Commander = require('commander');
+  Commander.option('--path <path>', 'Run packages in path' )
+           .parse(process.argv)
+           ;
 
-  var packagePath = null;
-  var knownOptions = {
-    string: 'path',
-    default: { path: null }
-  };
-  var argv = require('minimist')(process.argv.slice(2), knownOptions);
-//  if (argv.length > 1) {
-  packagePath = argv.path;
-//  }
-  console.log(packagePath);
+  var packagePath = Commander.path;
+  if ( packagePath ) {
+      console.log('Load packages from %s', packagePath);
+  }
+
   var cmdStr = '';
   var optArr = [];
   if (process.platform === "win32") {
     cmdStr = 'bin\\electron\\electron.exe';
-    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode="packages"', '--show-devtools', packagePath];
+    optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode=packages', '--show-devtools', packagePath];
   } else {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
-    optArr = ['./','--debug=3030','--dev','--dev-mode="packages"','--show-devtools', packagePath];
+    optArr = ['./','--debug=3030','--dev','--dev-mode=packages','--show-devtools', packagePath];
   }
-  var cmdline = cmdStr + ' ' + optArr.join(' ');
-//  console.log(cmdline);
-  var proc = require('child_process').exec(cmdline);
-//  var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
-  proc.stdout.on('data', function(data) {
-    console.log(data.toString());
-  });
-  proc.stderr.on('data', function(data) {
-    console.log(data.toString());
-  });
-  proc.on('exit', function() {
+  
+  var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
+  child.on('exit', function() {
     cb();
   });
 });

@@ -46,7 +46,6 @@
     "gulp-shell": "0.4.1",
     "gulp-watch": "4.2.4",
     "jshint-stylish": "2.0.0",
-    "minimist": "1.1.1",
     "mkdirp": "0.5.1",
     "vulcanize": "1.8.1"
   },
