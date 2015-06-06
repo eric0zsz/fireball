@@ -18,11 +18,23 @@ Editor.registerProfilePath( 'local', localPath );
 Editor.registerDefaultLayout( Editor.url('app://package-studio/static/layout.json') );
 
 //
-Editor.registerPackagePath( Editor.url('editor-framework://demo/') );
+var isSinglePackage = false;
+if ( Editor.App.projectPath && Fs.existsSync(Editor.App.projectPath) ) {
+    if ( Fs.existsSync( Path.join(Editor.App.projectPath, 'package.json') ) ) {
+        isSinglePackage = true;
+    }
+    else {
+        Editor.registerPackagePath(Path.resolve(Editor.App.projectPath));
+    }
+}
 
 // mixin app
 Editor.JS.mixin(Editor.App, {
     run: function () {
+        if ( isSinglePackage ) {
+            Editor.Package.load(Path.resolve(Editor.App.projectPath));
+        }
+
         // create main window
         var win = new Editor.Window('main', {
             'title': 'Fireball - Package Studio',
