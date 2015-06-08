@@ -117,10 +117,10 @@ gulp pull-submodules
 npm test
 
 # Run a single test
-npm run test <testfile...>
+npm run test -- <testfile...>
 
 # Run test in submodule
-npm run test editor-framework/<testfile...>
+npm run test -- editor-framework/<testfile...>
 ```
 
 All test files are located in [test](/test/) folder or submodule's `test/` folder.
