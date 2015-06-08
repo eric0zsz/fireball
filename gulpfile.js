@@ -78,7 +78,7 @@ gulp.task('run-packagestudio', function(cb) {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
     optArr = ['./','--debug=3030','--dev','--dev-mode=packages','--show-devtools', packagePath];
   }
-  
+
   var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
   child.on('exit', function() {
     cb();
@@ -93,7 +93,7 @@ gulp.task('init-submodules', function(cb) {
 });
 
 gulp.task('pull-fireball', function(cb) {
-  git.runGitCmdInPath(['pull', 'origin'], './', function() {
+  git.runGitCmdInPath(['pull', 'https://github.com/fireball-x/fireball.git'], './', function() {
     console.log('Fireball update complete!');
     cb();
   });
@@ -112,7 +112,7 @@ gulp.task('pull-submodules', function(cb) {
       });
     } else {
       console.log(module + ' not initialized. Please run "gulp init-submodules" first!');
-      return cb();  
+      return cb();
     }
   });
 });
@@ -132,7 +132,7 @@ gulp.task('install-builtin', function(cb) {
         console.log(packageName + ' has already installed in builtin/' + packageName + ' folder!');
         console.log(count);
         if (--count <= 0) {
-          cb();  
+          cb();
         }
       }
     });
