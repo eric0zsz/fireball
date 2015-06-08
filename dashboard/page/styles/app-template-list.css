@@ -1,0 +1,68 @@
+:host {
+    @apply(--layout-fit);
+    @apply(--layout-vertical);
+
+    padding: 10px;
+}
+
+[row] {
+    @apply(--layout-horizontal);
+
+    margin-top: 10px;
+}
+
+[row][end] {
+    @apply(--layout-horizontal);
+    @apply(--layout-end-justified);
+}
+
+[flex-1] {
+    @apply(--layout-flex);
+}
+
+iron-selector {
+    @apply(--layout-horizontal);
+    @apply(--layout-wrap);
+}
+
+.btn-group {
+    @apply(--layout-horizontal);
+    margin-left: 50px;
+}
+
+.btn-group editor-button {
+    margin-left: 5px;
+    width: 80px;
+}
+
+input {
+    margin-left: 5px;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.template-list {
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.template {
+    width: 180px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid #666;
+    box-sizing: border-box;
+
+    background: #444;
+    cursor: pointer;
+}
+
+.template:hover {
+    border: 1px solid #999;
+}
+
+.template.selected {
+    border: 1px solid #09f;
+}

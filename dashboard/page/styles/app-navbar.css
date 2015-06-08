@@ -1,0 +1,30 @@
+:host {
+    @apply(--layout-horizontal);
+    @apply(--layout-center);
+
+    background: #000;
+    padding: 3px 10px;
+    height: 30px;
+    min-height: 30px;
+}
+
+[flex-1] {
+    @apply(--layout-flex);
+}
+
+.title {
+    color: #f90;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input {
+    margin-left: 5px;
+}
+
+img {
+    box-sizing: border-box;
+    height: 30px;
+    border: 1px solid #171717;
+    margin-left: 5px;
+}
