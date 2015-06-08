@@ -1,0 +1,69 @@
+<link rel="import" href="app-runtime-list.html">
+<link rel="import" href="app-template-list.html">
+
+<dom-module id="app-new" >
+    <style>
+        :host {
+            @apply(--layout-fit);
+        }
+    </style>
+
+    <template>
+        <app-runtime-list id="runtimeList"
+            hidden$="[[!_runtimeList(curIndex)]]"
+        ></app-runtime-list>
+        <app-template-list id="templateList"
+            hidden$="[[!_templateList(curIndex)]]"
+            runtime-info="{{runtimeInfo}}"
+        ></app-template-list>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'app-new',
+
+            listeners: {
+                'back': '_onBack',
+                'next': '_onNext',
+            },
+
+            ready: function () {
+                this.curIndex = 0;
+                this.runtimeInfo = null;
+            },
+
+            reset: function () {
+                this.curIndex = 0;
+                this.runtimeInfo = null;
+                this.$.runtimeList.reset();
+                this.$.templateList.reset();
+            },
+
+            _onBack: function ( event ) {
+                this.curIndex = Math.max( this.curIndex - 1, 0 );
+            },
+
+            _onNext: function ( event ) {
+                switch ( this.curIndex ) {
+                case 0:
+                    this.set('runtimeInfo', event.detail.info);
+                    this.$.templateList.focusInput();
+                    break;
+
+                case 1:
+                    break;
+                }
+
+                this.curIndex = Math.min( this.curIndex + 1, 1 );
+            },
+
+            _runtimeList: function ( idx ) {
+                return idx === 0;
+            },
+
+            _templateList: function ( idx ) {
+                return idx === 1;
+            },
+        });
+    </script>
+</dom-module>

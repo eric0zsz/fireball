@@ -1,0 +1,76 @@
+<dom-module id="app-sidebar" >
+    <style>
+        :host {
+            width: 250px;
+            height: 100%;
+            display: block;
+
+            border-right: 1px solid #555;
+        }
+
+        :host ::content div {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 15px;
+
+            color: #888;
+            cursor: pointer;
+
+            border: 1px solid transparent;
+            border-width: 1px 0;
+        }
+
+        :host ::content div:hover {
+            color: #ccc;
+        }
+
+        :host ::content div.selected {
+            border: 1px solid #666;
+            border-width: 1px 0;
+
+            background: #444;
+            color: #ccc;
+        }
+
+        .open-other {
+            color: rgb(255,186,0);
+        }
+    </style>
+
+    <template>
+        <iron-selector
+            selected="0"
+            selected-class="selected"
+            on-selected-changed="_onSelectedChanged"
+        >
+            <content></content>
+        </iron-selector>
+
+        <div class="open-other" on-click="_onOpen">Open Other ...</div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'app-sidebar',
+
+            _onOpen: function ( event ) {
+                var dialog = Remote.require('dialog');
+
+                var result = dialog.showOpenDialog ( {
+                    title: "Choose a project",
+                    properties: [ 'openDirectory' ]
+                } );
+
+                if ( result ) {
+                    Editor.sendToCore( 'app:open-project', result[0] );
+                }
+            },
+
+            _onSelectedChanged: function ( event ) {
+                this.fire('select', {
+                    index: event.detail.value
+                });
+            },
+        });
+    </script>
+</dom-module>

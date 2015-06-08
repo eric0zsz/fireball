@@ -1,0 +1,68 @@
+<link rel="import" href="app://bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="app://bower_components/iron-input/iron-input.html">
+<link rel="import" href="packages://ui-kit/widget/index.html">
+
+<link rel="import" href="app-navbar.html">
+<link rel="import" href="app-sidebar.html">
+<link rel="import" href="app-recent.html">
+<link rel="import" href="app-new.html">
+
+<dom-module id="app-shell" >
+    <style>
+        :host {
+            @apply(--layout-fit);
+            @apply(--layout-vertical);
+
+            cursor: default;
+        }
+
+        #view {
+            @apply(--layout-flex);
+
+            position: relative;
+        }
+    </style>
+
+    <template>
+        <app-navbar></app-navbar>
+        <div class="layout horizontal flex-1">
+            <app-sidebar on-select="_onSelect">
+                <div>Recent Projects</div>
+                <div>New Project</div>
+            </app-sidebar>
+            <div id="view">
+                <div hidden$="[[!_recentProject(curIndex)]]">
+                    <app-recent></app-recent>
+                </div>
+                <div hidden$="[[!_newProject(curIndex)]]">
+                    <app-new id="appNew"></app-new>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script type="text/javascript">
+        Polymer({
+            is: 'app-shell',
+
+            ready: function () {
+                this.curIndex = 0;
+            },
+
+            _onSelect: function ( event ) {
+                this.curIndex = event.detail.index;
+                if ( this.curIndex === 1 ) {
+                    this.$.appNew.reset();
+                }
+            },
+
+            _recentProject: function ( idx ) {
+                return idx === 0;
+            },
+
+            _newProject: function ( idx ) {
+                return idx === 1;
+            },
+        });
+    </script>
+</dom-module>

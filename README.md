@@ -1,36 +1,128 @@
-<img src="https://fireball-slack.herokuapp.com/badge.svg">
+![release badge](https://img.shields.io/github/release/fireball-x/fireball.svg)
 
-Fireball is a hackable game editor for creating mobile and HTML5 games, built with extremely extendable structure.
-
-Fireball Just [Released v0.4.0!](https://github.com/fireball-x/fireball/releases/tag/v0.4.0). Also please check out the newly added [Examples](https://github.com/fireball-x/examples) repo to see how Fireball works with detailed showcase and guides.
+Fireball is a hackable game editor for creating mobile and HTML5 games, providing powerful scene editor and other integrated tools for open source game engines such as [Cocos2D-JS](https://github.com/cocos2d/cocos2d-js), [Pixi.js](https://github.com/GoodBoyDigital/pixi.js). We will be supporting more engines in the future.
 
 ![Fireball Game Engine](https://cloud.githubusercontent.com/assets/344547/6882303/a8b7a740-d5ba-11e4-9518-e6494b1c94fa.png)
 
-The core of Fireball is an editor UI engine and an asset engine with tree view, scene view and property inspector. Beyond that are all plugins. We designed Fireball to be deeply customizable. Developers can create their own editor and plugins very easily. The editor features are deeply inspired by [Unity](http://unity3d.com/) which we believe has the most advanced game developing editor at the moment.
+Fireball consists of:
 
-Fireball is a cross-platform software powered by [Electron](https://github.com/fireball-x/electron) and [Polymer](http://www.polymer-project.org/). Currently we test our distribution on Mac and Windows 7/8.1. Issues on other platform are welcome! Check out Fireball at [MadeWithPolymer](https://madewithpolymer.com/fireball/), there are many more cool projects.
+- [Editor framework](https://github.com/fireball-x/editor-framework) for creating multi panel editor UI.
+- [Engine framework](https://github.com/fireball-x/engine-framework) to enable entity-component like workflow for any JavaScript game engine.
+- [Package Manager](https://github.com/fireball-packages/package-manager) for adding and managing editor extensions easily.
+- [Asset Database](https://github.com/fireball-x/asset-db) for managing game assets with native file system.
 
-Visit [Fireball-x.com](http://www.fireball-x.com/en) to learn more or visit the Fireball forum.
+Fireball is a cross-platform software powered by [Electron](https://github.com/fireball-x/electron) and [Polymer](http://www.polymer-project.org/). Currently we test our distribution on Mac and Windows 7/8.1. Issues and PR on other platform are welcome!
 
 Learn what's going on from [Fireball Beta Roadmap](https://github.com/fireball-x/fireball/issues/3).
 
-## Download
+## Prerequisite
 
-1. Download distribute version from [release page](https://github.com/fireball-x/fireball/releases).
-2. Extract the zip file to a folder of its own. This folder can locate anywhere on your disk.
-3. Click `Fireball.app` on Mac or `fireball.exe` on Windonws to launch fireball.
-4. Have fun!
+- Install [node.js v0.12+](https://nodejs.org/) or [io.js v2.0+](https://iojs.org/en/index.html)
+- Install [gulp](https://github.com/gulpjs/gulp) command line tool
+- Install [bower](http://bower.io/) command line tool
 
-## Get Started
+## Install
 
-Visit http://docs.fireball-x.com to learn how to use Fireball Game Engine.
+In cloned project folder, run the following command to setup dev environment:
 
-## Examples
+```bash
+# Initialize gulp task dependencies
+npm run init
 
-- [Examples](https://github.com/fireball-x/examples) - Every Fireball components and features are demonstrated in this project. Check out the example one by one and you'll get what Fireball is capable of.
-- [Tutorial](https://github.com/fireball-x/tutorial) - Step by step guide to build your first game with Fireball.
-- [Duang Sheep](https://github.com/fireball-x/game-duang-sheep) - Flappy bird clone featuring a jumping sheep!
-- [1010!](https://github.com/fireball-x/game-1010) - 1010! clone, play tetris in a 10x10 grid.
+# bootstrap
+gulp bootstrap
+```
+
+Bootstrap task will run the following command in sequence, so if anything goes wrong during the bootstrap process, you can manually run these commands to get back on track:
+
+```bash
+# Initialize git submodules
+git submodule update --init
+
+# Install builtin packages
+gulp install-builtin
+
+# Install runtime packages
+gulp install-runtime
+
+# Install fireshell(electron)
+gulp update-fire-shell
+
+# Install npm packages
+gulp npm # DO NOT use npm directly
+
+# Install bower packages
+bower install
+```
+
+## Run
+
+Here are ways to run fireball development version:
+
+```bash
+# Run fireball's dashboard
+gulp run
+
+# Open Fireball Package Studio
+gulp package-studio
+```
+
+You can run package studio with path parameter like this:
+
+```bash
+# Open Fireball Package Studio with default builtin packages
+gulp package-studio
+
+# Open Fireball Package Studio with all packages in editor-framework/demo loaded
+gulp package-studio --path editor-framework/demo
+
+# Open Fireball Package Studio with a single package editor-framework/demo/grid loaded
+gulp package-studio --path editor-framework/demo/grid
+```
+
+Package Studio will detect the path argument you sent to it, if there is a
+package.json under the path, it will treat your path as a single package, and load
+it after builtin package loaded.
+
+Otherwise, Package Studio will register your path as a package loading path through
+`Editor.registerPackagePath` function, and load any packages under it. This also trigger
+the watch for the path, so any packages you add to this path after Studio opened, will
+be loaded automatically.
+
+## Update
+
+To get the latest fireball build:
+
+```bash
+# Update fireball from github repo,
+# also update builtin packages and electron binary
+gulp update
+
+# Optional, update npm and bower dependencies
+gulp update-deps
+```
+
+`gulp update` will run `git pull origin` in fireball's root folder. This way submodules will be updated according to fireball repo's commit. In case you want to update all submodules to latest commit, run following command:
+
+```bash
+gulp pull-submodules
+```
+
+## Test
+
+```bash
+# Run all tests
+npm test
+
+# Run a single test
+npm run test <testfile...>
+
+# Run test in submodule
+npm run test editor-framework/<testfile...>
+```
+
+All test files are located in [test](/test/) folder or submodule's `test/` folder.
+
 
 ## Feedback & Contribution
 
@@ -38,3 +130,28 @@ Visit http://docs.fireball-x.com to learn how to use Fireball Game Engine.
 - If you have questions about a specific page of documentation, use the disqus sidebar on the left of [Fireball Documentation Site](http://docs.fireball-x.com).
 - If you have any suggestion/feedback/problem, feel free to [submit an issue](https://github.com/fireball-x/fireball/issues).
 - If you want to contribute to this project, please read [Contributing Guidelines](https://github.com/fireball-x/fireball/blob/master/CONTRIBUTING.md).
+
+
+## Fireball 0.4
+
+We are refactoring Fireball to make it compatible with more open source HTML5 game engines. Fireball 0.5 will fully support Cocos2D-JS api, and we will add more engine support in the near future. Fireball users can use each engine with its original api.
+
+For Fireball 0.4, we have wrapped Cocos2D-JS and Pixi.js with our own API. Please check out the following content.
+
+### Download
+
+1. Download distribute version from [release page](https://github.com/fireball-x/fireball/releases).
+2. Extract the zip file to a folder of its own. This folder can locate anywhere on your disk.
+3. Click `Fireball.app` on Mac or `fireball.exe` on Windonws to launch fireball.
+4. Have fun!
+
+### Get Started
+
+Visit http://docs.fireball-x.com to learn how to use Fireball Game Engine.
+
+### Examples
+
+- [Examples](https://github.com/fireball-x/examples) - Every Fireball components and features are demonstrated in this project. Check out the example one by one and you'll get what Fireball is capable of.
+- [Tutorial](https://github.com/fireball-x/tutorial) - Step by step guide to build your first game with Fireball.
+- [Duang Sheep](https://github.com/fireball-x/game-duang-sheep) - Flappy bird clone featuring a jumping sheep!
+- [1010!](https://github.com/fireball-x/game-1010) - 1010! clone, play tetris in a 10x10 grid.

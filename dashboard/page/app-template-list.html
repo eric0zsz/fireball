@@ -1,0 +1,192 @@
+<dom-module id="app-template-list" >
+    <style>
+        :host {
+            @apply(--layout-fit);
+            @apply(--layout-vertical);
+
+            padding: 10px;
+        }
+
+        [row] {
+            @apply(--layout-horizontal);
+
+            margin-top: 10px;
+        }
+
+        [row][end] {
+            @apply(--layout-horizontal);
+            @apply(--layout-end-justified);
+        }
+
+        [flex-1] {
+            @apply(--layout-flex);
+        }
+
+        iron-selector {
+            @apply(--layout-horizontal);
+            @apply(--layout-wrap);
+        }
+
+        .btn-group {
+            @apply(--layout-horizontal);
+            margin-left: 50px;
+        }
+
+        .btn-group editor-button {
+            margin-left: 5px;
+            width: 80px;
+        }
+
+        input {
+            margin-left: 5px;
+        }
+
+        h2 {
+            margin-top: 0px;
+        }
+
+        .template-list {
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+        .template {
+            width: 180px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid #666;
+            box-sizing: border-box;
+
+            background: #444;
+            cursor: pointer;
+        }
+
+        .template:hover {
+            border: 1px solid #999;
+        }
+
+        .template.selected {
+            border: 1px solid #09f;
+        }
+    </style>
+
+    <template>
+        <h2>{{runtimeInfo.name}}</h2>
+        <span>{{runtimeInfo.version}}</span>
+        <div class="template-list" flex-1>
+            <iron-selector id="selector"
+                selected="0"
+                selected-class="selected"
+            >
+                <template id="list" is="dom-repeat" items="{{infos}}">
+                    <div class="template">
+                        <h2 class="name">{{item.name}}</h2>
+                        <h3 class="version">{{item.version}}</h3>
+                    </div>
+                </template>
+            </iron-selector>
+        </div>
+        <div row>{{description}}</div>
+        <div row>
+            <editor-button on-click="_onBrowse">Browse...</editor-button>
+            <input id="pathInput" is="iron-input" bind-value="{{path}}" flex-1></input>
+            <div class="btn-group">
+                <editor-button on-click="_onBack">Back</editor-button>
+                <editor-button class="green" on-click="_onCreate">Create</editor-button>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        var Path = require('fire-path');
+
+        Polymer({
+            is: 'app-template-list',
+
+            properties: {
+                runtimeInfo: {
+                    type: Object,
+                    observer: 'updateTemplateInfos',
+                },
+            },
+
+            ready: function () {
+                this.updateTemplateInfos();
+                this.path = Path.join( Dashboard.userHome, 'New Project' );
+            },
+
+            reset: function () {
+                this.$.selector.select(0);
+                this.path = Path.join( Dashboard.userHome, 'New Project' );
+            },
+
+            updateTemplateInfos: function () {
+                var infos = [{
+                    name: 'Empty',
+                    description: 'An empty project',
+                }];
+
+                if ( this.runtimeInfo ) {
+                    var tmpls = Dashboard.templateInfos[this.runtimeInfo.name];
+                    if ( tmpls ) {
+                        this.infos.concat(tmpls);
+                    }
+                }
+
+                this.infos = infos;
+                if ( this.infos.length > 0 )
+                    this.description = this.infos[0].description;
+            },
+
+            focusInput: function () {
+                this.async(function () {
+                    var projectName = Path.basenameNoExt(this.path);
+                    this.$.pathInput.focus();
+                    this.$.pathInput.setSelectionRange(
+                        this.path.length-projectName.length,
+                        this.path.length
+                    );
+                });
+            },
+
+            _onSelectedChanged: function ( event ) {
+                var itemEL = Polymer.dom(this.$.selector).children[event.detail.value];
+                var model = this.$.list.modelForElement(itemEL);
+                if ( model ) {
+                    this.set('description', model.item.description);
+                }
+            },
+
+            _onBrowse: function ( event ) {
+                event.stopPropagation();
+
+                EditorUI.addLoadingMask({
+                    background: 'rgba(0,0,0,0.5)',
+                });
+
+                var Remote = require('remote')
+                var Dialog = Remote.require('dialog');
+
+                var result = Dialog.showOpenDialog ( {
+                    title: "Choose a project",
+                    properties: [ 'openDirectory', 'createDirectory' ]
+                } );
+
+                if ( result ) {
+                    this.path = Path.join( result[0], 'New Project' );
+                    this.focusInput();
+                }
+
+                EditorUI.removeLoadingMask();
+            },
+
+            _onBack: function ( event ) {
+                this.fire('back');
+            },
+
+            _onCreate: function ( event ) {
+                // TODO
+            },
+        });
+    </script>
+</dom-module>

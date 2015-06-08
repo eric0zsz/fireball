@@ -1,0 +1,141 @@
+<dom-module id="app-runtime-list" >
+    <style>
+        :host {
+            @apply(--layout-fit);
+            @apply(--layout-vertical);
+
+            padding: 10px;
+        }
+
+        [row] {
+            @apply(--layout-horizontal);
+
+            margin-top: 10px;
+        }
+
+        [row][end] {
+            @apply(--layout-horizontal);
+            @apply(--layout-end-justified);
+        }
+
+        [flex-1] {
+            @apply(--layout-flex);
+        }
+
+        iron-selector {
+            @apply(--layout-horizontal);
+            @apply(--layout-wrap);
+        }
+
+        .runtime-list {
+            border: 1px solid black;
+        }
+
+        .runtime {
+            width: 180px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid #666;
+            box-sizing: border-box;
+
+            background: #444;
+            cursor: pointer;
+        }
+
+        .runtime:hover {
+            border: 1px solid #999;
+        }
+
+        .runtime.selected {
+            border: 1px solid #09f;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100px;
+        }
+
+        .name {
+            margin: 0px;
+            padding: 10px 16px 0;
+        }
+
+        .version {
+            margin: 0px;
+            padding: 10px 16px 0;
+
+            color: #888;
+        }
+
+        editor-button {
+            margin-left: 5px;
+            width: 80px;
+        }
+    </style>
+
+    <template>
+        <div class="runtime-list" flex-1>
+            <iron-selector id="selector"
+                selected="0"
+                selected-class="selected"
+                on-selected-changed="_onSelectedChanged"
+            >
+                <template id="list" is="dom-repeat" items="{{infos}}">
+                    <div class="runtime">
+                        <img class="banner" src$="{{_getRuntimeBanner(item.name)}}"></img>
+                        <h2 class="name">{{item.name}}</h2>
+                        <h3 class="version">{{item.version}}</h3>
+                    </div>
+                </template>
+            </iron-selector>
+        </div>
+        <div row>{{description}}</div>
+        <div row end>
+            <editor-button on-click="_onNext">Next</editor-button>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'app-runtime-list',
+
+            ready: function () {
+                var infos = [];
+                for ( var p in Dashboard.runtimeInfos ) {
+                    infos.push( Dashboard.runtimeInfos[p] );
+                }
+                this.infos = infos;
+
+                if ( this.infos.length > 0 )
+                    this.description = this.infos[0].description;
+            },
+
+            reset: function () {
+                this.$.selector.select(0);
+            },
+
+            _getRuntimeBanner: function ( name ) {
+                var info = Dashboard.runtimeInfos[name];
+                if ( info ) {
+                    return Url.join('app://', info.path, 'res/banner.png');
+                }
+                return '';
+            },
+
+            _onSelectedChanged: function ( event ) {
+                var itemEL = Polymer.dom(this.$.selector).children[event.detail.value];
+                var model = this.$.list.modelForElement(itemEL);
+                if ( model ) {
+                    this.set('description', model.item.description);
+                }
+            },
+
+            _onNext: function ( event ) {
+                var itemEL = this.$.selector.selectedItem;
+                var model = this.$.list.modelForElement(itemEL);
+
+                this.fire( 'next', { info: model.item } );
+            },
+        });
+    </script>
+</dom-module>
