@@ -1,0 +1,12 @@
+:host {
+    @apply(--layout-fit);
+    @apply(--layout-vertical);
+
+    cursor: default;
+}
+
+#view {
+    @apply(--layout-flex);
+
+    position: relative;
+}

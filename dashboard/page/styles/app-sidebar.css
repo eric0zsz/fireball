@@ -1,0 +1,35 @@
+:host {
+    width: 250px;
+    height: 100%;
+    display: block;
+
+    border-right: 1px solid #555;
+}
+
+:host ::content div {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 15px;
+
+    color: #888;
+    cursor: pointer;
+
+    border: 1px solid transparent;
+    border-width: 1px 0;
+}
+
+:host ::content div:hover {
+    color: #ccc;
+}
+
+:host ::content div.selected {
+    border: 1px solid #666;
+    border-width: 1px 0;
+
+    background: #444;
+    color: #ccc;
+}
+
+.open-other {
+    color: rgb(255,186,0);
+}

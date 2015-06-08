@@ -1,0 +1,38 @@
+:host {
+    @apply(--layout-fit);
+}
+
+[flex-1] {
+    @apply(--layout-flex);
+}
+
+.project {
+    @apply(--layout-vertical);
+    @apply(--layout-self-stretch);
+
+    position: relative;
+    padding: 10px;
+    margin-bottom: 5px;
+
+    background: #373737;
+    border: 1px solid #666;
+    border-width: 1px 0;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.path {
+    font-size: 15px;
+    color: #777;
+}
+
+.logo {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    margin-right: 5px;
+}

@@ -8,21 +8,7 @@
 <link rel="import" href="app-new.html">
 
 <dom-module id="app-shell" >
-    <style>
-        :host {
-            @apply(--layout-fit);
-            @apply(--layout-vertical);
-
-            cursor: default;
-        }
-
-        #view {
-            @apply(--layout-flex);
-
-            position: relative;
-        }
-    </style>
-
+    <link rel="import" type="css" href="styles/app-shell.css">
     <template>
         <app-navbar></app-navbar>
         <div class="layout horizontal flex-1">
