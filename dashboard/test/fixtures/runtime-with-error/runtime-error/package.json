@@ -1,0 +1,14 @@
+{
+  "name": "three.js",
+  "version": "0.0.1",
+  "runtime-version": "0.0.71",
+  "description": make an error,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fireball-x/runtime-three-js.git"
+  },
+  "author": "Firebox Technology",
+  "dependencies": {
+    "three.js": "0.0.71"
+  }
+}
