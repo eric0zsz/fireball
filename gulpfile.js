@@ -14,7 +14,7 @@ require('./utils/download-shell');
 
 // public tasks
 
-gulp.task('bootstrap', gulpSequence(['init-submodules', 'install-builtin', 'install-runtime', 'update-electron'], 'npm', 'bower'));
+gulp.task('bootstrap', gulpSequence('init-submodules', 'install-builtin', 'install-runtime', 'update-electron', 'npm', 'bower'));
 
 gulp.task('update', gulpSequence('pull-fireball', ['update-builtin', 'update-runtime', 'update-electron']));
 
@@ -101,10 +101,9 @@ gulp.task('pull-fireball', function(cb) {
 
 gulp.task('pull-submodules', function(cb) {
   var modules = pjson.submodules;
-  var count = 0;
+  var count = modules.length;
   modules.map(function(module) {
     if (Fs.existsSync(Path.join(module, '.git'))) {
-      count++;
       git.runGitCmdInPath(['pull', 'origin', 'master'], module, function() {
         if (--count <= 0) {
           console.log('Git submodules pull complete!');
@@ -113,16 +112,16 @@ gulp.task('pull-submodules', function(cb) {
       });
     } else {
       console.log(module + ' not initialized. Please run "gulp init-submodules" first!');
+      return cb();  
     }
   });
 });
 
 gulp.task('install-builtin', function(cb) {
-  var count = 0;
+  var count = pjson.builtins.length;
   if (Fs.isDirSync('builtin')) {
     pjson.builtins.map(function(packageName) {
       if (!Fs.existsSync(Path.join('builtin', packageName, '.git'))) {
-        count++;
         git.runGitCmdInPath(['clone', 'https://github.com/fireball-packages/' + packageName], 'builtin', function() {
           if (--count <= 0) {
             console.log('Builtin packages installation complete!');
@@ -131,6 +130,10 @@ gulp.task('install-builtin', function(cb) {
         });
       } else {
         console.log(packageName + ' has already installed in builtin/' + packageName + ' folder!');
+        console.log(count);
+        if (--count <= 0) {
+          cb();  
+        }
       }
     });
   } else {
@@ -161,6 +164,7 @@ gulp.task('update-builtin', function(cb) {
         });
       } else {
         console.warn('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!');
+        return cb();
       }
     });
   } else {
@@ -170,19 +174,23 @@ gulp.task('update-builtin', function(cb) {
 });
 
 gulp.task('install-runtime', function(cb) {
-  var count = 0;
+  var count = pjson.runtimes.length;
   if (Fs.isDirSync('runtime')) {
     pjson.runtimes.map(function(runtimeName) {
       if (!Fs.existsSync(Path.join('runtime', runtimeName, '.git'))) {
-        count++;
         git.runGitCmdInPath(['clone', 'https://github.com/fireball-x/' + runtimeName], 'runtime', function() {
           if (--count <= 0) {
             console.log('Runtime engines installation complete!');
+            console.log(count);
             cb();
           }
         });
       } else {
         console.log(runtimeName + ' has already installed in runtime/' + runtimeName + ' folder!');
+        if (--count <= 0) {
+          console.log(count);
+          cb();
+        }
       }
     });
   } else {
@@ -213,6 +221,7 @@ gulp.task('update-runtime', function(cb) {
         });
       } else {
         console.warn('Runtime engine ' + runtimeName + ' not initialized, please run "gulp install-runtime" first!');
+        return cb();
       }
     });
   } else {
