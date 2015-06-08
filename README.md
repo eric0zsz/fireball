@@ -120,7 +120,10 @@ npm test
 npm run test -- <testfile...>
 
 # Run test in submodule
-npm run test -- editor-framework/<testfile...>
+npm run test -- editor-framework/test/<testfile...>
+
+# Run All test of a submodule
+npm run test -- editor-framework
 ```
 
 All test files are located in [test](/test/) folder or submodule's `test/` folder.

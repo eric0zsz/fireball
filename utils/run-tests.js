@@ -39,33 +39,18 @@ if (singleTestFile) {
         SpawnSync(exePath, [cwd, '--test', file], {stdio: 'inherit'});
     });
   } else {
-    singleTestFile = (singleTestFile + '.js').replace('.js.js', '.js');
-    SpawnSync(exePath, [cwd, '--test', singleTestFile], {stdio: 'inherit'});
+    if(singleTestFile.split('/').pop() === 'index.js') {
+      indexFile = Path.join(cwd, singleTestFile);
+      files = require(indexFile);
+      files.forEach(function ( file ) {
+          console.log( Chalk.magenta( 'Start test (' + file + ')') );
+          SpawnSync(exePath, [cwd, '--test', file], {stdio: 'inherit'});
+      });
+    } else {
+      singleTestFile = (singleTestFile + '.js').replace('.js.js', '.js');
+      SpawnSync(exePath, [cwd, '--test', singleTestFile], {stdio: 'inherit'});
+    }
   }
-
-    //
-    // var splited = singleTestFile.split('/');
-    // // handle test in submodules
-    // if (splited.length > 1) {
-    //   var testIdx = splited.indexOf('test');
-    //   //optional test folder in path
-    //   if (testIdx !== -1) {
-    //     splited.splice(testIdx, 1);
-    //   }
-    //   // get test file path based on test folder
-    //   var filePath = splited.reduce(function(previousValue, currentValue, index, array) {
-    //     if (index > 1) {
-    //       return previousValue + '/' + currentValue;
-    //     } else if (index === 1){
-    //       return currentValue;
-    //     } else {
-    //       return '';
-    //     }
-    //   });
-    //   singleTestFile = ('./' + splited[0] + '/test/' + filePath + '.js').replace('.js.js', '.js');
-    // } else {
-    //   singleTestFile = ('./test/' + process.argv[2] + '.js').replace('.js.js', '.js');
-    // }
 }
 else {
     testDirs.forEach( function ( path ) {
