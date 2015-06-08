@@ -24,6 +24,8 @@
     </template>
 
     <script>
+        var Path = require('fire-path');
+
         Polymer({
             is: 'app-runtime-list',
 
@@ -45,7 +47,7 @@
             _getRuntimeBanner: function ( name ) {
                 var info = Dashboard.runtimeInfos[name];
                 if ( info ) {
-                    return Url.join('app://', info.path, 'res/banner.png');
+                    return Path.join(info.path, 'res/banner.png');
                 }
                 return '';
             },

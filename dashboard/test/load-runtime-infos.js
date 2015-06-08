@@ -1,6 +1,4 @@
 var Fs = require('fire-fs');
-var Async = require('async');
-var App = require('app');
 
 require('../init');
 
@@ -20,25 +18,25 @@ describe('Editor.App (Dashboard)', function() {
                     "cocos2d-js": {
                         "description": "A cocos2d-js runtime",
                         "name": "cocos2d-js",
-                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-cocos2d-js/package.json"),
+                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-cocos2d-js"),
                         "version": "0.0.1",
                     },
                     "pixi": {
                         "description": "A pixi runtime",
                         "name": "pixi",
-                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-pixi/package.json"),
+                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-pixi"),
                         "version": "0.0.1",
                     },
                     "three.js": {
                         "description": "A three.js runtime",
                         "name": "three.js",
-                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-three-js/package.json"),
+                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-three-js"),
                         "version": "0.0.1",
                     },
                     "babylonjs": {
                         "description": "A babylonjs runtime",
                         "name": "babylonjs",
-                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-babylonjs/package.json"),
+                        "path": Editor.url("app://dashboard/test/fixtures/runtime-simple/runtime-babylonjs"),
                         "version": "0.0.1"
                     },
                 });
@@ -54,7 +52,7 @@ describe('Editor.App (Dashboard)', function() {
                     "pixi": {
                         "description": "A pixi runtime",
                         "name": "pixi",
-                        "path": Editor.url("app://dashboard/test/fixtures/runtime-with-error/runtime-pixi/package.json"),
+                        "path": Editor.url("app://dashboard/test/fixtures/runtime-with-error/runtime-pixi"),
                         "version": "0.0.1"
                     },
                 });

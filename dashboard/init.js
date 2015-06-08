@@ -19,7 +19,9 @@ Editor.registerProfilePath( 'local', settingsPath );
 
 // mixin app
 Editor.JS.mixin(Editor.App, {
+    _profile: {},
     _runtimeInfos: {},
+    _templateInfos: {},
 
     loadRuntimeInfos: function ( runtimePath, cb ) {
         var paths = Globby.sync( Path.join(runtimePath,'*/package.json') );
@@ -28,7 +30,7 @@ Editor.JS.mixin(Editor.App, {
             try {
                 var pkgJsonObj = JSON.parse(Fs.readFileSync(path));
                 Editor.App._runtimeInfos[pkgJsonObj.name] = {
-                    path: path,
+                    path: Path.dirname(path),
                     name: pkgJsonObj.name,
                     version: pkgJsonObj.version,
                     description: pkgJsonObj.description,
@@ -42,12 +44,33 @@ Editor.JS.mixin(Editor.App, {
         }, cb);
     },
 
+    loadTemplate: function ( templatePath, cb ) {
+        var paths = Globby.sync( Path.join(templatePath,'*/package.json') );
+        Async.eachSeries( paths, function ( path, done ) {
+            Editor.log('Load template: %s', path);
+            try {
+                var pkgJsonObj = JSON.parse(Fs.readFileSync(path));
+                Editor.App._templateInfos[pkgJsonObj.name] = {
+                    path: Path.dirname(path),
+                    name: pkgJsonObj.name,
+                    version: pkgJsonObj.version,
+                    description: pkgJsonObj.description,
+                };
+            }
+            catch ( err ) {
+                Editor.error('Failed to load template at %s, %s', path, err.message);
+            }
+
+            done();
+        }, cb);
+    },
+
     run: function () {
         Async.series([
             // load ~/.fireball/fireball.json
             function ( next ) {
                 Editor.log('Load ~/.fireball/fireball.json');
-                Editor.loadProfile( 'fireball', 'global', {
+                Editor.App._profile = Editor.loadProfile( 'fireball', 'global', {
                     'recently-opened': [],
                     'last-login': '',
                     'remember-passwd': true,
@@ -60,6 +83,12 @@ Editor.JS.mixin(Editor.App, {
             function ( next ) {
                 Editor.App.loadRuntimeInfos( Editor.url('app://runtime/'), next );
             },
+
+            // load template
+            // TODO: we still not have template for loading
+            // function ( next ) {
+            //     Editor.App.loadTemplate( Editor.url('app://template/'), next );
+            // },
 
             // open window
             function ( next ) {
@@ -107,27 +136,15 @@ Editor.JS.mixin(Editor.App, {
         // console.log('app unload');
     },
 
+    'app:query-recent': function ( reply ) {
+        reply(Editor.App._profile['recently-opened']);
+    },
+
     'app:get-runtime-infos': function ( event ) {
-        // TODO:
-        event.returnValue = {
-            'pixi': {
-                path: 'runtime/runtime-pixi/',
-                name: 'pixi',
-                version: '3.0.6',
-                description: 'A pixi runtime',
-            },
-            'cocos2d-js': {
-                path: 'runtime/runtime-cocos2d-js/',
-                name: 'cocos2d-js',
-                version: '3.6.1',
-                description: 'A cocos2d-js runtime',
-            },
-        };
+        event.returnValue = Editor.App._runtimeInfos;
     },
 
     'app:get-template-infos': function ( event ) {
-        // TODO
-        event.returnValue = {
-        };
+        event.returnValue = Editor.App._templateInfos;
     },
 });

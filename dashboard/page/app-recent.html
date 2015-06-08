@@ -19,22 +19,21 @@
     </template>
 
     <script>
-        var Url = require('fire-url');
+        var Path = require('fire-path');
 
         Polymer({
             is: 'app-recent',
 
             ready: function () {
-                this.list = [
-                    { name: 'Hello World', path: '~/hello/world', runtime: 'cocos2d-js' },
-                    { name: 'Foo Bar', path: '~/foo/bar', runtime: 'pixi' },
-                ];
+                Editor.sendRequestToCore('app:query-recent', function ( results ) {
+                    this.list = results;
+                });
             },
 
             _getRuntimeLogo: function ( name ) {
                 var info = Dashboard.runtimeInfos[name];
                 if ( info ) {
-                    return Url.join('app://', info.path, 'res/logo.png');
+                    return Path.join(info.path, 'res/logo.png');
                 }
                 return '';
             },
