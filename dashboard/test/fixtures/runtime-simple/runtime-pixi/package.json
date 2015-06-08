@@ -1,0 +1,14 @@
+{
+  "name": "pixi",
+  "version": "0.0.1",
+  "runtime-version": "3.0.6",
+  "description": "A pixi runtime",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fireball-x/runtime-pixi.git"
+  },
+  "author": "Firebox Technology",
+  "dependencies": {
+    "pixi": "3.0.6"
+  }
+}

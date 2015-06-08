@@ -6,6 +6,7 @@ Dashboard.runtimeInfos = Editor.sendToCoreSync('app:get-runtime-infos');
 Dashboard.templateInfos = Editor.sendToCoreSync('app:get-template-infos');
 
 var Path = require('fire-path');
+var Fs = require('fire-fs');
 
 function _getUserDoc() {
     if (process.env.USERPROFILE) {

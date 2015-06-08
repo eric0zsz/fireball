@@ -18,6 +18,7 @@ var indexFile = Path.join( cwd, 'test/index.js' );
 var testDirs = [
     Path.join( cwd, './test/' ),
     Path.join( cwd, './editor-framework/test/' ),
+    Path.join( cwd, './dashboard/test/' ),
 ];
 var singleTestFile = process.argv[2];
 
