@@ -127,6 +127,13 @@ Editor.JS.mixin(Editor.App, {
         Editor.App._profile.save();
     },
 
+    removeProject: function ( path ) {
+        _.remove( Editor.App._profile['recently-opened'], function (item) {
+            return item === path;
+        });
+        Editor.App._profile.save();
+    },
+
     getProjectInfo: function ( path, cb ) {
         var pjsonPath = Path.join( path, 'settings/project.json');
         if ( Fs.existsSync(pjsonPath) === false  ) {
@@ -341,6 +348,10 @@ Editor.JS.mixin(Editor.App, {
                 Editor.quit();
             });
         });
+    },
+
+    'app:close-project': function ( path ) {
+        Editor.App.removeProject(path);
     },
 
     'app:get-runtime-infos': function ( event ) {
