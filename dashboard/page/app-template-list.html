@@ -124,10 +124,12 @@
                     runtime: this.runtimeInfo.name,
                     template: model.path,
                 }, function ( err ) {
-                    this.fire( 'status-changed', {
-                        type: 'error',
-                        status: err.message,
-                    } );
+                    if ( err ) {
+                        this.fire( 'status-changed', {
+                            type: 'error',
+                            status: err.message,
+                        } );
+                    }
                 }.bind(this));
             },
         });

@@ -116,4 +116,61 @@ describe('Editor.App (Dashboard)', function() {
             });
         });
     });
+
+    describe('Editor.App.getProjectInfo', function() {
+        it('should get project info when the project exists', function( done ) {
+            var path = Editor.url('app://dashboard/test/fixtures/projects/simple-cocos2d-js/');
+            Editor.App.getProjectInfo( path, function ( info ) {
+                expect( info ).to.be.deep.equal({
+                    path: path,
+                    name: Path.basename(path),
+                    runtime: 'cocos2d-js',
+                });
+                done();
+            });
+        });
+
+        it('should return undefined when the project not exists', function( done ) {
+            Editor.App.getProjectInfo( 'path/not/exists', function ( info ) {
+                expect( info ).to.be.a('undefined');
+                done();
+            });
+        });
+
+        it('should return undefined when the project exists but not a fireball project', function( done ) {
+            var path = Editor.url('app://dashboard/test/fixtures/projects/not-a-fireball-project/');
+            Editor.App.getProjectInfo( path, function ( info ) {
+                expect( info ).to.be.a('undefined');
+                done();
+            });
+        });
+
+        it('should return undefined when the project exists but settings/project.json is invalid', function( done ) {
+            var path = Editor.url('app://dashboard/test/fixtures/projects/invalid-package-json/');
+            Editor.App.getProjectInfo( path, function ( info ) {
+                expect( info ).to.be.deep.equal({
+                    path: path,
+                    name: Path.basename(path),
+                    runtime: 'unknown',
+                    error: 'Can not find runtime in settings/project.json',
+                });
+
+                done();
+            });
+        });
+
+        it('should return undefined when the project exists but settings/project.json is broken', function( done ) {
+            var path = Editor.url('app://dashboard/test/fixtures/projects/broken-package-json/');
+            Editor.App.getProjectInfo( path, function ( info ) {
+                expect( info ).to.be.deep.equal({
+                    path: path,
+                    name: Path.basename(path),
+                    runtime: 'unknown',
+                    error: 'settings/project.json broken',
+                });
+
+                done();
+            });
+        });
+    });
 });

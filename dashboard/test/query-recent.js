@@ -15,8 +15,10 @@ describe('app:query-recent (Dashboard)', function() {
     before(function ( done ) {
         Editor.App._profile = {
             'recently-opened': [
-                { name: 'Hello World', path: '~/hello/world', runtime: 'cocos2d-js' },
-                { name: 'Foo Bar', path: '~/foo/bar', runtime: 'pixi' },
+                Editor.url('app://dashboard/test/fixtures/projects/broken-package-json'),
+                Editor.url('app://dashboard/test/fixtures/projects/invalid-package-json'),
+                Editor.url('app://dashboard/test/fixtures/projects/not-a-fireball-project'),
+                Editor.url('app://dashboard/test/fixtures/projects/simple-cocos2d-js'),
             ],
             'last-login': '',
             'remember-passwd': true,
@@ -59,8 +61,23 @@ describe('app:query-recent (Dashboard)', function() {
     it('should get recently project', function( done ) {
         ipcListener.on('app:query-recent:forward', function ( results ) {
             expect(results).to.deep.equal([
-                { name: 'Hello World', path: '~/hello/world', runtime: 'cocos2d-js' },
-                { name: 'Foo Bar', path: '~/foo/bar', runtime: 'pixi' },
+                {
+                    name: 'broken-package-json',
+                    path: Editor.url('app://dashboard/test/fixtures/projects/broken-package-json'),
+                    runtime: 'unknown',
+                    error: 'settings/project.json broken',
+                },
+                {
+                    name: 'invalid-package-json',
+                    path: Editor.url('app://dashboard/test/fixtures/projects/invalid-package-json'),
+                    runtime: 'unknown',
+                    error: 'Can not find runtime in settings/project.json',
+                },
+                {
+                    name: 'simple-cocos2d-js',
+                    path: Editor.url('app://dashboard/test/fixtures/projects/simple-cocos2d-js'),
+                    runtime: 'cocos2d-js'
+                },
             ]);
             done();
         });
