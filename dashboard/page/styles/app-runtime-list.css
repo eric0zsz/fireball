@@ -56,15 +56,17 @@ iron-selector {
 
 .name {
     margin-top: 20px;
+    margin-bottom: 0px;
     margin-left: 5px;
-    font-weight: normal;
+    font-weight:bold;
 }
 
 .version {
-    margin: 0px;
-    padding: 10px 16px 0;
-
     color: #888;
+    margin-left: 5px;
+    font-weight: bold;
+    margin-top: 0px;
+
 }
 
 editor-button {

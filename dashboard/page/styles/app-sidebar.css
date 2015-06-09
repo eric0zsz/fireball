@@ -19,7 +19,7 @@
 }
 
 :host ::content div:hover {
-    color: #ccc;
+    color: #fafafa;
 }
 
 :host ::content div.selected {
@@ -28,6 +28,6 @@
     border-left: 1px solid #666;
 
     background: #4d4d4d;
-    color: #ccc;
+    color: #fafafa;
 }
 
