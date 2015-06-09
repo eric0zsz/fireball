@@ -26,7 +26,12 @@
                 } );
 
                 if ( result ) {
-                    Editor.sendToCore( 'app:open-project', result[0] );
+                    Editor.sendRequestToCore('app:open-project', result[0], function ( err ) {
+                        this.fire( 'status-changed', {
+                            type: 'error',
+                            status: err.message,
+                        } );
+                    }.bind(this));
                 }
             },
 

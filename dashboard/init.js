@@ -5,6 +5,7 @@ var Fs = require('fire-fs');
 var Globby = require('globby');
 var Async = require('async');
 var Chai = require('chai');
+var _ = require('lodash');
 
 //
 Editor.log( 'Initializing Fireball Dashboard' );
@@ -117,6 +118,15 @@ Editor.JS.mixin(Editor.App, {
         });
     },
 
+    addProject: function ( path ) {
+        // save new project to recently-opened
+        var idx = Editor.App._profile['recently-opened'].indexOf(path);
+        if ( idx === -1 ) {
+            Editor.App._profile['recently-opened'].push(path);
+        }
+        Editor.App._profile.save();
+    },
+
     getProjectInfo: function ( path, cb ) {
         var pjsonPath = Path.join( path, 'settings/project.json');
         if ( Fs.existsSync(pjsonPath) === false  ) {
@@ -160,6 +170,27 @@ Editor.JS.mixin(Editor.App, {
         }
     },
 
+    checkProject: function ( path, cb ) {
+        if ( Fs.existsSync(path) === false ) {
+            if ( cb ) cb ( new Error('Project not exists!') );
+            return;
+        }
+
+        Editor.App.getProjectInfo( path, function ( info ) {
+            if ( !info ) {
+                if ( cb ) cb ( new Error('Can not find settings/project.json') );
+                return;
+            }
+
+            if ( info.error ) {
+                if ( cb ) cb ( new Error(info.error) );
+                return;
+            }
+
+            if ( cb ) cb ();
+        });
+    },
+
     runCanvasStudio: function ( projectPath, cb ) {
         var Spawn = require('child_process').spawn;
         var App = require('app');
@@ -184,6 +215,12 @@ Editor.JS.mixin(Editor.App, {
                     'remember-passwd': true,
                     'login-type': 'account',
                 });
+
+                // filter out same path
+                Editor.App._profile['recently-opened'] = _.uniq(Editor.App._profile['recently-opened']);
+                Editor.App._profile.save();
+
+                //
                 next();
             },
 
@@ -286,12 +323,23 @@ Editor.JS.mixin(Editor.App, {
                 return;
             }
 
-            // save new project to recently-opened
-            Editor.App._profile['recently-opened'].push(opts.path);
-            Editor.App._profile.save();
-
-            reply ();
+            //
+            Editor.App.addProject(opts.path);
             Editor.quit();
+        });
+    },
+
+    'app:open-project': function ( reply, path ) {
+        Editor.App.checkProject ( path , function ( err ) {
+            if ( err ) {
+                reply ( Editor.Utils.wrapError(err) );
+                return;
+            }
+
+            Editor.App.runCanvasStudio(path, function () {
+                Editor.App.addProject(path);
+                Editor.quit();
+            });
         });
     },
 
