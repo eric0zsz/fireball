@@ -4,6 +4,7 @@ var Path = require('fire-path');
 var Fs = require('fire-fs');
 var Globby = require('globby');
 var Async = require('async');
+var Chai = require('chai');
 
 //
 Editor.log( 'Initializing Fireball Dashboard' );
@@ -63,6 +64,68 @@ Editor.JS.mixin(Editor.App, {
 
             done();
         }, cb);
+    },
+
+    createProject: function ( opts, cb ) {
+        opts = opts || {};
+        try {
+            var assert = Chai.assert;
+            assert.typeOf( opts.path, 'string', 'Invalid parameter: opts.path' );
+            assert.typeOf( opts.runtime, 'string', 'Invalid parameter: opts.runtime'  );
+            assert.isFalse( Fs.existsSync(opts.path), 'The path ' + opts.path + ' already exists.' );
+            assert.isDefined( Editor.App._runtimeInfos[opts.runtime], 'Can not find runtime: ' + opts.runtime );
+            if ( opts.template ) {
+                assert.isDefined( Editor.App._templateInfos[opts.template], 'Can not find template: ' + opts.template );
+            }
+        }
+        catch ( err ) {
+            if ( cb ) cb (err);
+            return;
+        }
+
+        //
+        Async.series([
+            function ( next ) {
+                if ( opts.template ) {
+                    // TODO: copy the template and create project
+                    next ();
+                }
+                else {
+                    next ();
+                }
+            },
+
+            function ( next ) {
+                Fs.makeTreeSync( opts.path );
+                Fs.mkdirSync( Path.join(opts.path, 'settings') );
+                Fs.mkdirSync( Path.join(opts.path, 'local') );
+                Fs.mkdirSync( Path.join(opts.path, 'library') );
+                Fs.mkdirSync( Path.join(opts.path, 'assets') );
+                Fs.mkdirSync( Path.join(opts.path, 'packages') );
+
+                var profile = {
+                    runtime: opts.runtime,
+                };
+                Fs.writeFileSync( Path.join(opts.path,'settings/project.json'),
+                                  JSON.stringify(profile, null, 2));
+                next();
+            },
+        ], function ( err ) {
+            if ( cb ) cb (err);
+        });
+    },
+
+    runCanvasStudio: function ( projectPath, cb ) {
+        var Spawn = require('child_process').spawn;
+        var App = require('app');
+        var exePath = App.getPath('exe');
+        var child = Spawn(exePath, ['./', projectPath], {
+            detached: true,
+            stdio: 'ignore',
+        });
+        child.unref();
+
+        if ( cb ) cb ();
     },
 
     run: function () {
@@ -138,6 +201,26 @@ Editor.JS.mixin(Editor.App, {
 
     'app:query-recent': function ( reply ) {
         reply(Editor.App._profile['recently-opened']);
+    },
+
+    'app:create-project': function ( reply, opts ) {
+        Async.series([
+            function ( next ) {
+                Editor.App.createProject ( opts, next );
+            },
+
+            function ( next ) {
+                Editor.App.runCanvasStudio(opts.path, next );
+            },
+        ], function ( err ) {
+            if ( err ) {
+                reply (err);
+                return;
+            }
+
+            reply ();
+            Editor.quit();
+        });
     },
 
     'app:get-runtime-infos': function ( event ) {

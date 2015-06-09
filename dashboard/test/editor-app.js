@@ -1,4 +1,6 @@
 var Fs = require('fire-fs');
+var Path = require('fire-path');
+var Del = require('del');
 
 require('../init');
 
@@ -57,6 +59,60 @@ describe('Editor.App (Dashboard)', function() {
                     },
                 });
                 done();
+            });
+        });
+    });
+
+    describe('Editor.App.createProject', function() {
+        var path = Editor.url('app://dashboard/test/fixtures/new-project/');
+        before(function ( done ) {
+            var path = Editor.url('app://dashboard/test/fixtures/runtime-simple/');
+            Editor.App.loadRuntimeInfos( path, done );
+        });
+        after(function ( done ) {
+            Editor.App._runtimeInfos = {};
+            Del(path, done);
+        });
+
+        it('should create a project after call', function( done ) {
+            Editor.App.createProject( {
+                path: path,
+                runtime: 'pixi',
+            }, function ( err ) {
+                assert.isNull(err, err ? err.message : '');
+                expect(Fs.existsSync(path)).to.equal(true);
+                expect(Fs.existsSync(Path.join(path, 'settings'))).to.equal(true);
+                expect(Fs.existsSync(Path.join(path, 'local'))).to.equal(true);
+                expect(Fs.existsSync(Path.join(path, 'library'))).to.equal(true);
+                expect(Fs.existsSync(Path.join(path, 'assets'))).to.equal(true);
+                expect(Fs.existsSync(Path.join(path, 'packages'))).to.equal(true);
+
+                var pjsonPath = Path.join(path, 'settings/project.json');
+                expect(Fs.existsSync(pjsonPath)).to.equal(true);
+                var pjsonObj = JSON.parse(Fs.readFileSync(pjsonPath));
+                assert.equal( pjsonObj.runtime, 'pixi' );
+
+                done();
+            });
+        });
+
+        it('should report error when runtime not found', function( done ) {
+            Editor.App.createProject({
+                path: path,
+                runtime: 'foobar',
+            }, function ( err) {
+                expect( err ).to.be.instanceof(Error);
+                done ();
+            });
+        });
+
+        it('should report error when project exists', function( done ) {
+            Editor.App.createProject({
+                path: path,
+                runtime: 'pixi',
+            }, function ( err) {
+                expect( err ).to.be.instanceof(Error);
+                done ();
             });
         });
     });
