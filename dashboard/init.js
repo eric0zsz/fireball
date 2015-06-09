@@ -71,8 +71,10 @@ Editor.JS.mixin(Editor.App, {
         try {
             var assert = Chai.assert;
             assert.typeOf( opts.path, 'string', 'Invalid parameter: opts.path' );
-            assert.typeOf( opts.runtime, 'string', 'Invalid parameter: opts.runtime'  );
-            assert.isFalse( Fs.existsSync(opts.path), 'The path ' + opts.path + ' already exists.' );
+            assert.typeOf( opts.runtime, 'string', 'Invalid parameter: opts.runtime' );
+            if ( Fs.existsSync(opts.path) ) {
+                throw new Error('The path ' + opts.path + ' already exists.');
+            }
             assert.isDefined( Editor.App._runtimeInfos[opts.runtime], 'Can not find runtime: ' + opts.runtime );
             if ( opts.template ) {
                 assert.isDefined( Editor.App._templateInfos[opts.template], 'Can not find template: ' + opts.template );
@@ -113,6 +115,49 @@ Editor.JS.mixin(Editor.App, {
         ], function ( err ) {
             if ( cb ) cb (err);
         });
+    },
+
+    getProjectInfo: function ( path, cb ) {
+        var pjsonPath = Path.join( path, 'settings/project.json');
+        if ( Fs.existsSync(pjsonPath) === false  ) {
+            if ( cb ) cb ();
+            return;
+        }
+
+        var pjsonObj;
+
+        try {
+            pjsonObj = JSON.parse(Fs.readFileSync(pjsonPath));
+            if ( !pjsonObj.runtime ) {
+                if ( cb ) cb ({
+                    path: path,
+                    name: Path.basename(path),
+                    runtime: 'unknown',
+                    error: 'Can not find runtime in settings/project.json',
+                });
+                return;
+            }
+        }
+        catch ( err ) {
+            if ( cb ) {
+                cb ({
+                    path: path,
+                    name: Path.basename(path),
+                    runtime: 'unknown',
+                    error: 'settings/project.json broken',
+                });
+            }
+            return;
+        }
+
+        // correct!
+        if ( cb ) {
+            cb ({
+                path: path,
+                name: Path.basename(path),
+                runtime: pjsonObj.runtime,
+            });
+        }
     },
 
     runCanvasStudio: function ( projectPath, cb ) {
@@ -200,7 +245,24 @@ Editor.JS.mixin(Editor.App, {
     },
 
     'app:query-recent': function ( reply ) {
-        reply(Editor.App._profile['recently-opened']);
+        var pathList = Editor.App._profile['recently-opened'];
+        var infos = [];
+        Async.each( pathList, function ( path, done ) {
+            Editor.App.getProjectInfo ( path, function ( info ) {
+                if ( info ) {
+                    infos.push(info);
+                }
+                done ();
+            });
+        }, function ( err ) {
+            if ( err ) {
+                Editor.error( err.message );
+                reply([]);
+                return;
+            }
+
+            reply( infos );
+        });
     },
 
     'app:create-project': function ( reply, opts ) {
@@ -214,9 +276,13 @@ Editor.JS.mixin(Editor.App, {
             },
         ], function ( err ) {
             if ( err ) {
-                reply (err);
+                reply ( Editor.Utils.wrapError(err) );
                 return;
             }
+
+            // save new project to recently-opened
+            Editor.App._profile['recently-opened'].push(opts.path);
+            Editor.App._profile.save();
 
             reply ();
             Editor.quit();

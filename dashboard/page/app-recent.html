@@ -27,7 +27,7 @@
             ready: function () {
                 Editor.sendRequestToCore('app:query-recent', function ( results ) {
                     this.list = results;
-                });
+                }.bind(this));
             },
 
             _getRuntimeLogo: function ( name ) {
