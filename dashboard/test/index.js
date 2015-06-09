@@ -1,7 +1,8 @@
 var Path = require('fire-path');
 
 module.exports = [
-    'init.js',
+    'editor-app.js',
+    'query-recent.js',
 ].map( function ( file ) {
     return Path.join( __dirname, file );
 });

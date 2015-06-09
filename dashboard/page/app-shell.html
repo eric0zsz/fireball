@@ -11,7 +11,7 @@
     <link rel="import" type="css" href="styles/app-shell.css">
     <template>
         <app-navbar></app-navbar>
-        <div class="layout horizontal flex-1">
+        <div id="shell" class="layout horizontal flex-1">
             <app-sidebar on-select="_onSelect">
                 <div>Recent Projects</div>
                 <div>New Project</div>
@@ -25,14 +25,21 @@
                 </div>
             </div>
         </div>
+        <div id="status" class$={{statusType}}>{{status}}</div>
     </template>
 
     <script type="text/javascript">
         Polymer({
             is: 'app-shell',
 
+            listeners: {
+                'status-changed': '_onStatusChanged'
+            },
+
             ready: function () {
                 this.curIndex = 0;
+                this.status = '';
+                this.statusType = 'normal';
             },
 
             _onSelect: function ( event ) {
@@ -48,6 +55,11 @@
 
             _newProject: function ( idx ) {
                 return idx === 1;
+            },
+
+            _onStatusChanged: function ( event ) {
+                this.set('status', event.detail.status);
+                this.set('statusType', event.detail.type);
             },
         });
     </script>

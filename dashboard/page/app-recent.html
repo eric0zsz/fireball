@@ -2,16 +2,28 @@
     <link rel="import" type="css" href="styles/app-recent.css">
 
     <template>
-        <template is="dom-repeat" items="{{list}}">
+        <template is="dom-repeat" id="list" items="{{list}}">
             <div class="project">
-                <div class="name">{{item.name}}</div>
+                <div class$="{{_getItemNameClass(item)}}">{{item.name}}</div>
+                <div class="info" hidden$="{{_hideErrorInfo(item.error)}}">{{item.error}}</div>
                 <div class="layout horizontal center">
                     <img class="logo" src$="{{_getRuntimeLogo(item.runtime)}}"></img>
                     <div class="path">{{item.path}}</div>
                     <span flex-1></span>
                     <div class="btn-group">
-                        <editor-button no-focus class="red">Close</editor-button>
-                        <editor-button no-focus class="green">Open</editor-button>
+                        <editor-button class="red"
+                            no-focus
+                            on-click="_onClose"
+                        >
+                            Close
+                        </editor-button>
+                        <editor-button class="green"
+                            no-focus
+                            disabled$="{{!_hideErrorInfo(item.error)}}"
+                            on-click="_onOpen"
+                        >
+                            Open
+                        </editor-button>
                     </div>
                 </div>
             </div>
@@ -19,24 +31,94 @@
     </template>
 
     <script>
-        var Url = require('fire-url');
+        var Path = require('fire-path');
+        var _ = require('lodash');
 
         Polymer({
             is: 'app-recent',
 
+            behaviors: [ EditorUI.droppable ],
+
+            hostAttributes: {
+                'droppable': 'file',
+                'single-drop': true,
+            },
+
+            listeners: {
+                'drop-area-enter': '_onDropAreaEnter',
+                'drop-area-leave': '_onDropAreaLeave',
+                'drop-area-accept': '_onDropAreaAccept',
+            },
+
             ready: function () {
-                this.list = [
-                    { name: 'Hello World', path: '~/hello/world', runtime: 'cocos2d-js' },
-                    { name: 'Foo Bar', path: '~/foo/bar', runtime: 'pixi' },
-                ];
+                this._initDroppable(this);
+
+                Editor.sendRequestToCore('app:query-recent', function ( results ) {
+                    this.list = results;
+                }.bind(this));
+            },
+
+            _getItemNameClass: function ( item ) {
+                return 'name ' + (item.error ? 'error' : '');
             },
 
             _getRuntimeLogo: function ( name ) {
+                if ( name === 'unknown' ) {
+                    return Editor.url('app://dashboard/static/img/unknown-runtime.jpg');
+                }
+
                 var info = Dashboard.runtimeInfos[name];
                 if ( info ) {
-                    return Url.join('app://', info.path, 'res/logo.png');
+                    return Path.join(info.path, 'res/logo.png');
                 }
                 return '';
+            },
+
+            _hideErrorInfo: function ( error ) {
+                return (error === undefined ? true : false);
+            },
+
+            _onOpen: function ( event ) {
+                var model = this.$.list.modelForElement(event.target);
+                Editor.sendRequestToCore('app:open-project', model.item.path, function ( err ) {
+                    this.fire( 'status-changed', {
+                        type: 'error',
+                        status: err.message,
+                    } );
+                }.bind(this));
+            },
+
+            _onClose: function ( event ) {
+                var model = this.$.list.modelForElement(event.target);
+                var idx = _.findIndex( this.list, function ( item ) {
+                    return item === model.item;
+                });
+                this.splice( 'list', idx, 1 );
+                Editor.sendToCore('app:close-project', model.item.path );
+            },
+
+            _onDropAreaEnter: function ( event ) {
+                event.stopPropagation();
+                this.classList.add('highlight')
+            },
+
+            _onDropAreaLeave: function ( event ) {
+                event.stopPropagation();
+                this.classList.remove('highlight')
+            },
+
+            _onDropAreaAccept: function ( event ) {
+                event.stopPropagation();
+                this.classList.remove('highlight')
+
+                event.detail.dragItems.forEach( function ( path ) {
+                    Editor.sendRequestToCore('app:open-project', path, function ( err ) {
+                        this.fire( 'status-changed', {
+                            type: 'error',
+                            status: err.message,
+                        } );
+                    }.bind(this));
+                }.bind(this));
             },
         });
     </script>

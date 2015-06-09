@@ -1,10 +1,6 @@
 <dom-module id="app-template-list" >
     <link rel="import" type="css" href="styles/app-template-list.css">
 
-    <style>
-        
-    </style>
-
     <template>
         <h2>{{runtimeInfo.name}}</h2>
         <span>{{runtimeInfo.version}}</span>
@@ -120,7 +116,21 @@
             },
 
             _onCreate: function ( event ) {
-                // TODO
+                var itemEL = this.$.selector.selectedItem;
+                var model = this.$.list.modelForElement(itemEL);
+
+                Editor.sendRequestToCore( 'app:create-project', {
+                    path: this.path,
+                    runtime: this.runtimeInfo.name,
+                    template: model.path,
+                }, function ( err ) {
+                    if ( err ) {
+                        this.fire( 'status-changed', {
+                            type: 'error',
+                            status: err.message,
+                        } );
+                    }
+                }.bind(this));
             },
         });
     </script>
