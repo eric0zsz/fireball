@@ -261,6 +261,12 @@ Editor.JS.mixin(Editor.App, {
                 return;
             }
 
+            // save profile to remove not exists projects
+            Editor.App._profile['recently-opened'] = infos.map( function ( item ) {
+                return item.path;
+            });
+            Editor.App._profile.save();
+
             reply( infos );
         });
     },
