@@ -93,7 +93,7 @@ gulp.task('init-submodules', function(cb) {
 });
 
 gulp.task('pull-fireball', function(cb) {
-  git.runGitCmdInPath(['pull', 'https://github.com/fireball-x/fireball.git'], './', function() {
+  git.runGitCmdInPath(['pull', 'https://github.com/fireball-x/fireball.git', 'dev'], './', function() {
     console.log('Fireball update complete!');
     cb();
   });
