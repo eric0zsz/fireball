@@ -23,6 +23,10 @@ describe('app:query-recent (Dashboard)', function() {
             'last-login': '',
             'remember-passwd': true,
             'login-type': 'account',
+
+            // dummy functions
+            save: function () {},
+            clear: function () {},
         };
 
         done();
