@@ -67,6 +67,9 @@ gulp run
 
 # Open Fireball Package Studio
 gulp package-studio
+
+# Open a Fireball project
+gulp fireball --path path/to/project
 ```
 
 You can run package studio with path parameter like this:
