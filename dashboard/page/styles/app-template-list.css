@@ -2,7 +2,7 @@
     @apply(--layout-fit);
     @apply(--layout-vertical);
 
-    padding: 0px;
+    padding-top: 10px;
 }
 
 [row] {
@@ -54,7 +54,16 @@ input {
 }
 
 h2 {
-    margin: 0px 0px 0px 5px;
+    margin: 0px 0px 0px 10px;
+}
+
+.version {
+    margin-left: 10px;
+}
+
+.template-list {
+    border-bottom: 1px solid #666;
+    margin-top: 10px;
 }
 
 .template {
