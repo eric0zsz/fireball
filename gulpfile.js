@@ -22,6 +22,8 @@ gulp.task('update-deps', ['npm', 'bower']);
 
 gulp.task('run', ['run-electron']);
 
+gulp.task('fireball', ['run-canvasstudio']);
+
 gulp.task('package-studio', ['run-packagestudio']);
 
 
@@ -67,6 +69,8 @@ gulp.task('run-packagestudio', function(cb) {
   var packagePath = Commander.path;
   if ( packagePath ) {
       console.log('Load packages from %s', packagePath);
+  } else {
+    console.log('Please provide a valid project path with "--path" arguments');
   }
 
   var cmdStr = '';
@@ -77,6 +81,33 @@ gulp.task('run-packagestudio', function(cb) {
   } else {
     cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
     optArr = ['./','--debug=3030','--dev','--dev-mode=packages','--show-devtools', packagePath];
+  }
+
+  var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
+  child.on('exit', function() {
+    cb();
+  });
+});
+
+gulp.task('run-canvasstudio', function(cb) {
+  var Commander = require('commander');
+  Commander.option('--path <path>', 'Run open fireball project in path' )
+           .parse(process.argv)
+           ;
+
+  var projectPath = Commander.path;
+  if ( projectPath ) {
+      console.log('Load project from %s', projectPath);
+  }
+
+  var cmdStr = '';
+  var optArr = [];
+  if (process.platform === "win32") {
+    cmdStr = 'bin\\electron\\electron.exe';
+    optArr = ['.\\', '--debug=3030', '--dev', '--show-devtools', projectPath];
+  } else {
+    cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
+    optArr = ['./','--debug=3030','--dev','--show-devtools', projectPath];
   }
 
   var child = spawn(cmdStr, optArr, { stdio: 'inherit'});
