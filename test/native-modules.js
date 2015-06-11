@@ -8,7 +8,7 @@ describe('NativeModules', function() {
         var npmModule = require(item);
         expect(npmModule).to.be.ok;
         done();
-  	  });    
+  	  });
     });
   });
 });
