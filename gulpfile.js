@@ -187,7 +187,7 @@ gulp.task('update-builtin', function(cb) {
     pjson.builtins.map(function(packageName) {
       if (Fs.existsSync(Path.join('builtin', packageName, '.git'))) {
         count++;
-        git.runGitCmdInPath(['pull', 'origin'], Path.join('builtin', packageName), function() {
+        git.runGitCmdInPath(['pull', 'https://github.com/fireball-packages/' + packageName, 'master'], Path.join('builtin', packageName), function() {
           if (--count <= 0) {
             console.log('Builtin packages update complete!');
             cb();
@@ -244,7 +244,7 @@ gulp.task('update-runtime', function(cb) {
     pjson.runtimes.map(function(runtimeName) {
       if (Fs.existsSync(Path.join('runtime', runtimeName, '.git'))) {
         count++;
-        git.runGitCmdInPath(['pull', 'origin'], Path.join('runtime', runtimeName), function() {
+        git.runGitCmdInPath(['pull', 'https://github.com/fireball-x/' + runtimeName, 'master'], Path.join('runtime', runtimeName), function() {
           if (--count <= 0) {
             console.log('Runtime engines update complete!');
             cb();
