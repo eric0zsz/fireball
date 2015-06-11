@@ -261,7 +261,7 @@ gulp.task('update-runtime', function(cb) {
   }
 });
 
-gulp.task('npm', function(cb) {
+gulp.task('npm', ['rm-native-modules'], function(cb) {
   var cmdstr = process.platform === 'win32' ? 'npm.cmd' : 'npm';
   var tmpenv = process.env;
   var os = require('os');
@@ -277,6 +277,17 @@ gulp.task('npm', function(cb) {
 });
 
 gulp.task('bower', shell.task(['bower install']));
+
+gulp.task('rm-native-modules', function(cb) {
+  var del = require('del');
+  var nativeModules = pjson['native-modules'];
+  var nativePaths = nativeModules.map(function(filepath) { return 'node_modules/' + filepath; });
+  console.log("Deleting existing native modules to make sure rebuild triggers.");
+  del(nativePaths, function(err) {
+    if (err) throw err;
+    else cb();
+  });
+});
 
 gulp.task('check-deps', function(cb) {
   var checkDeps = require('./utils/check-deps');
