@@ -266,7 +266,7 @@ gulp.task('npm', function(cb) {
   var tmpenv = process.env;
   var os = require('os');
   tmpenv.npm_config_disturl = 'https://atom.io/download/atom-shell';
-  tmpenv.npm_config_target = pjson['fire-shell-version'];
+  tmpenv.npm_config_target = pjson['electron-version'];
   tmpenv.npm_config_arch = os.arch();
   tmpenv.HOME = Path.join(tmpenv.HOME, '.electron-gyp');
   var child = spawn(cmdstr, ['install'], {
