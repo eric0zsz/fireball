@@ -32,7 +32,7 @@ Editor.JS.mixin(Editor.App, {
             try {
                 var pkgJsonObj = JSON.parse(Fs.readFileSync(path));
                 Editor.App._runtimeInfos[pkgJsonObj.name] = {
-                    path: Path.dirname(path),
+                    path: Path.resolve(Path.dirname(path)),
                     name: pkgJsonObj.name,
                     version: pkgJsonObj.version,
                     description: pkgJsonObj.description,
@@ -53,7 +53,7 @@ Editor.JS.mixin(Editor.App, {
             try {
                 var pkgJsonObj = JSON.parse(Fs.readFileSync(path));
                 Editor.App._templateInfos[pkgJsonObj.name] = {
-                    path: Path.dirname(path),
+                    path: Path.resolve(Path.dirname(path)),
                     name: pkgJsonObj.name,
                     version: pkgJsonObj.version,
                     description: pkgJsonObj.description,
