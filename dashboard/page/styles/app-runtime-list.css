@@ -2,13 +2,14 @@
     @apply(--layout-fit);
     @apply(--layout-vertical);
 
-    padding: 10px;
 }
 
 [row] {
     @apply(--layout-horizontal);
 
-    margin-top: 10px;
+    background: #262626;
+    padding: 10px;
+    height: 50px;
 }
 
 [row][end] {
@@ -26,17 +27,19 @@ iron-selector {
 }
 
 .runtime-list {
-    border: 1px solid black;
+    border-bottom: 1px solid #666;
+    border-right: 1px solid #666;
+    padding: 10px;
 }
 
 .runtime {
     width: 180px;
     height: 200px;
-    margin: 10px;
     border: 1px solid #666;
     box-sizing: border-box;
+    margin-right: 10px;
 
-    background: #444;
+    background: #4d4d4d;
     cursor: pointer;
 }
 
@@ -45,7 +48,7 @@ iron-selector {
 }
 
 .runtime.selected {
-    border: 1px solid #09f;
+    border: 1px solid #ed7461;
 }
 
 .banner {
@@ -54,18 +57,22 @@ iron-selector {
 }
 
 .name {
-    margin: 0px;
-    padding: 10px 16px 0;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    font-weight:bold;
 }
 
 .version {
-    margin: 0px;
-    padding: 10px 16px 0;
-
     color: #888;
+    margin-left: 5px;
+    font-weight: bold;
+    margin-top: 0px;
+
 }
 
 editor-button {
-    margin-left: 5px;
-    width: 80px;
+    text-align: center;
+    padding-top: 20px;
+
 }

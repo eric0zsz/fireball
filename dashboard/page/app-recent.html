@@ -11,13 +11,14 @@
                     <div class="path">{{item.path}}</div>
                     <span flex-1></span>
                     <div class="btn-group">
-                        <editor-button class="red"
+                        <editor-button class="transparent"
                             no-focus
                             on-click="_onClose"
                         >
                             Close
                         </editor-button>
-                        <editor-button class="green"
+                        <editor-button 
+                            class="flat"
                             no-focus
                             disabled$="{{!_hideErrorInfo(item.error)}}"
                             on-click="_onOpen"

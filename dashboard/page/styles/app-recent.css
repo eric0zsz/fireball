@@ -12,17 +12,15 @@
 
     position: relative;
     padding: 10px;
-    margin-bottom: 5px;
 
-    background: #373737;
-    border: 1px solid #666;
-    border-width: 1px 0;
+    background: #333;
+    border-bottom: 1px solid #666;
 }
 
 .name {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 5px;
+    color: #fafafa;
 }
 
 .name.error {
@@ -37,13 +35,12 @@
 }
 
 .path {
-    font-size: 15px;
-    color: #777;
+    font-size: 16px;
+    color: #808080;
 }
 
 .logo {
     width: 25px;
     height: 25px;
-    margin-left: 15px;
     margin-right: 5px;
 }
