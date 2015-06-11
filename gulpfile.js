@@ -126,7 +126,10 @@ gulp.task('init-submodules', function(cb) {
 gulp.task('pull-fireball', function(cb) {
   git.runGitCmdInPath(['pull', 'https://github.com/fireball-x/fireball.git', 'dev'], './', function() {
     console.log('Fireball update complete!');
-    cb();
+    git.runGitCmdInPath(['fetch', '--all'], './', function() {
+      console.log('Remote head updated!');
+      cb();
+    });
   });
 });
 
@@ -188,10 +191,13 @@ gulp.task('update-builtin', function(cb) {
       if (Fs.existsSync(Path.join('builtin', packageName, '.git'))) {
         count++;
         git.runGitCmdInPath(['pull', 'https://github.com/fireball-packages/' + packageName, 'master'], Path.join('builtin', packageName), function() {
-          if (--count <= 0) {
-            console.log('Builtin packages update complete!');
-            cb();
-          }
+          git.runGitCmdInPath(['fetch', '--all'], Path.join('builtin', packageName), function() {
+            console.log('Remote head updated!');
+            if (--count <= 0) {
+              console.log('Builtin packages update complete!');
+              cb();
+            }
+          });
         });
       } else {
         console.warn('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!');
@@ -245,10 +251,13 @@ gulp.task('update-runtime', function(cb) {
       if (Fs.existsSync(Path.join('runtime', runtimeName, '.git'))) {
         count++;
         git.runGitCmdInPath(['pull', 'https://github.com/fireball-x/' + runtimeName, 'master'], Path.join('runtime', runtimeName), function() {
-          if (--count <= 0) {
-            console.log('Runtime engines update complete!');
-            cb();
-          }
+          git.runGitCmdInPath(['fetch', '--all'], Path.join('runtime', runtimeName), function() {
+            console.log('Remote head updated!');
+            if (--count <= 0) {
+              console.log('Runtime engines update complete!');
+              cb();
+            }
+          });
         });
       } else {
         console.warn('Runtime engine ' + runtimeName + ' not initialized, please run "gulp install-runtime" first!');
