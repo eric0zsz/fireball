@@ -19,11 +19,11 @@
         </div>
         <div row>{{description}}</div>
         <div row>
-            <editor-button on-click="_onBrowse">Browse...</editor-button>
+            <editor-button class="flat" on-click="_onBrowse">Browse...</editor-button>
             <input id="pathInput" is="iron-input" bind-value="{{path}}" flex-1></input>
             <div class="btn-group">
-                <editor-button class="white" on-click="_onBack">Back</editor-button>
-                <editor-button  on-click="_onCreate">Create</editor-button>
+                <editor-button class="transparent" on-click="_onBack">Back</editor-button>
+                <editor-button class="flat" on-click="_onCreate">Create</editor-button>
             </div>
         </div>
     </template>
