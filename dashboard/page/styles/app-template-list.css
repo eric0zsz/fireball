@@ -36,6 +36,12 @@ iron-selector {
     margin-left: 5px;
 }
 
+editor-button {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
 input {
     height: 30px;
     border-bottom: 1px solid #666;
@@ -44,13 +50,11 @@ input {
     border-left: 0px solid #666;
     background: #333333;
     color: #808080;
+    margin-top: 20px;
 }
 
 h2 {
     margin: 0px 0px 0px 5px;
-}
-
-.template-list {
 }
 
 .template {
@@ -70,3 +74,4 @@ h2 {
 .template.selected {
     border: 1px solid #ed7461;
 }
+

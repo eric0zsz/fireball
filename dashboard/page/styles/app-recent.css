@@ -20,7 +20,6 @@
 .name {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 5px;
     color: #fafafa;
 }
 
@@ -43,6 +42,5 @@
 .logo {
     width: 25px;
     height: 25px;
-    margin-left: 15px;
     margin-right: 5px;
 }
