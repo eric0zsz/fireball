@@ -4,6 +4,22 @@ First off, thanks for taking the time to contribute!
 
 The following is a set of guidelines for contributing to Fireball and its packages.
 
+## Coding Style Guide
+
+### General
+
+- Fireball recommend a tab size of **2** spaces.
+- use dash naming rules for files and folders ( e.g. `foo-bar` )
+- use camelCase naming rules for module methods and properties ( e.g. `fooBar` )
+- use CamelCase naming rules for modules ( e.g. `FooBar` )
+- use upper-case for the first character of required module ( e.g. `var Foo = require('foo')` )
+- use `_` prefix for private method or variables ( e.g. `var _foobar = 'FooBar'` )
+
+### Editor, Plugins and Editor-Framework
+
+- Recommend Ipc message in the form of `module-name:ipc-channel-name` ( e.g. `foo-bar:say-hello`)
+- Recommend DOM event in Polymer in the form of `_onMyEvent` ( e.g. `<foobar on-click="_onClick" />`)
+
 ## Submitting Issues
 
 * Include the version of Fireball you are using and the OS.
@@ -20,14 +36,10 @@ The following is a set of guidelines for contributing to Fireball and its packag
 
 ## Pull Requests
 
-* Currently we only have two public repos that you can contribute to, we will publish more repos in the near future.
 * Include screenshots and animated GIFs in your pull request whenever possible.
-* [JavaScript](https://github.com/styleguide/javascript),
-  and [CSS](https://github.com/styleguide/css) styleguides.
-* Include thoughtfully-worded, well-structured
-  [Jasmine](http://jasmine.github.io/) or [Mocha](mochajs.org) specs.
-* Document new code with comments in source code based on the
-  [Firedoc User Guide](https://github.com/fireball-x/firedoc/blob/master/GUIDE.md)
+* [JavaScript](https://github.com/styleguide/javascript), and [CSS](https://github.com/styleguide/css) styleguides.
+* Include thoughtfully-worded, well-structured [Mocha](mochajs.org) specs. See [Editor-Framework tests](https://github.com/fireball-x/editor-framework/tree/master/test) for example.
+* Document new code with comments in source code based on the [Firedoc User Guide](https://github.com/fireball-x/firedoc/blob/master/GUIDE.md)
 * End files with a newline.
 * Place requires in the following order:
     * Built in Node Modules (such as `path`)
