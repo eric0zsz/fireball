@@ -2,13 +2,13 @@
     @apply(--layout-horizontal);
     @apply(--layout-center);
 
-    background: #262626;
+    background: #333333;
     padding: 0px 10px;
     height: 39px;
     min-height: 30px;
     border-bottom: 1px solid #666666;
-    border-right: 1px solid #666666;
-    border-left: 1px solid #666666;
+    border-right: 0px solid #666666;
+    border-left: 0px solid #666666;
 }
 
 [flex-1] {
@@ -23,7 +23,7 @@
 input {
     width: 290px;
     height: 30px;
-    background-color: #333333;
+    background-color: #262626;
     border: 1px solid #666;
     padding-left: 5px;
     color: #808080;

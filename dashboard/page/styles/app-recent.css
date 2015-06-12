@@ -1,5 +1,7 @@
 :host {
     @apply(--layout-fit);
+    background: #262626;
+
 }
 
 [flex-1] {
@@ -11,7 +13,7 @@
     @apply(--layout-self-stretch);
 
     position: relative;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
 
     background: #333;
     border-bottom: 1px solid #666;
