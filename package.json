@@ -73,6 +73,6 @@
     "chokidar"
   ],
   "fire-shell-version": "0.26.1",
-  "electron-version": "0.28.0",
+  "electron-version": "0.28.1",
   "main": "app.js"
 }
