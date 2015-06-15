@@ -29,6 +29,7 @@ In cloned project folder, run the following command to setup dev environment:
 
 ```bash
 # Initialize gulp task dependencies
+# npm is a builtin CLI when you install Node.js
 npm run init
 
 # bootstrap
