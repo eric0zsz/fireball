@@ -9,31 +9,11 @@
         >
             <content></content>
         </iron-selector>
-
-        <div class="open-other" on-click="_onOpen">Open Other ...</div>
     </template>
 
     <script>
         Polymer({
             is: 'app-sidebar',
-
-            _onOpen: function ( event ) {
-                var dialog = Remote.require('dialog');
-
-                var result = dialog.showOpenDialog ( {
-                    title: "Choose a project",
-                    properties: [ 'openDirectory' ]
-                } );
-
-                if ( result ) {
-                    Editor.sendRequestToCore('app:open-project', result[0], function ( err ) {
-                        this.fire( 'status-changed', {
-                            type: 'error',
-                            status: err.message,
-                        } );
-                    }.bind(this));
-                }
-            },
 
             _onSelectedChanged: function ( event ) {
                 this.fire('select', {
