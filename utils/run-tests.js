@@ -33,9 +33,9 @@ if (singleTestFile) {
         if ( Fs.existsSync(indexFile) ) {
             files = require(indexFile);
             files.forEach(function ( file ) {
-                var testfile = Path.join( Path.dirname(indexFile), file );
-                console.log( Chalk.magenta( 'Start test (' + testfile + ')') );
-                SpawnSync(exePath, [cwd, '--test', testfile], {stdio: 'inherit'});
+                // var testfile = Path.join( Path.dirname(indexFile), file );
+                console.log( Chalk.magenta( 'Start test (' + file + ')') );
+                SpawnSync(exePath, [cwd, '--test', file], {stdio: 'inherit'});
             });
         }
         else {
@@ -46,9 +46,9 @@ if (singleTestFile) {
             indexFile = Path.join(cwd, singleTestFile);
             files = require(indexFile);
             files.forEach(function ( file ) {
-                var testfile = Path.join( Path.dirname(indexFile), file );
-                console.log( Chalk.magenta( 'Start test (' + testfile + ')') );
-                SpawnSync(exePath, [cwd, '--test', testfile], {stdio: 'inherit'});
+                // var testfile = Path.join( Path.dirname(indexFile), file );
+                console.log( Chalk.magenta( 'Start test (' + file + ')') );
+                SpawnSync(exePath, [cwd, '--test', file], {stdio: 'inherit'});
             });
         } else {
             singleTestFile = (singleTestFile + '.js').replace('.js.js', '.js');
@@ -67,9 +67,9 @@ else {
         if ( Fs.existsSync(indexFile) ) {
             files = require(indexFile);
             files.forEach(function ( file ) {
-                var testfile = Path.join(path,file);
-                console.log( Chalk.magenta( 'Start test (' + testfile + ')') );
-                SpawnSync(exePath, [cwd, '--test', testfile], {stdio: 'inherit'});
+              // console.log(file);
+                console.log( Chalk.magenta( 'Start test (' + file + ')') );
+                SpawnSync(exePath, [cwd, '--test', file], {stdio: 'inherit'});
             });
         }
         else {
