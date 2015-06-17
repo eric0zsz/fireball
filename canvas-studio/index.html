@@ -8,17 +8,19 @@
     <script>
         Editor.require('app://engine-framework/src/index');
     </script>
-
     <link rel="import" href="editor-framework://page/ui/ui.html">
+
+    <script src="page/page-init.js"></script>
+    <link rel="import" href="page/main-window.html">
   </head>
 
   <body class="layout vertical">
-    <main-dock class="flex-1"></main-dock>
+    <main-window></main-window>
+
     <script>
         Pace.once( 'hide', function () {
             EditorUI.removeLoadingMask();
         });
-
         EditorUI.addLoadingMask({
             background: '#333',
         });

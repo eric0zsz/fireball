@@ -1,0 +1,26 @@
+<dom-module id="status-bar" >
+    <style>
+        :host {
+            @apply(--layout-horizontal);
+
+            position: relative;
+            box-sizing: border-box;
+            font-size: 12px;
+            font-weight: bold;
+
+            height: 20px;
+            margin: 5px 5px 0px;
+        }
+
+        .version {
+            color: #f90;
+        }
+    </style>
+
+    <template>
+        <div class="flex-1"></div>
+        <span class="version">{{version}}</span>
+    </template>
+
+    <script type="text/javascript" src="status-bar.js"></script>
+</dom-module>

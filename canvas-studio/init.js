@@ -110,6 +110,19 @@ module.exports = function ( options, cb ) {
 
 // mixin app
 Editor.JS.mixin(Editor.App, {
+    runDashboard: function () {
+        var Spawn = require('child_process').spawn;
+        var App = require('app');
+        var exePath = App.getPath('exe');
+        var child = Spawn(exePath, ['./'], {
+            detached: true,
+            stdio: 'ignore',
+        });
+        child.unref();
+
+        Editor.quit();
+    },
+
     run: function () {
         Async.series([
             function ( next ) {

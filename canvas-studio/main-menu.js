@@ -16,6 +16,7 @@ function _getDefaultMainMenu () {
             label: 'Editor Framework',
             position: 'before=help',
             submenu: [
+                { type: 'separator' },
                 {
                     label: 'Hide',
                     accelerator: 'CmdOrCtrl+H',
@@ -37,6 +38,55 @@ function _getDefaultMainMenu () {
                     click: function () {
                         Editor.Window.saveWindowStates();
                         Editor.quit();
+                    }
+                },
+            ]
+        },
+
+        // File
+        {
+            label: 'File',
+            submenu: [
+                {
+                    label: 'Open Project...',
+                    click: function () {
+                        Editor.App.runDashboard();
+                    }
+                },
+                { type: 'separator' },
+                {
+                    label: 'New Scene',
+                    accelerator: 'CmdOrCtrl+N',
+                    click: function () {
+                        Editor.log('TODO @jwu');
+                        // TODO:
+                        // Editor.sendToWindows('scene:new');
+                    }
+                },
+                {
+                    label: 'Save Scene',
+                    accelerator: 'CmdOrCtrl+S',
+                    click: function () {
+                        Editor.log('TODO @jwu');
+                        // TODO:
+                        // Editor.sendToWindows('scene:save');
+                    }
+                },
+                { type: 'separator' },
+                {
+                    label: 'Build Settings',
+                    accelerator: 'CmdOrCtrl+Shift+B',
+                    click: function () {
+                        // TODO:
+                        Editor.log('TODO @jwu');
+                    }
+                },
+                {
+                    label: 'Build',
+                    accelerator: 'CmdOrCtrl+B',
+                    click: function () {
+                        // TODO:
+                        Editor.log('TODO @jwu');
                     }
                 },
             ]
