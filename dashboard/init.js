@@ -1,23 +1,30 @@
-var VERSION = '0.1.0';
-
 var Path = require('fire-path');
 var Fs = require('fire-fs');
 var Globby = require('globby');
 var Async = require('async');
-var Chai = require('chai');
 var _ = require('lodash');
 
+var Project = require('../share/project');
+
 //
-Editor.log( 'Initializing Fireball Dashboard' );
+Editor.versions.dashboard = '0.1.0';
+var requireLogin = false;
 
-Editor.versions.dashboard = VERSION;
+// init
+module.exports = function ( options, cb ) {
+    requireLogin = !Editor.isDev || options.requireLogin;
 
-// initialize ~/.fireball/dashboard/
-var settingsPath = Path.join(Editor.appHome, 'dashboard');
-if ( !Fs.existsSync(settingsPath) ) {
-    Fs.makeTreeSync(settingsPath);
-}
-Editor.registerProfilePath( 'local', settingsPath );
+    Editor.log( 'Initializing Fireball Dashboard' );
+
+    // register global profile path =  ~/.fireball/dashboard/
+    var settingsPath = Path.join(Editor.appHome, 'dashboard');
+    if ( !Fs.existsSync(settingsPath) ) {
+        Fs.makeTreeSync(settingsPath);
+    }
+    Editor.registerProfilePath( 'global', settingsPath );
+
+    if ( cb ) cb ();
+};
 
 // mixin app
 Editor.JS.mixin(Editor.App, {
@@ -69,16 +76,27 @@ Editor.JS.mixin(Editor.App, {
 
     createProject: function ( opts, cb ) {
         opts = opts || {};
+        var runtime, template;
+
         try {
-            var assert = Chai.assert;
-            assert.typeOf( opts.path, 'string', 'Invalid parameter: opts.path' );
-            assert.typeOf( opts.runtime, 'string', 'Invalid parameter: opts.runtime' );
-            if ( Fs.existsSync(opts.path) ) {
-                throw new Error('The path ' + opts.path + ' already exists.');
+            if ( typeof opts.path !== 'string' ) {
+                throw new Error('opts.path must be string');
             }
-            assert.isDefined( Editor.App._runtimeInfos[opts.runtime], 'Can not find runtime: ' + opts.runtime );
+
+            if ( typeof opts.runtime !== 'string' ) {
+                throw new Error('opts.runtime must be string');
+            }
+
+            runtime = Editor.App._runtimeInfos[opts.runtime];
+            if ( !runtime ) {
+                throw new Error('Can not find runtime: ' + opts.runtime);
+            }
+
             if ( opts.template ) {
-                assert.isDefined( Editor.App._templateInfos[opts.template], 'Can not find template: ' + opts.template );
+                template = Editor.App._templateInfos[opts.template];
+                if ( !template ) {
+                    throw  new Error('Can not find template: ' + opts.template);
+                }
             }
         }
         catch ( err ) {
@@ -86,116 +104,23 @@ Editor.JS.mixin(Editor.App, {
             return;
         }
 
-        //
-        Async.series([
-            function ( next ) {
-                if ( opts.template ) {
-                    // TODO: copy the template and create project
-                    next ();
-                }
-                else {
-                    next ();
-                }
-            },
-
-            function ( next ) {
-                Fs.makeTreeSync( opts.path );
-                Fs.mkdirSync( Path.join(opts.path, 'settings') );
-                Fs.mkdirSync( Path.join(opts.path, 'local') );
-                Fs.mkdirSync( Path.join(opts.path, 'library') );
-                Fs.mkdirSync( Path.join(opts.path, 'assets') );
-                Fs.mkdirSync( Path.join(opts.path, 'packages') );
-
-                var profile = {
-                    runtime: opts.runtime,
-                };
-                Fs.writeFileSync( Path.join(opts.path,'settings/project.json'),
-                                  JSON.stringify(profile, null, 2));
-                next();
-            },
-        ], function ( err ) {
-            if ( cb ) cb (err);
-        });
+        Project.create(opts.path, runtime, template, cb);
     },
 
     addProject: function ( path ) {
-        // save new project to recently-opened
-        var idx = Editor.App._profile['recently-opened'].indexOf(path);
-        if ( idx === -1 ) {
-            Editor.App._profile['recently-opened'].push(path);
-        }
-        Editor.App._profile.save();
+        Project.add( Editor.App._profile, path );
     },
 
     removeProject: function ( path ) {
-        _.remove( Editor.App._profile['recently-opened'], function (item) {
-            return item === path;
-        });
-        Editor.App._profile.save();
+        Project.remove( Editor.App._profile, path );
     },
 
     getProjectInfo: function ( path, cb ) {
-        var pjsonPath = Path.join( path, 'settings/project.json');
-        if ( Fs.existsSync(pjsonPath) === false  ) {
-            if ( cb ) cb ();
-            return;
-        }
-
-        var pjsonObj;
-
-        try {
-            pjsonObj = JSON.parse(Fs.readFileSync(pjsonPath));
-            if ( !pjsonObj.runtime ) {
-                if ( cb ) cb ({
-                    path: path,
-                    name: Path.basename(path),
-                    runtime: 'unknown',
-                    error: 'Can not find runtime in settings/project.json',
-                });
-                return;
-            }
-        }
-        catch ( err ) {
-            if ( cb ) {
-                cb ({
-                    path: path,
-                    name: Path.basename(path),
-                    runtime: 'unknown',
-                    error: 'settings/project.json broken',
-                });
-            }
-            return;
-        }
-
-        // correct!
-        if ( cb ) {
-            cb ({
-                path: path,
-                name: Path.basename(path),
-                runtime: pjsonObj.runtime,
-            });
-        }
+        Project.getInfo( path, cb );
     },
 
     checkProject: function ( path, cb ) {
-        if ( Fs.existsSync(path) === false ) {
-            if ( cb ) cb ( new Error('Project not exists!') );
-            return;
-        }
-
-        Editor.App.getProjectInfo( path, function ( info ) {
-            if ( !info ) {
-                if ( cb ) cb ( new Error('Can not find settings/project.json') );
-                return;
-            }
-
-            if ( info.error ) {
-                if ( cb ) cb ( new Error(info.error) );
-                return;
-            }
-
-            if ( cb ) cb ();
-        });
+        Project.check( path, cb );
     },
 
     runCanvasStudio: function ( projectPath, cb ) {
@@ -216,7 +141,7 @@ Editor.JS.mixin(Editor.App, {
             // load ~/.fireball/fireball.json
             function ( next ) {
                 Editor.log('Load ~/.fireball/fireball.json');
-                Editor.App._profile = Editor.loadProfile( 'fireball', 'global', {
+                Editor.App._profile = Editor.loadProfile( 'fireball', 'app', {
                     'recently-opened': [],
                     'last-login': '',
                     'remember-passwd': true,

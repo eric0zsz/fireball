@@ -1,37 +1,44 @@
-var VERSION = '0.1.0';
-
 var Fs = require('fire-fs');
 var Path = require('fire-path');
 
-Editor.log( 'Initializing Fireball Package Studio' );
+var VERSION = '0.1.0';
+var _isSinglePackage = false;
 
-Editor.versions['package-studio'] = VERSION;
+// init
+module.exports = function ( options, cb ) {
+    Editor.log( 'Initializing Fireball Package Studio' );
+    Editor.versions['package-studio'] = VERSION;
 
-// initialize ~/.fireball/package-studio/
-var localPath = Path.join(Editor.appHome, 'package-studio');
-if ( !Fs.existsSync(localPath) ) {
-    Fs.makeTreeSync(localPath);
-}
-Editor.registerProfilePath( 'local', localPath );
+    var projectPath = options.args[0];
 
-//
-Editor.registerDefaultLayout( Editor.url('app://package-studio/static/layout.json') );
-
-//
-var isSinglePackage = false;
-if ( Editor.App.projectPath && Fs.existsSync(Editor.App.projectPath) ) {
-    if ( Fs.existsSync( Path.join(Editor.App.projectPath, 'package.json') ) ) {
-        isSinglePackage = true;
+    // initialize ~/.fireball/package-studio/
+    var localPath = Path.join(Editor.appHome, 'package-studio');
+    if ( !Fs.existsSync(localPath) ) {
+        Fs.makeTreeSync(localPath);
     }
-    else {
-        Editor.registerPackagePath(Path.resolve(Editor.App.projectPath));
+    Editor.registerProfilePath( 'local', localPath );
+
+    //
+    Editor.registerDefaultLayout( Editor.url('app://package-studio/static/layout.json') );
+
+    //
+    var _isSinglePackage = false;
+    if ( projectPath && Fs.existsSync(projectPath) ) {
+        if ( Fs.existsSync( Path.join(projectPath, 'package.json') ) ) {
+            _isSinglePackage = true;
+        }
+        else {
+            Editor.registerPackagePath(Path.resolve(projectPath));
+        }
     }
-}
+
+    if ( cb ) cb ();
+};
 
 // mixin app
 Editor.JS.mixin(Editor.App, {
     run: function () {
-        if ( isSinglePackage ) {
+        if ( _isSinglePackage ) {
             Editor.Package.load(Path.resolve(Editor.App.projectPath));
         }
 
