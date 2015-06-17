@@ -15,6 +15,7 @@ Editor.requireLogin = false;
 module.exports = function ( options, cb ) {
     Editor.projectPath = options.args[0];
     Editor.requireLogin = !Editor.isDev || options.requireLogin;
+    Editor.projectInfo = null;
 
     Async.series([
         // create project if path not exists (happy, a clean directory for us!)
@@ -49,13 +50,21 @@ module.exports = function ( options, cb ) {
         // check if project valid
         function ( next ) {
             Editor.log( 'Check project %s', Editor.projectPath );
-            Project.check( Editor.projectPath, next );
+            Project.check( Editor.projectPath, function ( err, info ) {
+                if ( err ) {
+                    next (err);
+                    return;
+                }
+
+                Editor.projectInfo = info;
+                next();
+            } );
         },
 
-        //
+        // register
         function ( next ) {
             Editor.log( 'Initializing engine-framework' );
-            // TODO
+            // TODO: Editor.projectInfo.runtime
 
             Editor.log( 'Initializing asset-db' );
             Editor.assetdb = new AssetDB({

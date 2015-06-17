@@ -122,7 +122,7 @@ Project.check = function ( projectPath, cb ) {
         path = Path.join(projectPath,'library');
         if ( !Fs.existsSync(path) ) Fs.mkdirSync(path);
 
-        if ( cb ) cb ();
+        if ( cb ) cb ( null, info );
     });
 };
 
