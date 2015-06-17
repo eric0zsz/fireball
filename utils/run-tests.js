@@ -106,6 +106,10 @@ else {
                 failedTest.forEach(function(file) {
                     SpawnSync(exePath, [cwd, '--test', file], {stdio: 'inherit'});
                 });
+            } else {
+                console.log(Chalk.green('================================='));
+                console.log(Chalk.green( 'All tests passed, Congratulations! '));
+                console.log(Chalk.green('================================='));
             }
         }
     });
