@@ -55,7 +55,7 @@ Project.create = function ( path, runtime, template, cb ) {
                 packages: 'packages',
                 // mounts: ['assets'], TODO
             };
-            Fs.writeFileSync(Path.join(path,'settings/project.json'),
+            Fs.writeFileSync(Path.join(path,'project.json'),
                              JSON.stringify(profile, null, 2));
             next();
         },
@@ -97,7 +97,7 @@ Project.check = function ( projectPath, cb ) {
 
     Project.getInfo( projectPath, function ( info ) {
         if ( !info ) {
-            if ( cb ) cb ( new Error('Can not find settings/project.json') );
+            if ( cb ) cb ( new Error('Can not find project.json') );
             return;
         }
 
@@ -106,9 +106,11 @@ Project.check = function ( projectPath, cb ) {
             return;
         }
 
-        // NOTE: settings has been checked when getInfo
+        // validate folders and create them if not exists
+        var path = Path.join(projectPath,'settings');
+        if ( !Fs.existsSync(path) ) Fs.mkdirSync(path);
 
-        var path = Path.join(projectPath,'local');
+        path = Path.join(projectPath,'local');
         if ( !Fs.existsSync(path) ) Fs.mkdirSync(path);
 
         path = Path.join(projectPath,'packages');
@@ -128,7 +130,7 @@ Project.check = function ( projectPath, cb ) {
  * getInfo
  */
 Project.getInfo = function ( path, cb ) {
-    var pjsonPath = Path.join( path, 'settings', 'project.json');
+    var pjsonPath = Path.join( path, 'project.json');
     if ( Fs.existsSync(pjsonPath) === false  ) {
         if ( cb ) cb ();
         return;
@@ -142,7 +144,7 @@ Project.getInfo = function ( path, cb ) {
                 path: path,
                 name: Path.basename(path),
                 runtime: 'unknown',
-                error: 'Can not find runtime in settings/project.json',
+                error: 'Can not find runtime in project.json',
             });
             return;
         }
@@ -153,7 +155,7 @@ Project.getInfo = function ( path, cb ) {
                 path: path,
                 name: Path.basename(path),
                 runtime: 'unknown',
-                error: 'settings/project.json broken',
+                error: 'project.json broken',
             });
         }
         return;

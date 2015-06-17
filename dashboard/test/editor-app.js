@@ -87,7 +87,7 @@ describe('Editor.App (Dashboard)', function() {
                 expect(Fs.existsSync(Path.join(path, 'assets'))).to.equal(true);
                 expect(Fs.existsSync(Path.join(path, 'packages'))).to.equal(true);
 
-                var pjsonPath = Path.join(path, 'settings/project.json');
+                var pjsonPath = Path.join(path, 'project.json');
                 expect(Fs.existsSync(pjsonPath)).to.equal(true);
                 var pjsonObj = JSON.parse(Fs.readFileSync(pjsonPath));
                 assert.equal( pjsonObj.runtime, 'pixi' );
@@ -145,28 +145,28 @@ describe('Editor.App (Dashboard)', function() {
             });
         });
 
-        it('should return undefined when the project exists but settings/project.json is invalid', function( done ) {
+        it('should return undefined when the project exists but project.json is invalid', function( done ) {
             var path = Editor.url('app://dashboard/test/fixtures/projects/invalid-package-json/');
             Editor.App.getProjectInfo( path, function ( info ) {
                 expect( info ).to.be.deep.equal({
                     path: path,
                     name: Path.basename(path),
                     runtime: 'unknown',
-                    error: 'Can not find runtime in settings/project.json',
+                    error: 'Can not find runtime in project.json',
                 });
 
                 done();
             });
         });
 
-        it('should return undefined when the project exists but settings/project.json is broken', function( done ) {
+        it('should return undefined when the project exists but project.json is broken', function( done ) {
             var path = Editor.url('app://dashboard/test/fixtures/projects/broken-package-json/');
             Editor.App.getProjectInfo( path, function ( info ) {
                 expect( info ).to.be.deep.equal({
                     path: path,
                     name: Path.basename(path),
                     runtime: 'unknown',
-                    error: 'settings/project.json broken',
+                    error: 'project.json broken',
                 });
 
                 done();

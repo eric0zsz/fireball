@@ -69,13 +69,13 @@ describe('app:query-recent (Dashboard)', function() {
                     name: 'broken-package-json',
                     path: Editor.url('app://dashboard/test/fixtures/projects/broken-package-json'),
                     runtime: 'unknown',
-                    error: 'settings/project.json broken',
+                    error: 'project.json broken',
                 },
                 {
                     name: 'invalid-package-json',
                     path: Editor.url('app://dashboard/test/fixtures/projects/invalid-package-json'),
                     runtime: 'unknown',
-                    error: 'Can not find runtime in settings/project.json',
+                    error: 'Can not find runtime in project.json',
                 },
                 {
                     name: 'simple-cocos2d-js',
