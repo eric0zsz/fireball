@@ -6,7 +6,7 @@ if [ ! -d "builtin" ]; then
 fi
 cd builtin
 
-# builtin panels
+# builtin debugger
 if [ ! -d "console" ]; then
     git clone https://github.com/fireball-packages/console
 fi
@@ -30,6 +30,27 @@ fi
 
 if [ ! -d "pixi-grid" ]; then
     git clone https://github.com/fireball-packages/pixi-grid
+fi
+
+# builtin panels
+if [ ! -d "assets" ]; then
+    git clone https://github.com/fireball-packages/assets
+fi
+
+if [ ! -d "hierarchy" ]; then
+    git clone https://github.com/fireball-packages/hierarchy
+fi
+
+if [ ! -d "inspector" ]; then
+    git clone https://github.com/fireball-packages/inspector
+fi
+
+if [ ! -d "scene" ]; then
+    git clone https://github.com/fireball-packages/scene
+fi
+
+if [ ! -d "timeline" ]; then
+    git clone https://github.com/fireball-packages/timeline
 fi
 
 cd ${ORIGINAL_PATH}

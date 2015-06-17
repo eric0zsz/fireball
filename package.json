@@ -54,12 +54,17 @@
     "vulcanize": "1.8.1"
   },
   "builtins": [
+    "assets",
     "console",
+    "hierarchy",
+    "inspector",
     "ipc-debugger",
     "package-manager",
+    "pixi-grid",
+    "scene",
     "tester",
-    "ui-kit",
-    "pixi-grid"
+    "timeline",
+    "ui-kit"
   ],
   "runtimes": [
     "runtime-cocos2d-js",
