@@ -1,8 +1,10 @@
 var Fs = require('fire-fs');
 var Path = require('fire-path');
 var Async = require('async');
+
 var AssetDB = require('../asset-db/index');
 var Project = require('../share/project');
+var MainMenuTmplFn = require('./main-menu');
 
 //
 Editor.versions['canvas-studio'] = '0.1.0';
@@ -85,6 +87,10 @@ module.exports = function ( options, cb ) {
 
             // register default layout
             Editor.registerDefaultLayout( Editor.url('app://canvas-studio/static/layout.json') );
+
+            // apply default main menu
+            Editor.registerDefaultMainMenu(MainMenuTmplFn);
+            Editor.MainMenu.reset();
 
             next ();
         },

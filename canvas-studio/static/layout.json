@@ -1,15 +1,57 @@
 {
     "docks": [
         {
+            "type": "dock",
+            "width": 200,
+            "docks": [
+                {
+                    "active": 0,
+                    "type": "panel",
+                    "height": 300,
+                    "panels": [
+                        "hierarchy.panel"
+                    ]
+                },
+                {
+                    "active": 0,
+                    "type": "panel",
+                    "panels": [
+                        "assets.panel"
+                    ]
+                }
+            ]
+        },
+        {
             "active": 0,
-            "panels": [
-                "console.panel"
-            ],
             "type": "panel",
-            "height": 300
+            "width": 300,
+            "panels": [
+                "inspector.panel"
+            ]
+        },
+        {
+            "type": "dock",
+            "docks": [
+                {
+                    "active": 0,
+                    "type": "panel",
+                    "panels": [
+                        "scene.panel"
+                    ]
+                },
+                {
+                    "active": 0,
+                    "type": "panel",
+                    "height": 200,
+                    "panels": [
+                        "console.panel",
+                        "timeline.panel"
+                    ]
+                }
+            ]
         }
     ],
     "no-collapse": true,
-    "row": false,
+    "row": true,
     "type": "dock"
 }
