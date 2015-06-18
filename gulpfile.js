@@ -14,9 +14,9 @@ require('./utils/download-shell');
 
 // public tasks
 
-gulp.task('bootstrap', gulpSequence('init-submodules', 'install-builtin', 'install-runtime', 'update-electron', 'npm', 'bower'));
+gulp.task('bootstrap', gulpSequence('init-submodules', 'install-builtin', 'install-runtime', 'install-shared-packages', 'update-electron', 'npm', 'bower'));
 
-gulp.task('update', gulpSequence('pull-fireball', 'pull-submodules', ['update-builtin', 'update-runtime', 'update-electron']));
+gulp.task('update', gulpSequence('pull-fireball', 'pull-submodules', ['update-builtin', 'update-shared-packages', 'update-runtime', 'update-electron']));
 
 gulp.task('update-deps', ['npm', 'bower']);
 

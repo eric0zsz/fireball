@@ -44,4 +44,4 @@ bin/
 builtin/
 runtime/
 benchmark/
-package-examples
+package-examples/
