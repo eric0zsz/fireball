@@ -2,10 +2,6 @@ var Fs = require('fire-fs');
 var Path = require('fire-path');
 var Async = require('async');
 
-var AssetDB = require('../asset-db/index');
-var Project = require('../share/project');
-var MainMenuTmplFn = require('./main-menu');
-
 //
 Editor.versions['canvas-studio'] = '0.1.0';
 Editor.projectPath = '';
@@ -14,8 +10,11 @@ Editor.requireLogin = false;
 // init
 module.exports = function ( options, cb ) {
     Editor.projectPath = options.args[0];
+    Editor.runtimePath = '';
     Editor.requireLogin = !Editor.isDev || options.requireLogin;
     Editor.projectInfo = null;
+
+    var Project = require('../share/project');
 
     Async.series([
         // create project if path not exists (happy, a clean directory for us!)
@@ -28,7 +27,7 @@ module.exports = function ( options, cb ) {
             var runtime, template;
 
             if ( options.runtime ) {
-                var runtimePath = Editor.url('app://runtime/' + options.runtime);
+                var runtimePath = Editor.url('app://runtime/runtime-' + options.runtime);
                 var pkgJsonObj = JSON.parse(Fs.readFileSync( Path.join(runtimePath, 'package.json') ));
                 runtime = {
                     path: runtimePath,
@@ -57,24 +56,31 @@ module.exports = function ( options, cb ) {
                 }
 
                 Editor.projectInfo = info;
+                Editor.runtimePath = Editor.url('app://runtime/runtime-' + info.runtime);
+
                 next();
             } );
         },
 
         // register
         function ( next ) {
-            Editor.log( 'Initializing engine-framework' );
-            // TODO: Editor.projectInfo.runtime
+            Editor.log( 'Initializing Engine Framework (Fire)' );
+            global.Fire = require('../engine-framework');
 
-            Editor.log( 'Initializing asset-db' );
+            Editor.log( 'Initializing Asset Database' );
+            var AssetDB = require('../asset-db');
             Editor.assetdb = new AssetDB({
                 cwd: Path.join( Editor.projectPath ),
                 library: 'library',
             });
 
-            // TODO: register meta to assetdb
+            // TODO: register common meta
             // Editor.assetdb.register( '.png', null, false, Editor.TextureMeta );
             // Editor.assetdb.register( '.jpg', null, false, Editor.TextureMeta );
+
+            Editor.log( 'Initializing Runtime %s', Editor.projectInfo.runtime );
+            Fire.Runtime = require( Editor.runtimePath );
+            Fire.Runtime.init(Editor.assetdb);
 
             Editor.log( 'Initializing Fireball Canvas Studio' );
 
@@ -98,6 +104,7 @@ module.exports = function ( options, cb ) {
             Editor.registerDefaultLayout( Editor.url('app://canvas-studio/static/layout.json') );
 
             // apply default main menu
+            var MainMenuTmplFn = require('./main-menu');
             Editor.registerDefaultMainMenu(MainMenuTmplFn);
             Editor.MainMenu.reset();
 
