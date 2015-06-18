@@ -201,12 +201,13 @@ gulp.task('update-builtin', function(cb) {
         });
       } else {
         console.warn('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!');
-        return cb();
+        cb();
+        process.exit();
       }
     });
   } else {
     console.warn('Builtin folder not initialized, please run "gulp install-builtin" first!');
-    cb();
+    return cb();
   }
 });
 
@@ -261,7 +262,8 @@ gulp.task('update-runtime', function(cb) {
         });
       } else {
         console.warn('Runtime engine ' + runtimeName + ' not initialized, please run "gulp install-runtime" first!');
-        return cb();
+        cb();
+        process.exit();
       }
     });
   } else {
