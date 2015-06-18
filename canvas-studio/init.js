@@ -65,7 +65,7 @@ module.exports = function ( options, cb ) {
         // register
         function ( next ) {
             Editor.log( 'Initializing Engine Framework (Fire)' );
-            global.Fire = require('../engine-framework');
+            require('../engine-framework');
 
             Editor.log( 'Initializing Asset Database' );
             var AssetDB = require('../asset-db');
@@ -79,8 +79,8 @@ module.exports = function ( options, cb ) {
             // Editor.assetdb.register( '.jpg', null, false, Editor.TextureMeta );
 
             Editor.log( 'Initializing Runtime %s', Editor.projectInfo.runtime );
-            Fire.Runtime = require( Editor.runtimePath );
-            Fire.Runtime.init(Editor.assetdb);
+            require( Editor.runtimePath );
+            Runtime.init(Editor.assetdb);
 
             Editor.log( 'Initializing Fireball Canvas Studio' );
 
