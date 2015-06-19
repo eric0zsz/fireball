@@ -1,6 +1,7 @@
 var Fs = require('fire-fs');
 var Path = require('fire-path');
 var Async = require('async');
+var Shell = require('shell');
 
 //
 Editor.versions['canvas-studio'] = '0.1.0';
@@ -83,6 +84,9 @@ module.exports = function ( options, cb ) {
             Runtime.init(Editor.assetdb);
 
             Editor.log( 'Initializing Fireball Canvas Studio' );
+
+            // register panel window
+            Editor.Panel.templateUrl = 'app://canvas-studio/static/window.html';
 
             // register global profile path =  ~/.fireball/canvas-studio/
             var globalProfilePath = Path.join(Editor.appHome, 'canvas-studio');
@@ -191,5 +195,17 @@ Editor.JS.mixin(Editor.App, {
     unload: function () {
         // TODO
         // console.log('app unload');
+    },
+
+    'app:explore-project': function () {
+        Shell.showItemInFolder(Editor.projectPath);
+    },
+
+    'app:explore-assets': function () {
+        Shell.showItemInFolder(Editor.assetdb._fspath('assets://'));
+    },
+
+    'app:explore-library': function () {
+        Shell.showItemInFolder(Editor.assetdb.library);
     },
 });
