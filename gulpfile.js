@@ -16,7 +16,7 @@ require('./utils/download-shell');
 
 gulp.task('bootstrap', gulpSequence('init-submodules', 'install-builtin', 'install-runtime', 'install-shared-packages', 'update-electron', 'npm', 'bower'));
 
-gulp.task('update', gulpSequence('pull-fireball', 'pull-submodules', ['update-builtin', 'update-shared-packages', 'update-runtime', 'update-electron']));
+gulp.task('update', gulpSequence('pull-fireball', 'checkout-submodules', 'pull-submodules', ['update-builtin', 'update-shared-packages', 'update-runtime', 'update-electron']));
 
 gulp.task('update-deps', ['npm', 'bower']);
 
@@ -136,6 +136,24 @@ gulp.task('pull-fireball', function(cb) {
             console.log('Remote head updated!');
             cb();
         });
+    });
+});
+
+gulp.task('checkout-submodules', function(cb) {
+    var modules = pjson.submodules;
+    var count = modules.length;
+    modules.forEach(function(module) {
+        if (Fs.existsSync(Path.join(module, '.git'))) {
+            git.runGitCmdInPath(['checkout', 'master'], module, function() {
+                if (--count <= 0) {
+                    console.log('Git submodules checkout to master complete!');
+                    cb();
+                }
+            });
+        } else {
+            console.log(module + ' not initialized. Please run "gulp init-submodules" first!');
+            return cb();
+        }
     });
 });
 
