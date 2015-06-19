@@ -18,6 +18,13 @@ module.exports = function ( options, cb ) {
     }
     Editor.registerProfilePath( 'local', localPath );
 
+    Editor.App._profile = Editor.loadProfile( 'fireball', 'local', {
+        'package-path': [
+            'app://benchmark/',
+            'app://package-examples'
+        ]
+    });
+
     //
     Editor.registerDefaultLayout( Editor.url('app://package-studio/static/layout.json') );
 
@@ -30,6 +37,12 @@ module.exports = function ( options, cb ) {
         else {
             Editor.registerPackagePath(Path.resolve(projectPath));
         }
+    }
+
+    if (Array.isArray(Editor.App._profile['package-path'])) {
+        Editor.App._profile['package-path'].forEach(function(pkgPath) {
+            Editor.registerPackagePath(Editor.url(pkgPath));
+        });
     }
 
     if ( cb ) cb ();
