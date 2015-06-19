@@ -64,6 +64,7 @@
         "scene",
         "tester",
         "timeline",
+        "tree-view",
         "ui-kit"
     ],
     "runtimes": [
