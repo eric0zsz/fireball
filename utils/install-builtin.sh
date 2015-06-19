@@ -28,6 +28,10 @@ if [ ! -d "ui-kit" ]; then
     git clone https://github.com/fireball-packages/ui-kit
 fi
 
+if [ ! -d "ui-tree" ]; then
+    git clone https://github.com/fireball-packages/ui-tree
+fi
+
 if [ ! -d "pixi-grid" ]; then
     git clone https://github.com/fireball-packages/pixi-grid
 fi

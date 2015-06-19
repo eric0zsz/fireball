@@ -64,8 +64,8 @@
         "scene",
         "tester",
         "timeline",
-        "tree-view",
-        "ui-kit"
+        "ui-kit",
+        "ui-tree"
     ],
     "runtimes": [
         "runtime-cocos2d-js",
