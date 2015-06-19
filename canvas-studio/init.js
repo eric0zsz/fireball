@@ -166,8 +166,10 @@ Editor.JS.mixin(Editor.App, {
 
                 // open dev tools if needed
                 if ( Editor.showDevtools ) {
-                    win.openDevTools({
-                        detach: true
+                    win.nativeWin.webContents.once('did-finish-load', function () {
+                        win.openDevTools({
+                            detach: true
+                        });
                     });
                 }
                 win.focus();
