@@ -74,6 +74,7 @@ module.exports = function ( options, cb ) {
                 cwd: Path.join( Editor.projectPath ),
                 library: 'library',
             });
+            Editor.libraryPath = Editor.assetdb.library;
 
             // TODO: register common meta
             // Editor.assetdb.register( '.png', null, false, Editor.TextureMeta );
