@@ -24,6 +24,7 @@
     <script>
         Pace.once( 'hide', function () {
             EditorUI.removeLoadingMask();
+            Editor.sendToAll('editor:ready');
         });
 
         EditorUI.addLoadingMask({

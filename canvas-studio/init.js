@@ -88,6 +88,10 @@ module.exports = function ( options, cb ) {
             // register panel window
             Editor.Panel.templateUrl = 'app://canvas-studio/static/window.html';
 
+            // register selections
+            Editor.Selection.register('asset');
+            Editor.Selection.register('entity');
+
             // register global profile path =  ~/.fireball/canvas-studio/
             var globalProfilePath = Path.join(Editor.appHome, 'canvas-studio');
             if ( !Fs.existsSync(globalProfilePath) ) {
