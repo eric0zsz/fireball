@@ -1,6 +1,7 @@
 (function () {
     Editor.projectInfo = Editor.remote.projectInfo;
     Editor.libraryPath = Editor.remote.libraryPath;
+    Editor.inspector = {};
 
     // init engine-framework
     Editor.require('app://engine-framework');
