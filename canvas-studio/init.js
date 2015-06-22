@@ -76,10 +76,6 @@ module.exports = function ( options, cb ) {
             });
             Editor.libraryPath = Editor.assetdb.library;
 
-            // TODO: register common meta
-            // Editor.assetdb.register( '.png', null, false, Editor.TextureMeta );
-            // Editor.assetdb.register( '.jpg', null, false, Editor.TextureMeta );
-
             Editor.log( 'Initializing Runtime %s', Editor.projectInfo.runtime );
             require( Editor.runtimePath );
             Runtime.init(Editor.assetdb);
