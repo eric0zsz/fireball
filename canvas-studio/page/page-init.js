@@ -5,11 +5,6 @@
     // init engine-framework
     Editor.require('app://engine-framework');
 
-    // init Editor.assets
-    Editor.assets = {
-        asset: Fire.Asset,
-    };
-
     // init asset-db
     Editor.require('app://asset-db');
 

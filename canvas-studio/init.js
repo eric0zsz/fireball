@@ -10,8 +10,6 @@ Editor.requireLogin = false;
 
 // init
 module.exports = function ( options, cb ) {
-    Editor.assets = {};
-
     Editor.projectPath = options.args[0];
     Editor.runtimePath = '';
     Editor.requireLogin = !Editor.isDev || options.requireLogin;
@@ -69,11 +67,7 @@ module.exports = function ( options, cb ) {
         function ( next ) {
             Editor.log( 'Initializing Engine Framework (Fire)' );
             require('../engine-framework');
-
-            // init Editor.assets
-            Editor.assets = {
-                asset: Fire.Asset,
-            };
+            Editor.Asset = Fire.Asset; // set the default asset
 
             Editor.log( 'Initializing Asset Database' );
             var AssetDB = require('../asset-db');
