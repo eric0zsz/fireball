@@ -119,7 +119,7 @@ module.exports = function ( options, cb ) {
             Editor.registerDefaultLayout( Editor.url('app://canvas-studio/static/layout.json') );
 
             // apply default main menu
-            var MainMenuTmplFn = require('./main-menu');
+            var MainMenuTmplFn = require('./core/main-menu');
             Editor.registerDefaultMainMenu(MainMenuTmplFn);
             Editor.MainMenu.reset();
 
