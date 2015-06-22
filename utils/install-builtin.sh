@@ -57,4 +57,10 @@ if [ ! -d "timeline" ]; then
     git clone https://github.com/fireball-packages/timeline
 fi
 
+# builtin assets
+
+if [ ! -d "canvas-assets" ]; then
+    git clone https://github.com/fireball-packages/canvas-assets
+fi
+
 cd ${ORIGINAL_PATH}

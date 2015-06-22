@@ -55,6 +55,7 @@
     },
     "builtins": [
         "assets",
+        "canvas-assets",
         "console",
         "hierarchy",
         "inspector",
