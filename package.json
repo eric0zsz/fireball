@@ -36,6 +36,7 @@
         "gulp-sequence": "0.3.2",
         "gulp-stylus": "2.0.3",
         "lodash": "3.9.3",
+        "lwip": "0.0.7",
         "minimatch": "2.0.8",
         "mocha": "2.2.5",
         "node-uuid": "1.4.2",
@@ -78,8 +79,9 @@
         "asset-db"
     ],
     "native-modules": [
+        "chokidar",
         "git-utils",
-        "chokidar"
+        "lwip"
     ],
     "shared-packages": [
         "package-examples",
