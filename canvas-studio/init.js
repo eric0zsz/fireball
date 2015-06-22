@@ -10,6 +10,8 @@ Editor.requireLogin = false;
 
 // init
 module.exports = function ( options, cb ) {
+    Editor.assets = {};
+
     Editor.projectPath = options.args[0];
     Editor.runtimePath = '';
     Editor.requireLogin = !Editor.isDev || options.requireLogin;
@@ -68,6 +70,11 @@ module.exports = function ( options, cb ) {
             Editor.log( 'Initializing Engine Framework (Fire)' );
             require('../engine-framework');
 
+            // init Editor.assets
+            Editor.assets = {
+                asset: Fire.Asset,
+            };
+
             Editor.log( 'Initializing Asset Database' );
             var AssetDB = require('../asset-db');
             Editor.assetdb = new AssetDB({
@@ -79,6 +86,9 @@ module.exports = function ( options, cb ) {
             Editor.log( 'Initializing Runtime %s', Editor.projectInfo.runtime );
             require( Editor.runtimePath );
             Runtime.init(Editor.assetdb);
+
+            // register {runtime-path}/packages
+            Editor.registerPackagePath( Path.join(Editor.runtimePath, 'packages') );
 
             Editor.log( 'Initializing Fireball Canvas Studio' );
 
