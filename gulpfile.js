@@ -8,6 +8,7 @@ var Path = require('path');
 var pjson = JSON.parse(Fs.readFileSync('./package.json'));
 var shell = require('gulp-shell');
 var spawn = require('child_process').spawn;
+var chalk = require('chalk');
 
 // require tasks
 require('./utils/download-shell');
@@ -188,7 +189,6 @@ gulp.task('install-builtin', function(cb) {
                 });
             } else {
                 console.log(packageName + ' has already installed in builtin/' + packageName + ' folder!');
-                console.log(count);
                 if (--count <= 0) {
                     cb();
                 }
@@ -211,7 +211,7 @@ gulp.task('install-builtin', function(cb) {
 gulp.task('update-builtin', function(cb) {
     var count = 0;
     if (Fs.isDirSync('builtin')) {
-        pjson.builtins.every(function(packageName) {
+        pjson.builtins.forEach(function(packageName) {
             if (Fs.existsSync(Path.join('builtin', packageName, '.git'))) {
                 count++;
                 git.runGitCmdInPath(['pull', 'https://github.com/fireball-packages/' + packageName, 'master'], Path.join('builtin', packageName), function() {
@@ -224,13 +224,12 @@ gulp.task('update-builtin', function(cb) {
                     });
                 });
             } else {
-                console.error('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!');
-                cb();
-                return false;
+                console.error(chalk.red('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!'));
+                process.exit(1);
             }
         });
     } else {
-        console.error('Builtin folder not initialized, please run "gulp install-builtin" first!');
+        console.error(chalk.red('Builtin folder not initialized, please run "gulp install-builtin" first!'));
         return cb();
     }
 });
@@ -243,7 +242,6 @@ gulp.task('install-runtime', function(cb) {
                 git.runGitCmdInPath(['clone', 'https://github.com/fireball-x/' + runtimeName], 'runtime', function() {
                     if (--count <= 0) {
                         console.log('Runtime engines installation complete!');
-                        console.log(count);
                         cb();
                     }
                 });
@@ -285,14 +283,13 @@ gulp.task('update-runtime', function(cb) {
                     });
                 });
             } else {
-                console.warn('Runtime engine ' + runtimeName + ' not initialized, please run "gulp install-runtime" first!');
-                cb();
-                process.exit();
+                console.error(chalk.red('Runtime engine ' + runtimeName + ' not initialized, please run "gulp install-runtime" first!'));
+                process.exit(1);
             }
         });
     } else {
-        console.warn('Runtime folder not initialized, please run "gulp install-runtime" first!');
-        cb();
+        console.error(chalk.red('Runtime folder not initialized, please run "gulp install-runtime" first!'));
+        return cb();
     }
 });
 
@@ -329,15 +326,16 @@ gulp.task('update-shared-packages', function(cb) {
                 git.runGitCmdInPath(['fetch', '--all'], pkg, function() {
                     console.log('Remote head updated!');
                     if (--count <= 0) {
-                        console.log('Sahred packages update complete!');
+                        console.log('Shared packages update complete!');
                         cb();
                     }
                 });
             });
         } else {
-            console.warn('Shared package ' + pkg + ' not initialized, please run "gulp install-shared-packages" first!');
-            cb();
-            process.exit();
+            console.warn(chalk.red('Shared package ' + pkg + ' not initialized, please run "gulp install-shared-packages" first!'));
+            if (--count <= 0) {
+                cb();
+            }
         }
     });
 });
