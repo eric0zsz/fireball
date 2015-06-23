@@ -211,7 +211,7 @@ gulp.task('install-builtin', function(cb) {
 gulp.task('update-builtin', function(cb) {
     var count = 0;
     if (Fs.isDirSync('builtin')) {
-        pjson.builtins.map(function(packageName) {
+        pjson.builtins.every(function(packageName) {
             if (Fs.existsSync(Path.join('builtin', packageName, '.git'))) {
                 count++;
                 git.runGitCmdInPath(['pull', 'https://github.com/fireball-packages/' + packageName, 'master'], Path.join('builtin', packageName), function() {
@@ -219,18 +219,18 @@ gulp.task('update-builtin', function(cb) {
                         console.log('Remote head updated!');
                         if (--count <= 0) {
                             console.log('Builtin packages update complete!');
-                            cb();
+                            return cb();
                         }
                     });
                 });
             } else {
-                console.warn('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!');
+                console.error('Builtin package ' + packageName + ' not initialized, please run "gulp install-builtin" first!');
                 cb();
-                process.exit();
+                return false;
             }
         });
     } else {
-        console.warn('Builtin folder not initialized, please run "gulp install-builtin" first!');
+        console.error('Builtin folder not initialized, please run "gulp install-builtin" first!');
         return cb();
     }
 });
@@ -380,9 +380,8 @@ gulp.task('check-deps', function(cb) {
 gulp.task('cp-apisrc', ['del-apidocs'], function(cb) {
     gulp.src(["./editor-framework/init.js",
               "./editor-framework/core/*",
-            //"./editor-framework/share/*",
-            //"./editor-framework/page/*",
-            //"./editor-framework/share/*"
+              "./editor-framework/share/*",
+              "./editor-framework/page/*"
             ], {
                 base: "./editor-framework"
             })

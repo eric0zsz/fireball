@@ -15,7 +15,7 @@
     "scripts": {
         "test": "node ./utils/run-tests.js",
         "init": "node ./utils/init.js",
-        "gendoc": "firedoc --theme firedoc-theme-notab"
+        "gendoc": "gulp cp-apisrc && firedoc --theme firedoc-theme-notab && open apidocs/index.html"
     },
     "dependencies": {
         "async": "1.1.0",
