@@ -15,6 +15,10 @@ module.exports = function ( options, cb ) {
     Editor.requireLogin = !Editor.isDev || options.requireLogin;
     Editor.projectInfo = null;
 
+    if ( !Editor.assets ) Editor.assets = {};
+    if ( !Editor.metas ) Editor.metas = {};
+    if ( !Editor.inspectors ) Editor.inspectors = {};
+
     var Project = require('../share/project');
 
     Async.series([
@@ -67,7 +71,7 @@ module.exports = function ( options, cb ) {
         function ( next ) {
             Editor.log( 'Initializing Engine Framework (Fire)' );
             require('../engine-framework');
-            Editor.Asset = Fire.Asset; // set the default asset
+            Editor.assets.asset = Fire.Asset; // set the default asset
 
             Editor.log( 'Initializing Asset Database' );
             var AssetDB = require('../asset-db');
