@@ -133,6 +133,12 @@ npm run test -- editor-framework
 
 All test files are located in [test](/test/) folder or submodule's `test/` folder.
 
+## API Docs
+
+```bash
+# Generate and preview API docs
+npm run gendoc
+```
 
 ## Feedback & Contribution
 
