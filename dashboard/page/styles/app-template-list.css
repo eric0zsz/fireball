@@ -32,14 +32,14 @@ iron-selector {
     margin-left: 50px;
 }
 
-.btn-group editor-button {
+.btn-group button {
     margin-left: 5px;
 }
 
-editor-button {
-  display: inline-block;
-  box-sizing: border-box;
-  margin-top: 20px;
+button {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
 input {
