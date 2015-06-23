@@ -45,3 +45,5 @@ builtin/
 runtime/
 benchmark/
 package-examples/
+utils/api
+apidocs/

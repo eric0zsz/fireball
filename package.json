@@ -14,7 +14,8 @@
     },
     "scripts": {
         "test": "node ./utils/run-tests.js",
-        "init": "node ./utils/init.js"
+        "init": "node ./utils/init.js",
+        "gendoc": "firedoc --theme firedoc-theme-notab"
     },
     "dependencies": {
         "async": "1.1.0",

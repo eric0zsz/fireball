@@ -1,16 +1,16 @@
+var del = require('del');
+var Fs = require('fire-fs');
+var git = require('./utils/git.js');
 var gulp = require('gulp');
 var gulpSequence = require('gulp-sequence');
-var shell = require('gulp-shell');
-var Fs = require('fire-fs');
+var mkdirp = require('mkdirp');
 var Path = require('path');
 var pjson = JSON.parse(Fs.readFileSync('./package.json'));
-var mkdirp = require('mkdirp');
-var git = require('./utils/git.js');
+var shell = require('gulp-shell');
 var spawn = require('child_process').spawn;
 
 // require tasks
 require('./utils/download-shell');
-
 
 // public tasks
 
@@ -375,4 +375,20 @@ gulp.task('rm-native-modules', function(cb) {
 gulp.task('check-deps', function(cb) {
     var checkDeps = require('./utils/check-deps');
     checkDeps.checkSubmoduleDeps(pjson.submodules);
+});
+
+gulp.task('cp-apisrc', ['del-apidocs'], function(cb) {
+    gulp.src(["./editor-framework/init.js",
+            //"./editor-framework/core/*",
+            //"./editor-framework/share/*",
+            //"./editor-framework/page/*",
+            //"./editor-framework/share/*"
+            ], {
+                base: "./editor-framework"
+            })
+            .pipe(gulp.dest("utils/api/editor-framework"));
+});
+
+gulp.task('del-apidocs', function(cb) {
+    del(['./apidocs', './utils/api'],cb);
 });
