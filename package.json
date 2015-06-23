@@ -89,6 +89,6 @@
         "benchmark"
     ],
     "fire-shell-version": "0.27.3",
-    "electron-version": "0.28.2",
+    "electron-version": "0.28.3",
     "main": "app.js"
 }
