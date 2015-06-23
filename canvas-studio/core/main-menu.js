@@ -297,6 +297,13 @@ function _getDefaultMainMenu () {
                                 Editor.sendToPanel( "foobar.panel", "foo:bar" );
                             }
                         },
+                        {
+                            label: 'Recompile',
+                            accelerator: 'F7',
+                            click: function() {
+                                Editor.Compiler.compileAndReload();
+                            }
+                        },
                     ],
                 },
                 { type: 'separator' },

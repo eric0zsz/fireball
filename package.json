@@ -26,6 +26,7 @@
         "commander": "2.8.1",
         "del": "1.2.0",
         "diff": "1.4.0",
+        "event-stream": "3.3.1",
         "fire-fs": "0.1.9",
         "fire-path": "0.1.7",
         "fire-url": "0.1.6",
@@ -35,7 +36,9 @@
         "gulp-babel": "5.1.0",
         "gulp-less": "3.0.3",
         "gulp-sequence": "0.3.2",
+        "gulp-sourcemaps": "1.5.2",
         "gulp-stylus": "2.0.3",
+        "gulp-uglify": "1.2.0",
         "lodash": "3.9.3",
         "lwip": "0.0.7",
         "minimatch": "2.0.8",
@@ -43,6 +46,8 @@
         "node-uuid": "1.4.2",
         "semver": "4.3.6",
         "sinon": "1.15.0",
+        "vinyl-buffer": "1.0.0",
+        "vinyl-source-stream": "1.0.0",
         "winston": "1.0.0"
     },
     "devDependencies": {
