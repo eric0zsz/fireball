@@ -67,12 +67,17 @@ module.exports = function ( options, cb ) {
             } );
         },
 
-        // register
+        // initialize engine-framework
         function ( next ) {
             Editor.log( 'Initializing Engine Framework (Fire)' );
             require('../engine-framework');
             Editor.assets.asset = Fire.Asset; // set the default asset
 
+            next ();
+        },
+
+        // initialize asset-database
+        function ( next ) {
             Editor.log( 'Initializing Asset Database' );
             var AssetDB = require('../asset-db');
             Editor.assetdb = new AssetDB({
@@ -81,13 +86,35 @@ module.exports = function ( options, cb ) {
             });
             Editor.libraryPath = Editor.assetdb.library;
 
+            next ();
+        },
+
+        // load builtin packages
+        function ( next ) {
+            Editor.log( 'Loading builtin packages' );
+            Editor.loadPackagesAt( Path.join( Editor.App.path, 'builtin' ), next );
+        },
+
+        // initialize runtime
+        function ( next ) {
             Editor.log( 'Initializing Runtime %s', Editor.projectInfo.runtime );
             require( Editor.runtimePath );
             Runtime.init(Editor.assetdb);
 
+            next ();
+        },
+
+        // load runtime packages
+        function ( next ) {
+            Editor.log( 'Loading runtime packages' );
+
             // register {runtime-path}/packages
             Editor.registerPackagePath( Path.join(Editor.runtimePath, 'packages') );
+            Editor.loadPackagesAt( Path.join(Editor.runtimePath, 'packages'), next );
+        },
 
+        // initialize canvas studio
+        function ( next ) {
             Editor.log( 'Initializing Fireball Canvas Studio' );
 
             // register panel window
@@ -110,7 +137,9 @@ module.exports = function ( options, cb ) {
             // register profile 'local' = {project}/local/
             Editor.registerProfilePath( 'local', Path.join(Editor.projectPath, 'local') );
 
+            // register packages = ~/.fireball/packages/
             // register packages = {project}/packages/
+            Editor.registerPackagePath( Path.join(Editor.appHome, 'packages') );
             Editor.registerPackagePath( Path.join(Editor.projectPath, 'packages') );
 
             // register default layout

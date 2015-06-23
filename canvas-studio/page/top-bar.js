@@ -12,4 +12,12 @@ Polymer({
     _onLibrary: function () {
         Editor.sendToCore('app:explore-library');
     },
+
+    _onPlay: function () {
+        Editor.sendToAll('scene:play');
+    },
+
+    _onStop: function () {
+        Editor.sendToAll('scene:stop');
+    },
 });

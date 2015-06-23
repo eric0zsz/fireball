@@ -9,6 +9,9 @@ module.exports = function ( options, cb ) {
     Editor.log( 'Initializing Fireball Package Studio' );
     Editor.versions['package-studio'] = VERSION;
 
+    //
+    Editor.registerPackagePath( Path.join( Editor.appHome, 'packages' ) );
+
     var projectPath = options.args[0];
 
     // initialize ~/.fireball/package-studio/

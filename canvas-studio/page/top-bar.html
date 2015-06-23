@@ -7,9 +7,17 @@
     </style>
 
     <template>
-        <editor-button nofocus on-click="_onProject">Project</editor-button>
-        <editor-button nofocus on-click="_onAssets">Assets</editor-button>
-        <editor-button nofocus on-click="_onLibrary">Library</editor-button>
+        <div class="flex-1 layout horizontal">
+            <editor-button nofocus on-click="_onProject">Project</editor-button>
+            <editor-button nofocus on-click="_onAssets">Assets</editor-button>
+            <editor-button nofocus on-click="_onLibrary">Library</editor-button>
+        </div>
+        <div class="flex-3 layout horizontal center-justified">
+            <editor-button nofocus on-click="_onPlay">Play</editor-button>
+            <editor-button nofocus on-click="_onStop">Stop</editor-button>
+        </div>
+        <div class="flex-1">
+        </div>
     </template>
 
     <script type="text/javascript" src="top-bar.js"></script>
