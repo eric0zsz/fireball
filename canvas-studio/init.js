@@ -67,6 +67,35 @@ module.exports = function ( options, cb ) {
             } );
         },
 
+        // initialize canvas studio
+        function ( next ) {
+            Editor.log( 'Initializing Fireball Canvas Studio' );
+
+            // register panel window
+            Editor.Panel.templateUrl = 'app://canvas-studio/static/window.html';
+
+            // register selections
+            Editor.Selection.register('asset');
+            Editor.Selection.register('entity');
+
+            // register global profile path =  ~/.fireball/canvas-studio/
+            var globalProfilePath = Path.join(Editor.appHome, 'canvas-studio');
+            if ( !Fs.existsSync(globalProfilePath) ) {
+                Fs.makeTreeSync(globalProfilePath);
+            }
+            Editor.registerProfilePath( 'global', globalProfilePath );
+
+            // register default layout
+            Editor.registerDefaultLayout( Editor.url('app://canvas-studio/static/layout.json') );
+
+            // apply default main menu
+            var MainMenuTmplFn = require('./core/main-menu');
+            Editor.registerDefaultMainMenu(MainMenuTmplFn);
+            Editor.MainMenu.reset();
+
+            next ();
+        },
+
         // initialize engine-framework
         function ( next ) {
             Editor.log( 'Initializing Engine Framework (Fire)' );
@@ -113,23 +142,9 @@ module.exports = function ( options, cb ) {
             Editor.loadPackagesAt( Path.join(Editor.runtimePath, 'packages'), next );
         },
 
-        // initialize canvas studio
+        // initialize project
         function ( next ) {
-            Editor.log( 'Initializing Fireball Canvas Studio' );
-
-            // register panel window
-            Editor.Panel.templateUrl = 'app://canvas-studio/static/window.html';
-
-            // register selections
-            Editor.Selection.register('asset');
-            Editor.Selection.register('entity');
-
-            // register global profile path =  ~/.fireball/canvas-studio/
-            var globalProfilePath = Path.join(Editor.appHome, 'canvas-studio');
-            if ( !Fs.existsSync(globalProfilePath) ) {
-                Fs.makeTreeSync(globalProfilePath);
-            }
-            Editor.registerProfilePath( 'global', globalProfilePath );
+            Editor.log( 'Initializing project %s', Editor.projectPath );
 
             // register profile 'project' = {project}/settings/
             Editor.registerProfilePath( 'project', Path.join(Editor.projectPath, 'settings') );
@@ -142,16 +157,9 @@ module.exports = function ( options, cb ) {
             Editor.registerPackagePath( Path.join(Editor.appHome, 'packages') );
             Editor.registerPackagePath( Path.join(Editor.projectPath, 'packages') );
 
-            // register default layout
-            Editor.registerDefaultLayout( Editor.url('app://canvas-studio/static/layout.json') );
-
-            // apply default main menu
-            var MainMenuTmplFn = require('./core/main-menu');
-            Editor.registerDefaultMainMenu(MainMenuTmplFn);
-            Editor.MainMenu.reset();
-
-            next ();
+            next();
         },
+
     ], function ( err ) {
         if ( cb ) cb ( err );
     });
