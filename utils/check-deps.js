@@ -29,7 +29,10 @@ function checkDeps(submodule, mainJson, depkey, filename) {
 
 	//deps
 	var subDeps = submodulePjson[depkey];
-	var mainDeps = mainJson[depkey];
+	var mainDeps = mainJson.dependencies;
+	for (var propName in mainJson.devDependencies) {
+		mainDeps[propName] = mainJson.devDependencies[propName];
+	}
 	for (var prop in subDeps) {
 		if (!mainDeps.hasOwnProperty(prop)) {
 			console.log('New ' + depkey + ' ' + chalkProp(prop) + ' found in ' + chalkModule(submodule + '/' + filename));
@@ -43,7 +46,7 @@ function checkDeps(submodule, mainJson, depkey, filename) {
 					}	else if (subDeps[prop].split('/').length === 2) {
 						console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has a github url ' + chalkVersion(subDeps[prop]) + '.Main repo version ' + chalkVersion(mainDeps[prop]));
 					} else {
-						console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has an invalid version value ' + chalkVersion(subDeps[prop])); 
+						console.log(depkey + ' ' + chalkProp(prop) + ' in ' + chalkModule(submodule + '/' + filename) + ' has an invalid version value ' + chalkVersion(subDeps[prop]));
 					}
 				}
 			} else {

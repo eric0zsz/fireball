@@ -379,7 +379,7 @@ gulp.task('check-deps', function(cb) {
 
 gulp.task('cp-apisrc', ['del-apidocs'], function(cb) {
     gulp.src(["./editor-framework/init.js",
-            //"./editor-framework/core/*",
+              "./editor-framework/core/*",
             //"./editor-framework/share/*",
             //"./editor-framework/page/*",
             //"./editor-framework/share/*"
