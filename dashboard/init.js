@@ -23,6 +23,10 @@ module.exports = function ( options, cb ) {
     }
     Editor.registerProfilePath( 'global', settingsPath );
 
+    //
+    Editor.unregisterPackagePath( Path.join( Editor.App.path, 'builtin' ) );
+    Editor.unregisterPackagePath( Path.join( Editor.appHome, 'packages' ) );
+
     if ( cb ) cb ();
 };
 
