@@ -1,7 +1,7 @@
 {
   "name": "Fireball Editor API",
   "description": "Fireball is a hackable game editor works with many open sourced JavaScript game engines.",
-  "version": "0.5.0",
+  "version": "0.5.0-alpha",
   "url": "http://docs.fireball-x.com/",
   "logo": "http://docs.fireball-x.com/images/logo.png",
   "options": {
