@@ -73,7 +73,7 @@ else {
             Async.eachSeries(files, function(file, callback) {
                 var testfile = Path.join( Path.dirname(indexFile), file );
                 console.log( Chalk.magenta( 'Start test: ') + Chalk.cyan( Path.relative(__dirname, testfile) ) );
-                var cp = Spawn(exePath, [cwd, '--test-full', testfile], {stdio:[0,1,2,'ipc']});
+                var cp = Spawn(exePath, [cwd, '--test', testfile, '--report-failures'], {stdio:[0,1,2,'ipc']});
                 cp.on('message', function(data) {
                     if ( data.channel === 'process:end' ) {
                         if ( data.failures > 0 ) {
@@ -92,7 +92,7 @@ else {
             //   // console.log(file);
             //     var testfile = Path.join( Path.dirname(indexFile), file );
             //     console.log( Chalk.magenta( 'Start test: ') + Chalk.cyan( Path.relative(__dirname, testfile) ) );
-            //     SpawnSync(exePath, [cwd, '--test-full', testfile], {stdio: 'inherit'});
+            //     SpawnSync(exePath, [cwd, '--test', testfile, '--report-failures'], {stdio: 'inherit'});
             // });
         }
         else {
