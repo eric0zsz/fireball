@@ -1,5 +1,6 @@
 var Fs = require('fire-fs');
 var Path = require('fire-path');
+var Url = require('fire-url');
 var Async = require('async');
 var Shell = require('shell');
 
@@ -157,7 +158,10 @@ module.exports = function ( options, cb ) {
             Editor.registerPackagePath( Path.join(Editor.appHome, 'packages') );
             Editor.registerPackagePath( Path.join(Editor.projectPath, 'packages') );
 
-            next();
+            // init compiler
+            Editor.Compiler = require('./core/compiler');
+
+            next ();
         },
 
     ], function ( err ) {
@@ -241,6 +245,34 @@ Editor.JS.mixin(Editor.App, {
     unload: function () {
         // TODO
         // console.log('app unload');
+    },
+
+    // @param {string} scriptUrl
+    // @param {object} [query]
+    // @param {function} [onLoad]
+    spawnWorker: function (scriptUrl, query, onLoad) {
+        if (typeof query === "function") {
+            onLoad = query;
+            query = {};
+        }
+        query.scriptUrl = scriptUrl;
+        var url = Url.format({
+            protocol: 'file',
+            pathname: Editor.url('app://canvas-studio/static/general-worker.html'),
+            slashes: true,
+            hash: encodeURIComponent(JSON.stringify(query))
+        });
+        var BrowserWindow = require('browser-window');
+        var workerWindow = new BrowserWindow({
+            show: true,
+        });
+        workerWindow.loadUrl(url);
+        if (onLoad) {
+            workerWindow.webContents.on('did-finish-load', function () {
+                onLoad(workerWindow);
+            });
+        }
+        return workerWindow;
     },
 
     'app:explore-project': function () {
