@@ -122,7 +122,7 @@ module.exports = function ( options, cb ) {
         // load builtin packages
         function ( next ) {
             Editor.log( 'Loading builtin packages' );
-            Editor.loadPackagesAt( Path.join( Editor.App.path, 'builtin' ), next );
+            Editor.loadPackagesAt( Path.join( Editor.appPath, 'builtin' ), next );
         },
 
         // initialize runtime
@@ -175,7 +175,7 @@ Editor.JS.mixin(Editor.App, {
         var Spawn = require('child_process').spawn;
         var App = require('app');
         var exePath = App.getPath('exe');
-        var child = Spawn(exePath, Editor.App.path, {
+        var child = Spawn(exePath, Editor.appPath, {
             detached: true,
             stdio: 'ignore',
         });

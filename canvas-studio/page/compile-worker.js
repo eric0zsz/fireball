@@ -159,7 +159,7 @@ Ipc.on('app:compile-worker:start', function (options) {
     console.log('Output ' + paths.dest);
 
     //paths.globalPluginDir = options.globalPluginDir;
-    //paths.builtinPluginDir = Path.resolve(Editor.cwd, 'builtin');
+    //paths.builtinPluginDir = Path.resolve(Editor.appPath, 'builtin');
 
     /////////////////////////////////////////////////////////////////////////////
     // tasks

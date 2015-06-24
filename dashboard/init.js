@@ -24,7 +24,7 @@ module.exports = function ( options, cb ) {
     Editor.registerProfilePath( 'global', settingsPath );
 
     //
-    Editor.unregisterPackagePath( Path.join( Editor.App.path, 'builtin' ) );
+    Editor.unregisterPackagePath( Path.join( Editor.appPath, 'builtin' ) );
 
     if ( cb ) cb ();
 };
@@ -130,7 +130,7 @@ Editor.JS.mixin(Editor.App, {
         var Spawn = require('child_process').spawn;
         var App = require('app');
         var exePath = App.getPath('exe');
-        var child = Spawn(exePath, [Editor.App.path, projectPath], {
+        var child = Spawn(exePath, [Editor.appPath, projectPath], {
             detached: true,
             stdio: 'ignore',
         });
