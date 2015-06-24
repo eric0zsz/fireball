@@ -76,7 +76,9 @@ else {
                 var cp = Spawn(exePath, [cwd, '--test-full', testfile], {stdio:[0,1,2,'ipc']});
                 cp.on('message', function(data) {
                     if ( data.channel === 'process:end' ) {
-                        failedTest.push(data['failed-path']);
+                        if ( data.failures > 0 ) {
+                            failedTest.push(data.path);
+                        }
                     }
                 });
                 cp.on('exit', function(){
