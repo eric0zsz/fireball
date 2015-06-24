@@ -266,6 +266,14 @@ function _getDefaultMainMenu () {
                 },
                 { type: 'separator' },
                 {
+                    label: 'Generate UUID',
+                    click: function() {
+                        var uuid = require('node-uuid');
+                        Editor.log(uuid.v4());
+                    }
+                },
+                { type: 'separator' },
+                {
                     label: 'Run Tests (editor-framework)',
                     accelerator: 'CmdOrCtrl+Alt+T',
                     click: function() {
