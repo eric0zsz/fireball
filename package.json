@@ -18,7 +18,7 @@
         "gendoc": "gulp cp-apisrc && firedoc --theme firedoc-theme-notab && open apidocs/index.html"
     },
     "dependencies": {
-        "async": "1.1.0",
+        "async": "1.2.1",
         "browserify": "10.2.3",
         "chai": "2.3.0",
         "chalk": "1.0.0",
