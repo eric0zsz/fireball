@@ -75,7 +75,9 @@ else {
                 console.log( Chalk.magenta( 'Start test: ') + Chalk.cyan( Path.relative(__dirname, testfile) ) );
                 var cp = Spawn(exePath, [cwd, '--test-full', testfile], {stdio:[0,1,2,'ipc']});
                 cp.on('message', function(data) {
-                    failedTest.push(data);
+                    if ( data.channel === 'process:end' ) {
+                        failedTest.push(data['failed-path']);
+                    }
                 });
                 cp.on('exit', function(){
                     callback();
