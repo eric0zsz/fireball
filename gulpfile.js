@@ -197,7 +197,6 @@ gulp.task('install-builtin', function(cb) {
     } else {
         mkdirp('builtin');
         pjson.builtins.map(function(packageName) {
-            count++;
             git.runGitCmdInPath(['clone', 'https://github.com/fireball-packages/' + packageName], 'builtin', function() {
                 if (--count <= 0) {
                     console.log('Builtin packages installation complete!');
