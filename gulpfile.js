@@ -35,6 +35,9 @@ gulp.task('run-electron', function(cb) {
     if (process.platform === "win32") {
         cmdStr = 'bin\\electron\\electron.exe';
         optArr = ['.\\', '--debug=3030', '--dev', '--show-devtools'];
+    } else if (process.platform === "linux") {
+        cmdStr = 'bin/electron/electron';
+        optArr = ['./', '--debug=3030', '--dev', '--show-devtools'];
     } else {
         cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
         optArr = ['./', '--debug=3030', '--dev', '--show-devtools'];
@@ -82,6 +85,9 @@ gulp.task('run-packagestudio', function(cb) {
     if (process.platform === "win32") {
         cmdStr = 'bin\\electron\\electron.exe';
         optArr = ['.\\', '--debug=3030', '--dev', '--dev-mode=packages', '--show-devtools', packagePath];
+    } else if (process.platform === "linux") {
+        cmdStr = 'bin/electron/electron';
+        optArr = ['./', '--debug=3030', '--dev', '--show-devtools'];
     } else {
         cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
         optArr = ['./', '--debug=3030', '--dev', '--dev-mode=packages', '--show-devtools', packagePath];
@@ -110,6 +116,9 @@ gulp.task('run-canvasstudio', function(cb) {
     if (process.platform === "win32") {
         cmdStr = 'bin\\electron\\electron.exe';
         optArr = ['.\\', '--debug=3030', '--dev', '--show-devtools', projectPath];
+    } else if (process.platform === "linux") {
+        cmdStr = 'bin/electron/electron';
+        optArr = ['./', '--debug=3030', '--dev', '--show-devtools'];
     } else {
         cmdStr = 'bin/electron/Electron.app/Contents/MacOS/Electron';
         optArr = ['./', '--debug=3030', '--dev', '--show-devtools', projectPath];

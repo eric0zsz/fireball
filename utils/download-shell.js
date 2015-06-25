@@ -36,7 +36,11 @@ gulp.task('update-electron', function(cb) {
     updateFireShell.downloadAtomShell({
         version: electronVer,
         outputDir: 'bin/electron'
-    }, cb);
+    }, function(){
+        if(process.platform === 'linux'){
+            Fs.chmod('bin/electron/electron', '755', cb);
+        }
+    });
 });
 
 gulp.task('update-fire-shell', function(cb) {
